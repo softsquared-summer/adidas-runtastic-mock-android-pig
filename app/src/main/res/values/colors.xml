@@ -14,6 +14,7 @@
 
     <!-- 페이스북 -->
     <color name="colorFacebook">#3875ea</color>
+    <color name="colorPressedFacebook">#81acf2</color>
 
     <!-- 버튼 프레스 색들 -->
     <color name="colorJoinButtonPressed">#2a2124</color>
