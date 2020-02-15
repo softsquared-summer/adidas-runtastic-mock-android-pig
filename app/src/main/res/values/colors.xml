@@ -3,7 +3,14 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
 
     <!-- 스플래시 -->
     <color name="colorSplash">#067681</color>
+
+    
+    <!-- 페이스북 -->
+    <color name="colorFacebook">#3875ea</color>
+
 </resources>

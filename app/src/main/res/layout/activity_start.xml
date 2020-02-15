@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.login.StartActivity"
+    android:background="@drawable/screen_img"
+    >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/start_btn_login_facebook"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="페이스북"
+            android:background="@drawable/facebook_login_custom_background"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp">
+        <Button
+            android:id="@+id/start_btn_login_google"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="구글"
+            android:textColor="@color/colorBlack"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/google_login_custom_background"/>
+        <Button
+            android:id="@+id/start_btn_sign_up"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="가입하기"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/sign_in_custom_background"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이미 계정이 있으십니까?"/>
+            <Button
+                android:id="@+id/start_btn_login_origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:text="로그인"
+                android:textColor="@color/colorSplash"/>
+        </LinearLayout>
+    </TableLayout>
+
+
+
+</RelativeLayout>

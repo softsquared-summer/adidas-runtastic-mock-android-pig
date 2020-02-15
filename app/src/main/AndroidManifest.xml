@@ -17,6 +17,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name=".src.login.StartActivity" />
         <activity android:name=".src.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.main.SplashActivity">
-
-        </activity>
+        <activity android:name=".src.main.SplashActivity" />
+        <activity android:name=".src.login.SingUpActivity"/>
     </application>
 
 </manifest>

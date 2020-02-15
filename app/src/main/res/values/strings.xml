@@ -2,4 +2,9 @@
     <string name="app_name">Running</string>
     <string name="loading">로딩중입니다.</string>
     <string name="network_error">네트워크 연결이 원활하지 않습니다.</string>
+
+    <!-- 페이스북 소셜로그인 -->
+    <string name="facebook_app_id">[APP_ID]</string>
+    <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
+
 </resources>

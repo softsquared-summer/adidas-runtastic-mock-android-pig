@@ -20,7 +20,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         setContentView(R.layout.activity_main);
         splash();
 
-
         mTvHelloWorld = findViewById(R.id.main_tv_hello_world);
     }
 
