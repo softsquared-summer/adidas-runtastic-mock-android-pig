@@ -1,6 +1,7 @@
 package com.softsquared.template.src.login;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,11 @@ public class StartActivity extends BaseActivity implements StartActivityView {
         setContentView(R.layout.activity_start);
     }
 
+    private void redirectSingUpActivity(){
+        Intent intent = new Intent(getApplicationContext(),SignUpActivity.class);
+        startActivity(intent);
+    }
+
     public void customOnClick(View view) {
         switch (view.getId()) {
             case R.id.start_btn_login_facebook:
@@ -26,11 +32,14 @@ public class StartActivity extends BaseActivity implements StartActivityView {
             case R.id.start_btn_login_origin:
                 break;
             case R.id.start_btn_sign_up:
+                redirectSingUpActivity();
                 break;
             default:
                 break;
         }
     }
+
+
 
 
 }

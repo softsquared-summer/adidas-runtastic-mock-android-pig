@@ -18,7 +18,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        splash();
 
         mTvHelloWorld = findViewById(R.id.main_tv_hello_world);
     }
@@ -50,10 +49,5 @@ public class MainActivity extends BaseActivity implements MainActivityView {
             default:
                 break;
         }
-    }
-
-    public void splash(){
-        Intent intent = new Intent(this,SplashActivity.class);
-        startActivity(intent);
     }
 }
