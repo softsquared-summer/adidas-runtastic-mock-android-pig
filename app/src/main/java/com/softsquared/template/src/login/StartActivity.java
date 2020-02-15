@@ -23,6 +23,11 @@ public class StartActivity extends BaseActivity implements StartActivityView {
         startActivity(intent);
     }
 
+    private void redirectLoginActivity(){
+        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+        startActivity(intent);
+    }
+
     public void customOnClick(View view) {
         switch (view.getId()) {
             case R.id.start_btn_login_facebook:
@@ -30,6 +35,7 @@ public class StartActivity extends BaseActivity implements StartActivityView {
             case R.id.start_btn_login_google:
                 break;
             case R.id.start_btn_login_origin:
+                redirectLoginActivity();
                 break;
             case R.id.start_btn_sign_up:
                 redirectSingUpActivity();

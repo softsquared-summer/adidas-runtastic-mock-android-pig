@@ -12,13 +12,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageButton
+            android:id="@+id/sign_up_btn_back"
             android:layout_gravity="center"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:src="@drawable/back_img"
             android:background="@color/colorFree"
             android:scaleType="fitStart"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="customOnClick"/>
         <TextView
             android:gravity="center"
             android:layout_width="0dp"
@@ -28,12 +30,14 @@
             android:textColor="@color/colorBlack"
             android:layout_weight="4"/>
         <Button
+            android:id="@+id/sign_up_btn_join_top"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorFree"
             android:text="참여하기"
             android:textStyle="bold"
             android:textColor="@color/colorSplash"
+            android:onClick="customOnClick"
             android:layout_weight="1"/>
     </LinearLayout>
     <View
@@ -44,7 +48,7 @@
 
     <RelativeLayout
         android:id="@+id/sign_up_rl_profile_name"
-        android:layout_below="@+id/sign_up_ll_top"
+        android:layout_below="@id/sign_up_ll_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
@@ -56,6 +60,7 @@
             android:layout_marginLeft="20dp"
             android:src="@drawable/camera"
             android:background="@color/colorFree"
+            android:onClick="customOnClick"
             android:scaleType="fitCenter"/>
         <EditText
             android:id="@+id/sign_up_et_name"
@@ -145,8 +150,28 @@
             android:inputType="textPassword"
             android:backgroundTint="@color/colorGray"
             android:layout_marginBottom="15dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="생일"
+            android:textColorHint="@color/colorGray"
+            android:textColor="@color/colorBlack"
+            android:inputType="textPassword"
+            android:backgroundTint="@color/colorGray"
+            android:layout_marginBottom="15dp"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/sign_up_btn_join_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="참여하기"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/join_custom_background"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
 
 
 

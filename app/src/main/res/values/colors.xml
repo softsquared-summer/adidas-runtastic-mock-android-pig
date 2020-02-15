@@ -10,9 +10,13 @@
 
     <!-- 스플래시 -->
     <color name="colorSplash">#067681</color>
-
+    <color name="colorPressedSplash">#76abb2</color>
 
     <!-- 페이스북 -->
     <color name="colorFacebook">#3875ea</color>
+
+    <!-- 버튼 프레스 색들 -->
+    <color name="colorJoinButtonPressed">#2a2124</color>
+
 
 </resources>
