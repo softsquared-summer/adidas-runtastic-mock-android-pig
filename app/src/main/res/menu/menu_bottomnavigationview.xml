@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_news_peed"
+        android:icon="@drawable/news_peed_false"
+        android:title="뉴스피드"/>
+    <item
+        android:id="@+id/menu_status"
+        android:icon="@drawable/status_false"
+        android:title="진행현황"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_act"
+        android:icon="@drawable/act_false"
+        android:title="활동"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_plan"
+        android:icon="@drawable/plan_false"
+        android:title="플랜"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/profile_true"
+        android:title="프로필"
+        app:showAsAction="never"/>
+</menu>
