@@ -28,7 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
-                android:text="최신 소식을 놓치지 마세요"/>
+                android:text="최신 소식을 놓치지 마세요"
+                android:textSize="200dp"/>
         </LinearLayout>
     </ScrollView>
     <View

@@ -1,10 +1,10 @@
-package com.softsquared.template.src;
+package com.softsquared.runtastic.src;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.softsquared.template.config.XAccessTokenInterceptor;
+import com.softsquared.runtastic.config.XAccessTokenInterceptor;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;

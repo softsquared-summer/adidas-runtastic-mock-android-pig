@@ -1,4 +1,4 @@
-package com.softsquared.template.src;
+package com.softsquared.runtastic.src;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.softsquared.template.R;
+import com.softsquared.runtastic.R;
 
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {

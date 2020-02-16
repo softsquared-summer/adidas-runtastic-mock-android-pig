@@ -1,6 +1,6 @@
-package com.softsquared.template.src.main.interfaces;
+package com.softsquared.runtastic.src.main.interfaces;
 
-import com.softsquared.template.src.main.models.DefaultResponse;
+import com.softsquared.runtastic.src.main.models.DefaultResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;

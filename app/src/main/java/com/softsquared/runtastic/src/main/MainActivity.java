@@ -1,15 +1,14 @@
-package com.softsquared.template.src.main;
+package com.softsquared.runtastic.src.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.softsquared.template.R;
-import com.softsquared.template.src.BaseActivity;
-import com.softsquared.template.src.main.interfaces.MainActivityView;
+import com.softsquared.runtastic.R;
+import com.softsquared.runtastic.src.BaseActivity;
+import com.softsquared.runtastic.src.main.interfaces.MainActivityView;
 
 public class MainActivity extends BaseActivity implements MainActivityView {
     private TextView mTvHelloWorld;

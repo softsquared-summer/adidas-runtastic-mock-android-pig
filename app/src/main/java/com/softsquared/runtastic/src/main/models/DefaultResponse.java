@@ -1,4 +1,4 @@
-package com.softsquared.template.src.main.models;
+package com.softsquared.runtastic.src.main.models;
 
 import com.google.gson.annotations.SerializedName;
 

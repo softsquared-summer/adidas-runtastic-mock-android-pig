@@ -55,36 +55,48 @@
 
         <ImageButton
             android:id="@+id/sign_up_btn_profile_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_marginLeft="20dp"
             android:src="@drawable/camera"
             android:background="@color/colorFree"
             android:onClick="customOnClick"
             android:scaleType="fitCenter"/>
-        <EditText
-            android:id="@+id/sign_up_et_name"
-            android:layout_toRightOf="@+id/sign_up_btn_profile_img"
-            android:layout_above="@+id/sign_up_et_last_name"
-            android:layout_width="200dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="이름"
+            android:layout_toRightOf="@+id/sign_up_btn_profile_img"
+            android:layout_alignTop="@id/sign_up_btn_profile_img"
+            android:layout_above="@+id/sign_up_tll_last_name"
             android:textColorHint="@color/colorGray"
-            android:textColor="@color/colorBlack"
-            android:maxLength="10"
-            android:backgroundTint="@color/colorGray"/>
-        <EditText
-            android:id="@+id/sign_up_et_last_name"
+            >
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="이름"
+                android:textColorHint="@color/colorGray"
+                android:textColor="@color/colorBlack"
+                android:backgroundTint="@color/colorGray"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sign_up_tll_last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/sign_up_btn_profile_img"
             android:layout_alignBottom="@+id/sign_up_btn_profile_img"
-            android:layout_marginBottom="7dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="성"
-            android:textColorHint="@color/colorGray"
-            android:textColor="@color/colorBlack"
-            android:maxLength="10"
-            android:backgroundTint="@color/colorGray"/>
+            android:textColorHint="@color/colorGray">
+            <EditText
+                android:id="@+id/sign_up_et_last_name"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="성"
+                android:textColorHint="@color/colorGray"
+                android:textColor="@color/colorBlack"
+                android:maxLength="10"
+                android:backgroundTint="@color/colorGray"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
     <LinearLayout
@@ -134,33 +146,49 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp">
 
-        <EditText
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="이메일"
-            android:textColorHint="@color/colorGray"
-            android:textColor="@color/colorBlack"
-            android:inputType="textEmailAddress"
-            android:backgroundTint="@color/colorGray"
-            android:layout_marginBottom="15dp"/>
-        <EditText
+            android:textColorHint="@color/colorGray">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="이메일"
+                android:textColorHint="@color/colorGray"
+                android:textColor="@color/colorBlack"
+                android:inputType="textEmailAddress"
+                android:backgroundTint="@color/colorGray"
+                android:layout_marginBottom="15dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="비밀번호"
-            android:textColorHint="@color/colorGray"
-            android:textColor="@color/colorBlack"
-            android:inputType="textPassword"
-            android:backgroundTint="@color/colorGray"
-            android:layout_marginBottom="15dp"/>
-        <EditText
+            android:textColorHint="@color/colorGray">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="비밀번호"
+                android:textColorHint="@color/colorGray"
+                android:textColor="@color/colorBlack"
+                android:inputType="textPassword"
+                android:backgroundTint="@color/colorGray"
+                android:layout_marginBottom="15dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="생일"
-            android:textColorHint="@color/colorGray"
-            android:textColor="@color/colorBlack"
-            android:inputType="textPassword"
-            android:backgroundTint="@color/colorGray"
-            android:layout_marginBottom="15dp"/>
+            android:textColorHint="@color/colorGray">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="생일"
+                android:textColorHint="@color/colorGray"
+                android:textColor="@color/colorBlack"
+                android:inputType="textPassword"
+                android:backgroundTint="@color/colorGray"
+                android:layout_marginBottom="15dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <Button

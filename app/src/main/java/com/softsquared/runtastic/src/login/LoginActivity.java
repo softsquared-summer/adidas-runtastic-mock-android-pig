@@ -1,11 +1,11 @@
-package com.softsquared.template.src.login;
+package com.softsquared.runtastic.src.login;
 
 import android.os.Bundle;
 import android.view.View;
 
-import com.softsquared.template.R;
-import com.softsquared.template.src.BaseActivity;
-import com.softsquared.template.src.login.interfaces.LoginActivityView;
+import com.softsquared.runtastic.R;
+import com.softsquared.runtastic.src.BaseActivity;
+import com.softsquared.runtastic.src.login.interfaces.LoginActivityView;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
 

@@ -1,12 +1,10 @@
-package com.softsquared.template.src.login;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.softsquared.runtastic.src.login;
 
 import android.os.Bundle;
 
-import com.softsquared.template.R;
-import com.softsquared.template.src.BaseActivity;
-import com.softsquared.template.src.login.interfaces.SignUpNextActivityView;
+import com.softsquared.runtastic.R;
+import com.softsquared.runtastic.src.BaseActivity;
+import com.softsquared.runtastic.src.login.interfaces.SignUpNextActivityView;
 
 public class SignUpNextActivity extends BaseActivity implements SignUpNextActivityView {
 

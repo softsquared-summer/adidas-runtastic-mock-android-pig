@@ -1,14 +1,13 @@
-package com.softsquared.template.src.login;
+package com.softsquared.runtastic.src.login;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-import com.softsquared.template.R;
-import com.softsquared.template.src.BaseActivity;
-import com.softsquared.template.src.login.interfaces.StartActivityView;
+import com.softsquared.runtastic.R;
+import com.softsquared.runtastic.src.BaseActivity;
+import com.softsquared.runtastic.src.login.interfaces.StartActivityView;
 
 public class StartActivity extends BaseActivity implements StartActivityView {
 

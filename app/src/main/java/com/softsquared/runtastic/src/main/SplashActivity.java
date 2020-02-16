@@ -1,13 +1,12 @@
-package com.softsquared.template.src.main;
+package com.softsquared.runtastic.src.main;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.softsquared.template.R;
-import com.softsquared.template.src.BaseActivity;
-import com.softsquared.template.src.login.SignUpActivity;
-import com.softsquared.template.src.login.StartActivity;
+import com.softsquared.runtastic.R;
+import com.softsquared.runtastic.src.BaseActivity;
+import com.softsquared.runtastic.src.login.StartActivity;
 
 public class SplashActivity extends BaseActivity {
     @Override

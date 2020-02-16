@@ -1,4 +1,4 @@
-package com.softsquared.template.config;
+package com.softsquared.runtastic.config;
 
 import androidx.annotation.NonNull;
 
@@ -8,8 +8,8 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static com.softsquared.template.src.ApplicationClass.X_ACCESS_TOKEN;
-import static com.softsquared.template.src.ApplicationClass.sSharedPreferences;
+import static com.softsquared.runtastic.src.ApplicationClass.X_ACCESS_TOKEN;
+import static com.softsquared.runtastic.src.ApplicationClass.sSharedPreferences;
 
 public class XAccessTokenInterceptor implements Interceptor {
 

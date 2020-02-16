@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.softsquared.template">
+    package="com.softsquared.runtastic">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".src.ApplicationClass"
+        android:name="com.softsquared.runtastic.src.ApplicationClass"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:icon="@drawable/splashicon"
@@ -17,20 +17,20 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.login.TosNextActivity"></activity>
-        <activity android:name=".src.login.TOSActivity" />
-        <activity android:name=".src.login.SignUpNextActivity" />
-        <activity android:name=".src.login.LoginActivity" />
-        <activity android:name=".src.login.StartActivity" />
-        <activity android:name=".src.main.MainActivity" />
-        <activity android:name=".src.main.SplashActivity">
+        <activity android:name="com.softsquared.runtastic.src.login.TosNextActivity"></activity>
+        <activity android:name="com.softsquared.runtastic.src.login.TOSActivity" />
+        <activity android:name="com.softsquared.runtastic.src.login.SignUpNextActivity" />
+        <activity android:name="com.softsquared.runtastic.src.login.LoginActivity" />
+        <activity android:name="com.softsquared.runtastic.src.login.StartActivity" />
+        <activity android:name="com.softsquared.runtastic.src.main.MainActivity" />
+        <activity android:name="com.softsquared.runtastic.src.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.login.SignUpActivity" />
+        <activity android:name="com.softsquared.runtastic.src.login.SignUpActivity" />
     </application>
 
 </manifest>
