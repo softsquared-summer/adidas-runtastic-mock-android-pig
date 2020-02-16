@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.login.TOSActivity"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:id="@+id/tos_ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/tos_btn_cancel"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:background="@color/colorFree"
+            android:text="취소"
+            android:textColor="@color/colorSplash"
+            android:stateListAnimator="@null"
+            android:onClick="customOnClick"/>
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray"
+        android:layout_below="@id/tos_btn_cancel"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tos_ll_top"
+        android:layout_above="@id/tos_view_bottom_line">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="이용약관 서버에 저장?"/>
+
+    </ScrollView>
+
+    <View
+        android:id="@+id/tos_view_bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorGray"
+        android:layout_above="@id/tos_ll_bottom"
+        android:layout_marginBottom="7dp"/>
+
+    <LinearLayout
+        android:id="@+id/tos_ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="30dp">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGray"
+            android:text="@string/admit_question"
+            android:textSize="12sp"
+            android:layout_marginBottom="7dp"/>
+        <Button
+            android:id="@+id/tos_btn_admit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="동의"
+            android:onClick="customOnClick"
+            android:background="@drawable/join_custom_background"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

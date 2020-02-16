@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.login.TosNextActivity"
+    android:background="@color/colorWhite">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/tos_next_ll_bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:adjustViewBounds="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@drawable/screen_img_2"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:text="최신 소식을 놓치지 마세요"/>
+        </LinearLayout>
+    </ScrollView>
+    <View
+        android:id="@+id/tos_next_view_bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorGray"
+        android:layout_above="@id/tos_next_ll_bottom"
+        android:layout_marginBottom="7dp"/>
+
+    <LinearLayout
+        android:id="@+id/tos_next_ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp">
+        <Button
+            android:id="@+id/tos_next_btn_admit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="동의"
+            android:background="@drawable/join_custom_background"
+            android:onClick="customOnClick"/>
+        <Button
+            android:gravity="center"
+            android:background="@color/colorFree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="동의하지 않음"
+            android:textColor="@color/colorSplash"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+
+</RelativeLayout>

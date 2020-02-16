@@ -1,5 +1,6 @@
 package com.softsquared.template.src.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,8 +20,10 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             case R.id.sign_up_btn_profile_img:
                 break;
             case R.id.sign_up_btn_join_top:
+                redirectTOSActivity();
                 break;
             case R.id.sign_up_btn_join_bottom:
+                redirectTOSActivity();
                 break;
             case R.id.sign_up_btn_back:
                 finish();
@@ -28,5 +31,10 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             default:
                 break;
         }
+    }
+
+    private void redirectTOSActivity(){
+        Intent intent = new Intent(getApplicationContext(),TOSActivity.class);
+        startActivity(intent);
     }
 }

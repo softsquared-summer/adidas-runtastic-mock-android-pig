@@ -17,9 +17,12 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.login.LoginActivity"></activity>
+        <activity android:name=".src.login.TosNextActivity"></activity>
+        <activity android:name=".src.login.TOSActivity" />
+        <activity android:name=".src.login.SignUpNextActivity" />
+        <activity android:name=".src.login.LoginActivity" />
         <activity android:name=".src.login.StartActivity" />
-        <activity android:name=".src.main.MainActivity"></activity>
+        <activity android:name=".src.main.MainActivity" />
         <activity android:name=".src.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.login.SignUpActivity"></activity>
+        <activity android:name=".src.login.SignUpActivity" />
     </application>
 
 </manifest>
