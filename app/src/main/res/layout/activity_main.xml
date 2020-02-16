@@ -10,25 +10,30 @@
         android:id="@+id/main_frameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/main_bottom_nav_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </FrameLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorGray"
+        app:layout_constraintBottom_toTopOf="@+id/main_bottom_nav_bar" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_bottom_nav_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorWhite"
         app:labelVisibilityMode="labeled"
-        app:itemTextColor="@color/colorGray"
-        app:itemIconTint="null"
+        app:itemTextColor="@drawable/menu_text_color"
+        app:itemIconSize="30dp"
         app:menu="@menu/menu_bottomnavigationview"
-        android:fitsSystemWindows="true"/>
+        android:fitsSystemWindows="true"
+        style="@style/BottomNavigationView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

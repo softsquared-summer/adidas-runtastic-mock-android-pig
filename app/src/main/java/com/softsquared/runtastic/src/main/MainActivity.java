@@ -40,8 +40,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         transaction.replace(R.id.main_frameLayout, mFragmentNewsPeed).commitAllowingStateLoss();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bottom_nav_bar);
+        bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
-
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{

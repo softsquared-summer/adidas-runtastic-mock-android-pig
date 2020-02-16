@@ -3,26 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_news_peed"
-        android:icon="@drawable/news_peed_false"
-        android:title="뉴스피드"/>
+        android:icon="@drawable/menu_news_peed_selector"
+        android:title="뉴스피드" />
     <item
         android:id="@+id/menu_status"
-        android:icon="@drawable/status_false"
-        android:title="진행현황"
-        app:showAsAction="never"/>
+        android:icon="@drawable/menu_status_selector"
+        android:title="진행현황"/>
     <item
         android:id="@+id/menu_act"
-        android:icon="@drawable/act_false"
-        android:title="활동"
-        app:showAsAction="never"/>
+        android:icon="@drawable/menu_act_selector"
+        android:title="활동"/>
     <item
         android:id="@+id/menu_plan"
-        android:icon="@drawable/plan_false"
-        android:title="플랜"
-        app:showAsAction="never"/>
+        android:icon="@drawable/menu_plan_selector"
+        android:title="플랜"/>
     <item
         android:id="@+id/menu_profile"
-        android:icon="@drawable/profile_true"
+        android:icon="@drawable/menu_profile_selector"
         android:title="프로필"
-        app:showAsAction="never"/>
+        />
 </menu>

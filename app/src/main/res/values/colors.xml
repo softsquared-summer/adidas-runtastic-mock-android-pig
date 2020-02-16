@@ -7,6 +7,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorGray">#636060</color>
     <color name="colorFree">#00000000</color>
+    <color name="colorNull">@null</color>
 
     <!-- 스플래시 -->
     <color name="colorSplash">#067681</color>
@@ -18,6 +19,7 @@
 
     <!-- 버튼 프레스 색들 -->
     <color name="colorJoinButtonPressed">#2a2124</color>
+
 
 
 </resources>
