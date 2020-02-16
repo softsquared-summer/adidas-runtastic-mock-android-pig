@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorWhite"
+    tools:context=".src.main.MainActivity">
 
     <LinearLayout
         android:id="@+id/act_ll_top_bar"
@@ -28,6 +30,14 @@
             android:scaleType="fitCenter"
             android:layout_marginRight="40dp"/>
     </LinearLayout>
+
+    <fragment
+        android:id="@+id/act_map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/act_ll_top_bar"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        />
 
 
 </RelativeLayout>

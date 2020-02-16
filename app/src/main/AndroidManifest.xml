@@ -17,6 +17,11 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDtksmZ5DbkpfF56KQ3bGhwC3NzYHz9vcw"/>
+
         <activity android:name="com.softsquared.runtastic.src.login.TosNextActivity"></activity>
         <activity android:name="com.softsquared.runtastic.src.login.TOSActivity" />
         <activity android:name="com.softsquared.runtastic.src.login.SignUpNextActivity" />

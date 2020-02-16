@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
@@ -20,7 +21,7 @@ import com.softsquared.runtastic.src.main.fragment.FragmentProfile;
 import com.softsquared.runtastic.src.main.fragment.FragmentStatus;
 import com.softsquared.runtastic.src.main.interfaces.MainActivityView;
 
-public class MainActivity extends BaseActivity implements MainActivityView {
+public class MainActivity extends BaseActivity implements MainActivityView{
     private TextView mTvHelloWorld;
 
     private FragmentManager mFragmentManager = getSupportFragmentManager();
