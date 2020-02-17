@@ -27,13 +27,14 @@
         <activity android:name="com.softsquared.runtastic.src.login.SignUpNextActivity" />
         <activity android:name="com.softsquared.runtastic.src.login.LoginActivity" />
         <activity android:name="com.softsquared.runtastic.src.login.StartActivity" />
-        <activity android:name="com.softsquared.runtastic.src.main.MainActivity" />
-        <activity android:name="com.softsquared.runtastic.src.main.SplashActivity">
+        <activity android:name="com.softsquared.runtastic.src.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.softsquared.runtastic.src.main.SplashActivity">
         </activity>
         <activity android:name="com.softsquared.runtastic.src.login.SignUpActivity" />
     </application>
