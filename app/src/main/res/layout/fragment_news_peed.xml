@@ -2,23 +2,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorBackGround">
 
     <LinearLayout
         android:id="@+id/news_peed_ll_top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
+        android:background="@color/colorWhite">
+        <ImageButton
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/write"
+            android:scaleType="fitCenter"
+            android:background="@color/colorFree" />
         <TextView
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_weight="1"
             android:text="뉴스피드"
             android:textSize="15dp"
             android:textColor="@color/colorBlack"/>
+        <ImageButton
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/add_friend"
+            android:scaleType="fitCenter"
+            android:background="@color/colorFree"
+            android:layout_marginRight="5dp"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

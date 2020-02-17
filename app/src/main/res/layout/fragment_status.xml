@@ -2,19 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorBackGround">
     <LinearLayout
         android:id="@+id/status_ll_top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
+        android:background="@color/colorWhite">
         <TextView
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="45dp"
             android:text="진행현황"
             android:textSize="15dp"
             android:textColor="@color/colorBlack"/>

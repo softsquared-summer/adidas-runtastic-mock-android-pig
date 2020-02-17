@@ -15,6 +15,16 @@
     <string name="cal_explain">활동에서 필요한 정확한 칼로리를 계산하려면 신장 및 체중이 필요합니다.</string>
     <string name="admit_question">내 건강 데이터 (예, 심박수 등)의 처리절차를 포함하여 이용약관 및 개인정보 처리방침을 읽고 이에 동의합니다.</string>
 
+    <!-- 기본운동정보 -->
+    <string name="exercise_time">00:00:00</string>
+    <string name="exercise_time_name_tag">운동 시간</string>
+    <string name="exercise_distance">0.00</string>
+    <string name="exercise_distance_name_tag">거리 (km)</string>
+    <string name="exercise_calorie">0</string>
+    <string name="exercise_calorie_name_tag">칼로리 (칼로리)</string>
+    <string name="exercise_face">00:00</string>
+    <string name="exercise_face_name_tag">평균 페이스 (분/km)</string>
+
 
     <!-- 이용약관 -->
     <string name="terms_of_service"></string>
