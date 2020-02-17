@@ -20,6 +20,11 @@ import com.softsquared.runtastic.R;
 public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mGoogleMap;
+
+    public static FragmentAct newInstance() {
+        return new FragmentAct();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,6 +42,8 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(SEOUL);
+        markerOptions.title("서울");
+        markerOptions.snippet("한국의 수도");
         mGoogleMap.addMarker(markerOptions);
 
         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));

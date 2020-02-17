@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -25,11 +26,11 @@ public class MainActivity extends BaseActivity implements MainActivityView{
     private TextView mTvHelloWorld;
 
     private FragmentManager mFragmentManager = getSupportFragmentManager();
-    private FragmentAct mFragmentAct = new FragmentAct();
+    private FragmentAct mFragmentAct;
     private FragmentNewsPeed mFragmentNewsPeed = new FragmentNewsPeed();
-    private FragmentPlan mFragmentPlan = new FragmentPlan();
-    private FragmentProfile mFragmentProfile = new FragmentProfile();
-    private FragmentStatus mFragmentStatus = new FragmentStatus();
+    private FragmentPlan mFragmentPlan;
+    private FragmentProfile mFragmentProfile;
+    private FragmentStatus mFragmentStatus;
 
 
     @Override
@@ -37,8 +38,9 @@ public class MainActivity extends BaseActivity implements MainActivityView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        transaction.replace(R.id.main_frameLayout, mFragmentNewsPeed).commitAllowingStateLoss();
+        transaction.replace(R.id.main_frameLayout, mFragmentNewsPeed).commit();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bottom_nav_bar);
         bottomNavigationView.setItemIconTintList(null);
@@ -53,19 +55,59 @@ public class MainActivity extends BaseActivity implements MainActivityView{
             switch(menuItem.getItemId())
             {
                 case R.id.menu_news_peed:
-                    transaction.replace(R.id.main_frameLayout, mFragmentNewsPeed).commitAllowingStateLoss();
+                    if(mFragmentNewsPeed == null) {
+                        mFragmentNewsPeed = new FragmentNewsPeed();
+                        mFragmentManager.beginTransaction().add(R.id.main_frameLayout,mFragmentNewsPeed).commit();
+                    }
+                    if(mFragmentNewsPeed != null) mFragmentManager.beginTransaction().show(mFragmentNewsPeed).commit();
+                    if(mFragmentStatus != null) mFragmentManager.beginTransaction().hide(mFragmentStatus).commit();
+                    if(mFragmentAct != null) mFragmentManager.beginTransaction().hide(mFragmentAct).commit();
+                    if(mFragmentPlan != null) mFragmentManager.beginTransaction().hide(mFragmentPlan).commit();
+                    if(mFragmentProfile != null) mFragmentManager.beginTransaction().hide(mFragmentProfile).commit();
                     break;
                 case R.id.menu_status:
-                    transaction.replace(R.id.main_frameLayout, mFragmentStatus).commitAllowingStateLoss();
+                    if(mFragmentStatus == null) {
+                        mFragmentStatus = new FragmentStatus();
+                        mFragmentManager.beginTransaction().add(R.id.main_frameLayout,mFragmentStatus).commit();
+                    }
+                    if(mFragmentNewsPeed != null) mFragmentManager.beginTransaction().hide(mFragmentNewsPeed).commit();
+                    if(mFragmentStatus != null) mFragmentManager.beginTransaction().show(mFragmentStatus).commit();
+                    if(mFragmentAct != null) mFragmentManager.beginTransaction().hide(mFragmentAct).commit();
+                    if(mFragmentPlan != null) mFragmentManager.beginTransaction().hide(mFragmentPlan).commit();
+                    if(mFragmentProfile != null) mFragmentManager.beginTransaction().hide(mFragmentProfile).commit();
                     break;
                 case R.id.menu_act:
-                    transaction.replace(R.id.main_frameLayout, mFragmentAct).commitAllowingStateLoss();
+                    if(mFragmentAct == null) {
+                        mFragmentAct = new FragmentAct();
+                        mFragmentManager.beginTransaction().add(R.id.main_frameLayout,mFragmentAct).commit();
+                    }
+                    if(mFragmentNewsPeed != null) mFragmentManager.beginTransaction().hide(mFragmentNewsPeed).commit();
+                    if(mFragmentStatus != null) mFragmentManager.beginTransaction().hide(mFragmentStatus).commit();
+                    if(mFragmentAct != null) mFragmentManager.beginTransaction().show(mFragmentAct).commit();
+                    if(mFragmentPlan != null) mFragmentManager.beginTransaction().hide(mFragmentPlan).commit();
+                    if(mFragmentProfile != null) mFragmentManager.beginTransaction().hide(mFragmentProfile).commit();
                     break;
                 case R.id.menu_plan:
-                    transaction.replace(R.id.main_frameLayout, mFragmentPlan).commitAllowingStateLoss();
+                    if(mFragmentPlan == null) {
+                        mFragmentPlan = new FragmentPlan();
+                        mFragmentManager.beginTransaction().add(R.id.main_frameLayout,mFragmentPlan).commit();
+                    }
+                    if(mFragmentNewsPeed != null) mFragmentManager.beginTransaction().hide(mFragmentNewsPeed).commit();
+                    if(mFragmentStatus != null) mFragmentManager.beginTransaction().hide(mFragmentStatus).commit();
+                    if(mFragmentAct != null) mFragmentManager.beginTransaction().hide(mFragmentAct).commit();
+                    if(mFragmentPlan != null) mFragmentManager.beginTransaction().show(mFragmentPlan).commit();
+                    if(mFragmentProfile != null) mFragmentManager.beginTransaction().hide(mFragmentProfile).commit();
                     break;
                 case R.id.menu_profile:
-                    transaction.replace(R.id.main_frameLayout, mFragmentProfile).commitAllowingStateLoss();
+                    if(mFragmentProfile == null) {
+                        mFragmentProfile = new FragmentProfile();
+                        mFragmentManager.beginTransaction().add(R.id.main_frameLayout,mFragmentProfile).commit();
+                    }
+                    if(mFragmentNewsPeed != null) mFragmentManager.beginTransaction().hide(mFragmentNewsPeed).commit();
+                    if(mFragmentStatus != null) mFragmentManager.beginTransaction().hide(mFragmentStatus).commit();
+                    if(mFragmentAct != null) mFragmentManager.beginTransaction().hide(mFragmentAct).commit();
+                    if(mFragmentPlan != null) mFragmentManager.beginTransaction().hide(mFragmentPlan).commit();
+                    if(mFragmentProfile != null) mFragmentManager.beginTransaction().show(mFragmentProfile).commit();
                     break;
             }
             return true;
