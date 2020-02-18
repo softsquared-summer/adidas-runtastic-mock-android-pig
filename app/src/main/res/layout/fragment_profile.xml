@@ -42,4 +42,50 @@
         android:background="@color/colorGray"
         android:layout_below="@id/profile_ll_top_bar"/>
 
+    <LinearLayout
+        android:id="@+id/profile_ll_profile"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/profile_ll_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/profile_common"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="창국 고"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_sign_up_date"
+            android:textColor="@color/colorBlack"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 공유"
+            android:textColor="@color/colorSplash"
+            android:background="@color/colorFree"
+            android:stateListAnimator="@color/colorNull"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/profile_lv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_ll_profile"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="15dp" />
+
+
 </RelativeLayout>

@@ -159,28 +159,34 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:layout_marginBottom="71dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp">
+          >
         <ImageButton
+            android:id="@+id/act_btn_music"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/music_button_selector"
             android:background="@color/colorFree"
+            android:layout_marginBottom="71dp"
+            android:layout_marginLeft="8dp"
             android:scaleType="fitCenter"/>
         <Button
+            android:id="@+id/act_btn_start"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:text="시작"
             android:textStyle="bold"
             android:background="@drawable/join_custom_background"
+            android:layout_marginBottom="71dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"/>
         <ImageButton
+            android:id="@+id/act_btn_setting"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/setting_button_selector"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="71dp"
             android:background="@color/colorFree"
             android:scaleType="fitCenter"/>
 

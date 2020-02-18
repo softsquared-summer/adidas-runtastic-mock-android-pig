@@ -25,6 +25,17 @@
     <string name="exercise_face">00:00</string>
     <string name="exercise_face_name_tag">평균 페이스 (분/km)</string>
 
+    <!-- 프로필 -->
+    <string name="profile_sign_up_date">adidas Runtastic 가입일: </string>
+    <string name="profile_friend">친구 0명</string>
+    <string name="profile_friend_ex">피트니스 커뮤너티와 연결하세요</string>
+    <string name="profile_group">그룹 및 커뮤너티</string>
+    <string name="profile_group_ex">피트니스는 함께하면 더 즐거워집니다</string>
+    <string name="profile_leader">리더보드</string>
+    <string name="profile_leader_ex">리더보드에서 자신의 순위를 확인해보세요</string>
+    <string name="profile_premium">프리미엄 혜택</string>
+    <string name="profile_premium_ex">프리미엄으로 계속하기</string>
+
 
     <!-- 이용약관 -->
     <string name="terms_of_service"></string>
