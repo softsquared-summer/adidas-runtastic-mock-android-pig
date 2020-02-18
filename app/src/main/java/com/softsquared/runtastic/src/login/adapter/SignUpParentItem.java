@@ -1,14 +1,12 @@
-package com.softsquared.runtastic.src.main.fragment;
+package com.softsquared.runtastic.src.login.adapter;
 
-public class ProfileItem {
+public class SignUpParentItem {
     int icon;
     String title;
-    String explain;
 
-    public ProfileItem(int icon, String title, String explain) {
+    public SignUpParentItem(int icon, String title) {
         this.icon = icon;
         this.title = title;
-        this.explain = explain;
     }
 
     public int getIcon() {
@@ -25,13 +23,5 @@ public class ProfileItem {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getExplain() {
-        return explain;
-    }
-
-    public void setExplain(String explain) {
-        this.explain = explain;
     }
 }

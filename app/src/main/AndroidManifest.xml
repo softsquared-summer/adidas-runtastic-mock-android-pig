@@ -24,17 +24,18 @@
 
         <activity android:name="com.softsquared.runtastic.src.login.TosNextActivity"></activity>
         <activity android:name="com.softsquared.runtastic.src.login.TOSActivity" />
-        <activity android:name="com.softsquared.runtastic.src.login.SignUpNextActivity" />
+        <activity android:name="com.softsquared.runtastic.src.login.SignUpNextActivity" >
+        </activity>
         <activity android:name="com.softsquared.runtastic.src.login.LoginActivity" />
         <activity android:name="com.softsquared.runtastic.src.login.StartActivity" />
         <activity android:name="com.softsquared.runtastic.src.main.MainActivity">
+        </activity>
+        <activity android:name="com.softsquared.runtastic.src.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.softsquared.runtastic.src.main.SplashActivity">
         </activity>
         <activity android:name="com.softsquared.runtastic.src.login.SignUpActivity" />
     </application>

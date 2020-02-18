@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.main.fragment;
+package com.softsquared.runtastic.src.main.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorGray"
-            android:text="@string/admit_question"
+            android:text="@string/sign_admit_question"
             android:textSize="12sp"
             android:layout_marginBottom="7dp"/>
         <Button

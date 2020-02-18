@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/welcome"
+            android:text="@string/sign_welcome"
             android:textColor="@color/colorSplash"
             android:textSize="15dp"
             />
@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/start"
+            android:text="@string/sign_start"
             android:textColor="@color/colorBlack"
             android:textSize="35dp"
             />
@@ -41,9 +41,10 @@
     <ExpandableListView
         android:id="@+id/sign_up_next_elv_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/sign_up_next_ll_top"
+        android:animateLayoutChanges="true"
         />
 
 

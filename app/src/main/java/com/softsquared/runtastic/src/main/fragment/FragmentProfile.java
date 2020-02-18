@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.softsquared.runtastic.R;
+import com.softsquared.runtastic.src.main.adapter.ProfileItem;
+import com.softsquared.runtastic.src.main.adapter.ProfileItemAdapter;
 
 import java.util.ArrayList;
 
