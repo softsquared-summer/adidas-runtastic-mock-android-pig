@@ -1,5 +1,7 @@
 package com.softsquared.runtastic.src.login;
 
+import android.util.Log;
+
 import com.softsquared.runtastic.src.login.interfaces.SignUpActivityView;
 import com.softsquared.runtastic.src.login.interfaces.SignUpRetrofitInterface;
 import com.softsquared.runtastic.src.login.models.SignUpRequest;
@@ -27,16 +29,18 @@ public class SignUpService {
             public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
                 final SignUpResponse signUpResponse = response.body();
                 if(signUpResponse == null){
+                    Log.e("[Log.e} tag","회원가입 실패1");
                     mSignUpActivityView.validateFailure(null);
                     return;
                 }
-
                 mSignUpActivityView.validateSuccess(signUpResponse.getMessage());
+                mSignUpActivityView.validateCode(signUpResponse.getCode());
             }
 
             @Override
             public void onFailure(Call<SignUpResponse> call, Throwable t) {
                 mSignUpActivityView.validateFailure(null);
+                Log.e("[Log.e} tag","회원가입 실패2");
             }
         });
     }

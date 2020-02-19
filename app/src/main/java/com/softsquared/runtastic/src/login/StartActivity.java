@@ -7,9 +7,8 @@ import android.view.View;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
-import com.softsquared.runtastic.src.login.interfaces.StartActivityView;
 
-public class StartActivity extends BaseActivity implements StartActivityView {
+public class StartActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

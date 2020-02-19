@@ -2,6 +2,7 @@ package com.softsquared.runtastic.src.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.softsquared.runtastic.R;
@@ -38,4 +39,20 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         activityFinish();
     }
 
+    @Override
+    public void validateSuccess(String text) {
+        Log.e("[Log.e] validateSuccess","message : " + text);
+        hideProgressDialog();
+    }
+
+    @Override
+    public void validateFailure(String message) {
+        hideProgressDialog();
+        showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
+    }
+
+    @Override
+    public void validateCode(int code) {
+        Log.e("[Log.e] validateCode","code : " + code);
+    }
 }

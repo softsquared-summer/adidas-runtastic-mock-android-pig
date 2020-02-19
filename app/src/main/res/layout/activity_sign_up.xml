@@ -63,14 +63,16 @@
             android:onClick="customOnClick"
             android:scaleType="fitCenter"/>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sign_up_input_first_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/sign_up_btn_profile_img"
             android:layout_alignTop="@id/sign_up_btn_profile_img"
-            android:layout_above="@+id/sign_up_tll_last_name"
+            android:layout_above="@+id/sign_up_input_last_name"
             android:textColorHint="@color/colorGray"
             >
             <EditText
+                android:id="@+id/sign_up_et_first_name"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:hint="이름"
@@ -81,7 +83,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/sign_up_tll_last_name"
+            android:id="@+id/sign_up_input_last_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/sign_up_btn_profile_img"
@@ -148,46 +150,52 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sign_up_input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/colorGray">
+            android:textColorHint="@color/colorGray"
+            android:layout_marginBottom="15dp">
             <EditText
+                android:id="@+id/sign_up_et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="이메일"
                 android:textColorHint="@color/colorGray"
                 android:textColor="@color/colorBlack"
                 android:inputType="textEmailAddress"
-                android:backgroundTint="@color/colorGray"
-                android:layout_marginBottom="15dp"/>
+                android:backgroundTint="@color/colorGray"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sign_up_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/colorGray">
+            android:textColorHint="@color/colorGray"
+            android:layout_marginBottom="15dp">
             <EditText
+                android:id="@+id/sign_up_et_pw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="비밀번호"
                 android:textColorHint="@color/colorGray"
                 android:textColor="@color/colorBlack"
                 android:inputType="textPassword"
-                android:backgroundTint="@color/colorGray"
-                android:layout_marginBottom="15dp"/>
+                android:backgroundTint="@color/colorGray"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sign_up_input_birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/colorGray">
+            android:textColorHint="@color/colorGray"
+            android:layout_marginBottom="15dp">
             <EditText
+                android:id="@+id/sign_up_et_birth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="생일"
                 android:textColorHint="@color/colorGray"
                 android:textColor="@color/colorBlack"
-                android:inputType="textPassword"
-                android:backgroundTint="@color/colorGray"
-                android:layout_marginBottom="15dp"/>
+                android:inputType="numberDecimal"
+                android:backgroundTint="@color/colorGray"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
