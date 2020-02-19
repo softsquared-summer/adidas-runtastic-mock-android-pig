@@ -98,6 +98,9 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         } else if(code == 202) { // 비밀번호 형식이 다름
             mInputPassword.setError("비밀번호 형식이 맞지 않습니다.");
             mInputPassword.setErrorTextColor(getColorStateList(R.color.colorDanger));
+        } else if(code == 201) { // 올바르지 않은 이메일 형식
+            mInputEmail.setError("올바르지 않은 이메일 형식입니다.");
+            mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
         }
     }
 

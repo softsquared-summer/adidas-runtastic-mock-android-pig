@@ -23,13 +23,18 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitCenter"
                 android:src="@drawable/screen_img_2"/>
-            <TextView
-                android:gravity="center"
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:text="최신 소식을 놓치지 마세요"
-                android:textSize="200dp"/>
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:src="@drawable/service_next_1"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:src="@drawable/service_next_2"/>
         </LinearLayout>
     </ScrollView>
     <View

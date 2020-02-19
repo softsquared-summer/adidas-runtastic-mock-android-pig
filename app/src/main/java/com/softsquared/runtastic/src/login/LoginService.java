@@ -26,8 +26,6 @@ public class LoginService {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 final LoginResponse loginResponse = response.body();
-                final String Jdata = response.body().getResult().toString();
-                Log.e("[Log.e} Jdata : ",Jdata);
                 if(loginResponse == null){
                     Log.e("[Log.e} tag","로그인 실패");
                     mLoginActivityView.validateFailure(null);
@@ -39,7 +37,7 @@ public class LoginService {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Log.e("[Log.e} tag",t.getLocalizedMessage());
+                Log.e("[Log.e} tag", "로그인 실패(onFailure)");
 
                 mLoginActivityView.validateFailure(null);
             }
