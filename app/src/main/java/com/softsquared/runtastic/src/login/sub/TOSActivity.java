@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.login;
+package com.softsquared.runtastic.src.login.sub;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ public class TOSActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tos);
+        mActList.add(this);
     }
 
     public void customOnClick(View view) {
@@ -32,4 +33,5 @@ public class TOSActivity extends BaseActivity {
         Intent intent = new Intent(getApplicationContext(),TosNextActivity.class);
         startActivity(intent);
     }
+
 }

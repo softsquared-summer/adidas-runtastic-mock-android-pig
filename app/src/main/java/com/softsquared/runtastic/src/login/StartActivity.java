@@ -15,6 +15,7 @@ public class StartActivity extends BaseActivity implements StartActivityView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        mActList.add(this);
     }
 
     private void redirectSingUpActivity(){
@@ -43,8 +44,5 @@ public class StartActivity extends BaseActivity implements StartActivityView {
                 break;
         }
     }
-
-
-
 
 }

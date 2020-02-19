@@ -15,6 +15,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mActList.add(this);
     }
 
     public void customOnClick(View view) {
@@ -34,5 +35,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     private void redirectMainActivity(){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
+        activityFinish();
     }
+
 }

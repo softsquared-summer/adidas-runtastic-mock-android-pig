@@ -81,7 +81,6 @@ public class SignUpExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        System.out.println("groupPosition : " + groupPosition);
         int viewType = groupPosition;
         View firstView = inflater.inflate(R.layout.sign_up_next_child_item,null);
         View secondView = inflater.inflate(R.layout.sign_up_next_child_item_permit,null);

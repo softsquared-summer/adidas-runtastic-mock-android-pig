@@ -7,6 +7,7 @@ import android.view.View;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.login.interfaces.SignUpActivityView;
+import com.softsquared.runtastic.src.login.sub.TOSActivity;
 
 public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     @Override
@@ -34,7 +35,18 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     }
 
     private void redirectTOSActivity(){
-        Intent intent = new Intent(getApplicationContext(),TOSActivity.class);
+        Intent intent = new Intent(getApplicationContext(), TOSActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void validateSuccess(String text) {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void validateFailure(String message) {
+        hideProgressDialog();
+        showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
     }
 }
