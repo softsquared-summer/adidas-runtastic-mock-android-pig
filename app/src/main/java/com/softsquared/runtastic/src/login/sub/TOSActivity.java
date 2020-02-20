@@ -9,6 +9,7 @@ import com.softsquared.runtastic.src.BaseActivity;
 
 public class TOSActivity extends BaseActivity {
     String mFname;
+    int mUserNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,7 @@ public class TOSActivity extends BaseActivity {
         mActList.add(this);
 
         mFname = getIntent().getStringExtra("name");
+        mUserNo = getIntent().getIntExtra("userNo",0);
     }
 
     public void customOnClick(View view) {
@@ -35,6 +37,7 @@ public class TOSActivity extends BaseActivity {
     private void redirectTosNextActivity(){
         Intent intent = new Intent(getApplicationContext(),TosNextActivity.class);
         intent.putExtra("name",mFname);
+        intent.putExtra("userNo",mUserNo);
         startActivity(intent);
     }
 

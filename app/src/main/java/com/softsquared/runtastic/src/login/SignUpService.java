@@ -34,7 +34,7 @@ public class SignUpService {
                     return;
                 }
                 mSignUpActivityView.validateSuccess(signUpResponse.getMessage());
-                mSignUpActivityView.validateCode(signUpResponse.getCode());
+                mSignUpActivityView.validateCode(signUpResponse.getCode(),signUpResponse.getUserNo());
             }
 
             @Override

@@ -10,6 +10,7 @@ import com.softsquared.runtastic.src.login.SignUpNextActivity;
 
 public class TosNextActivity extends BaseActivity {
     String mFname;
+    int mUserNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,7 @@ public class TosNextActivity extends BaseActivity {
         setContentView(R.layout.activity_tos_next);
 
         mFname = getIntent().getStringExtra("name");
+        mUserNo = getIntent().getIntExtra("userNo",0);
     }
 
     public void customOnClick(View view) {
@@ -33,6 +35,7 @@ public class TosNextActivity extends BaseActivity {
     private void redirectSignUpNextActivty(){
         Intent intent = new Intent(getApplicationContext(), SignUpNextActivity.class);
         intent.putExtra("name",mFname);
+        intent.putExtra("userNo",mUserNo);
         startActivity(intent);
     }
 

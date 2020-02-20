@@ -15,10 +15,14 @@
         android:orientation="horizontal"
         android:background="@color/colorWhite">
         <Button
+            android:id="@+id/set_goal_btn_back"
+            android:gravity="left"
+            android:paddingLeft="16dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:text="취소"
+            android:onClick="customOnClick"
             android:textColor="@color/colorSplash"
             android:background="@color/colorFree"
             android:stateListAnimator="@color/colorNull"
@@ -32,10 +36,14 @@
             android:textSize="15dp"
             android:textColor="@color/colorBlack"/>
         <Button
+            android:id="@+id/set_goal_btn_complete"
+            android:gravity="right"
+            android:paddingRight="16dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:text="저장"
+            android:onClick="customOnClick"
             android:textColor="@color/colorSplash"
             android:background="@color/colorFree"
             android:stateListAnimator="@color/colorNull"/>
@@ -312,7 +320,7 @@
                         android:layout_marginEnd="4dp"
                         android:background="@drawable/radio_button_goal_running_background"
                         android:gravity="center"
-                        android:text="거리"
+                        android:text="거리 (km)"
                         android:checked="true"
                         android:textColor="@drawable/menu_text_color"
                         app:layout_constraintEnd_toStartOf="@+id/set_goal_rbt_unit_time"

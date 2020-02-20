@@ -86,12 +86,13 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     }
 
     @Override
-    public void validateCode(int code) {
+    public void validateCode(int code, int userNo) {
         Log.e("[Log.e] validateCode","code : " + code);
 
         if(code == 100) { // 회원가입 성공
             Intent intent = new Intent(getApplicationContext(), TOSActivity.class);
             intent.putExtra("name" ,mFname);
+            intent.putExtra("userNo",userNo);
             startActivity(intent);
         } else if(code == 200) { // 이메일 중복 코드
             mInputEmail.setError("중복된 이메일입니다.");

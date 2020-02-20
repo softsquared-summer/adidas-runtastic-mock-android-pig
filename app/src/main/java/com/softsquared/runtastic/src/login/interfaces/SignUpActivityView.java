@@ -5,5 +5,5 @@ public interface SignUpActivityView {
 
     void validateFailure(String message);
 
-    void validateCode(int code);
+    void validateCode(int code,int userNo);
 }

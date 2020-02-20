@@ -2,17 +2,21 @@ package com.softsquared.runtastic.src.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.login.adapter.SignUpExpandableAdapter;
 import com.softsquared.runtastic.src.login.adapter.SignUpParentItem;
 import com.softsquared.runtastic.src.login.interfaces.SignUpNextActivityView;
+import com.softsquared.runtastic.src.login.models.Goal;
 import com.softsquared.runtastic.src.main.MainActivity;
 
 import java.util.ArrayList;
@@ -22,6 +26,13 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
     ArrayList<SignUpParentItem> mParentList = new ArrayList<>();
     SignUpExpandableAdapter adapter;
     TextView mTvName;
+
+
+    int REQUEST_CODE = 1;
+
+    Goal mGoal;
+
+    int mUserNo;
     String mFname;
 
     @Override
@@ -31,6 +42,7 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
         LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
 
         mFname = getIntent().getStringExtra("name");
+        mUserNo = getIntent().getIntExtra("userNo",0);
 
         mTvName = findViewById(R.id.sign_up_next_tv_name);
         mTvName.setText(mFname + getString(R.string.sign_welcome));
@@ -51,6 +63,15 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
         mElv.expandGroup(0,false);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (resultCode){
+            case 1:
+                mGoal = (Goal) data.getSerializableExtra("goal");
+                Log.d("response goal : ",mGoal.getExerciseType() + " " + mGoal.getTermType() + " " + mGoal.getTermValue() + " " + mGoal.getMeasureType() + " " + mGoal.getMeasureValue());
+        }
+    }
 
     public void setButtonTools(){
         mElv.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -96,7 +117,6 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
                             redirectSetGoalActivity();
                         }
                     });
-
                 }
             }
         });
@@ -110,7 +130,16 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
 
     public void redirectSetGoalActivity() {
         Intent intent = new Intent(this, SetGoalActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,REQUEST_CODE);
     }
 
+    @Override
+    public void validateSuccess(String text, int code) {
+
+    }
+
+    @Override
+    public void validateFailure(String message) {
+
+    }
 }
