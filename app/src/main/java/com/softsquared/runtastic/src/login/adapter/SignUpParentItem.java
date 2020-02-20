@@ -1,12 +1,17 @@
 package com.softsquared.runtastic.src.login.adapter;
 
+import android.view.View;
+
 public class SignUpParentItem {
     int icon;
     String title;
+    View v;
+
 
     public SignUpParentItem(int icon, String title) {
         this.icon = icon;
         this.title = title;
+        v= null;
     }
 
     public int getIcon() {
@@ -23,5 +28,13 @@ public class SignUpParentItem {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public View getV() {
+        return v;
+    }
+
+    public void setV(View v) {
+        this.v = v;
     }
 }

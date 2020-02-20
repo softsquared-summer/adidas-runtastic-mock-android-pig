@@ -23,18 +23,21 @@
             android:layout_marginTop="15dp">
             <ImageView
                 android:layout_gravity="center_vertical"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/goal"/>
             <Button
+                android:id="@+id/sign_up_next_child_goal_btn_set_goal"
+                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/join_custom_background_reverse"
-                android:text="목표 추가"
+                android:text="+ 목표 추가"
                 android:textColor="@color/colorSplash"/>
         </LinearLayout>
         <Button
+            android:id="@+id/sign_up_next_child_goal_btn_continue"
             android:layout_width="60dp"
             android:layout_height="35dp"
             android:background="@drawable/join_custom_background"

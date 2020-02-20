@@ -1,7 +1,7 @@
 <resources>
     <!-- common -->
     <string name="app_name">Running</string>
-    <string name="loading">로딩중입니다.</string>
+    <string name="loading">loading...</string>
     <string name="network_error">네트워크 연결이 원활하지 않습니다.</string>
 
     <!-- 페이스북 소셜로그인 -->
@@ -9,7 +9,7 @@
     <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
 
     <!-- 시작해 볼까요 -->
-    <string name="sign_welcome">...님, 환영합니다</string>
+    <string name="sign_welcome">님, 환영합니다</string>
     <string name="sign_start">시작해 볼까요.</string>
     <string name="sign_cal_kcal">칼로리 계산</string>
     <string name="sign_cal_explain">활동에서 필요한 정확한 칼로리를 계산하려면 신장 및 체중이 필요합니다.</string>
@@ -41,6 +41,9 @@
     <string name="profile_leader_ex">리더보드에서 자신의 순위를 확인해보세요</string>
     <string name="profile_premium">프리미엄 혜택</string>
     <string name="profile_premium_ex">프리미엄으로 계속하기</string>
+
+    <!-- 라디오 버튼 묶기 -->
+    <string name="radio_button_exercise">descriptionExercise</string>
 
 
     <!-- 이용약관 -->

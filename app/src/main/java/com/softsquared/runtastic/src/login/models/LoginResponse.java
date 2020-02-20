@@ -1,9 +1,6 @@
 package com.softsquared.runtastic.src.login.models;
 
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.ArrayList;
 
 public class LoginResponse {
     @SerializedName("isSuccess")

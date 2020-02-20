@@ -32,4 +32,21 @@
         <item name="android:textSize">10sp</item>
     </style>
 
+    <!-- 커스텀 라디오버튼 버튼없애기 -->
+    <style name="null_radio_button">
+        <item name="android:button">@null</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+    <style name="null_radio_button_none_image">
+        <item name="android:button">@null</item>
+    </style>
+
+    <!-- 달력 테마 -->
+    <style name="DateDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorWhiteGray</item>
+        <item name="colorControlActivated">@color/colorSplash</item>
+        <item name="colorControlHighlight">@color/colorWhite</item>
+    </style>
+
 </resources>

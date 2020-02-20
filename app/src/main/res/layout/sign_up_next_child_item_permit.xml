@@ -16,6 +16,7 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="30dp"/>
         <Button
+            android:id="@+id/sign_up_next_child_permit_btn_continue"
             android:layout_width="60dp"
             android:layout_height="35dp"
             android:background="@drawable/join_custom_background"

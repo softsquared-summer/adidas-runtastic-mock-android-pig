@@ -1,6 +1,7 @@
 package com.softsquared.runtastic.src.login.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,37 +82,21 @@ public class SignUpExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        int viewType = groupPosition;
-        View firstView = inflater.inflate(R.layout.sign_up_next_child_item,null);
-        View secondView = inflater.inflate(R.layout.sign_up_next_child_item_permit,null);
-        View thirdView = inflater.inflate(R.layout.sign_up_next_child_item_goal,null);
-
-        if(convertView == null){
-            switch(viewType) {
+        if(mParentList.get(groupPosition).getV() == null){
+            switch(groupPosition) {
                 case 0:
-                    convertView = inflater.inflate(R.layout.sign_up_next_child_item,null);
+                    mParentList.get(0).setV(inflater.inflate(R.layout.sign_up_next_child_item,null));
                     break;
                 case 1:
-                    convertView = inflater.inflate(R.layout.sign_up_next_child_item_permit,null);
+                    mParentList.get(1).setV(inflater.inflate(R.layout.sign_up_next_child_item_permit,null));
                     break;
                 case 2:
-                    convertView = inflater.inflate(R.layout.sign_up_next_child_item_goal,null);
-                    break;
-            }
-        } else {
-            switch(viewType) {
-                case 0:
-                    convertView = inflater.inflate(R.layout.sign_up_next_child_item,null);
-                    break;
-                case 1:
-                    convertView = inflater.inflate(R.layout.sign_up_next_child_item_permit,null);
-                    break;
-                case 2:
-                    convertView = inflater.inflate(R.layout.sign_up_next_child_item_goal,null);
+                    mParentList.get(2).setV(inflater.inflate(R.layout.sign_up_next_child_item_goal,null));
                     break;
             }
         }
-        return convertView;
+
+        return mParentList.get(groupPosition).getV();
     }
 
     @Override
@@ -125,38 +110,9 @@ public class SignUpExpandableAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
-    public void setExpandableListViewHeight(ExpandableListView listView, int group) {
-        ExpandableListAdapter listAdapter = listView.getExpandableListAdapter();
-        if (listAdapter == null) {
-            return;
-        }
-
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
-        int totalHeight = 0;
-        View view = null;
-        for (int i = 0; i < listAdapter.getGroupCount(); i++) {
-            view = listAdapter.getGroupView(i, false, view, listView);
-            if (i == 0) {
-                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
-            }
-            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-            totalHeight += view.getMeasuredHeight();
-            if(((listView.isGroupExpanded(i)) && (i != group)) || ((!listView.isGroupExpanded(i)) && (i == group))) {
-                View listItem = null;
-                for (int j = 0; j < listAdapter.getChildrenCount(i); j++) {
-                    listItem = listAdapter.getChildView(i, j, false, listItem, listView);
-                    listItem.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, View.MeasureSpec.UNSPECIFIED));
-                    listItem.measure(
-                            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-                            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-                    totalHeight += listItem.getMeasuredHeight();
-                }
-            }
-        }
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getGroupCount() - 1));
-        listView.setLayoutParams(params);
-        listView.requestLayout();
+    public ArrayList<SignUpParentItem> getParentList(){
+        return this.mParentList;
     }
+
 
 }

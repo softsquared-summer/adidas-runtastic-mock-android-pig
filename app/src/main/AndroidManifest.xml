@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.softsquared.runtastic.src.ApplicationClass"
+        android:name=".src.ApplicationClass"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:icon="@drawable/splashicon"
@@ -17,27 +17,26 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name=".src.login.SetGoalActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDtksmZ5DbkpfF56KQ3bGhwC3NzYHz9vcw"/>
+            android:value="AIzaSyDtksmZ5DbkpfF56KQ3bGhwC3NzYHz9vcw" />
 
-        <activity android:name="com.softsquared.runtastic.src.login.sub.TosNextActivity"></activity>
-        <activity android:name="com.softsquared.runtastic.src.login.sub.TOSActivity" />
-        <activity android:name="com.softsquared.runtastic.src.login.SignUpNextActivity">
-        </activity>
-        <activity android:name="com.softsquared.runtastic.src.login.LoginActivity"/>
-        <activity android:name="com.softsquared.runtastic.src.login.StartActivity"/>
-        <activity android:name="com.softsquared.runtastic.src.main.MainActivity">
-        </activity>
-        <activity android:name="com.softsquared.runtastic.src.main.SplashActivity">
+        <activity android:name=".src.login.sub.TosNextActivity" />
+        <activity android:name=".src.login.sub.TOSActivity" />
+        <activity android:name=".src.login.SignUpNextActivity"></activity>
+        <activity android:name=".src.login.LoginActivity" />
+        <activity android:name=".src.login.StartActivity" />
+        <activity android:name=".src.main.MainActivity"></activity>
+        <activity android:name=".src.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.softsquared.runtastic.src.login.SignUpActivity"/>
+        <activity android:name=".src.login.SignUpActivity" />
     </application>
 
 </manifest>

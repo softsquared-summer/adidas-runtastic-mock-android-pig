@@ -24,19 +24,20 @@
             android:layout_marginLeft="35dp"
             android:layout_marginTop="15dp">
             <ImageView
+                android:layout_gravity="center_vertical"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/ruler"/>
-            <EditText
-                android:gravity="center"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:hint="신장"
-                android:textColorHint="@color/colorGray"
-                android:textColor="@color/colorBlack"
-                android:maxLength="10"
-                android:inputType="numberDecimal"
-                android:backgroundTint="@color/colorGray"/>
+                <EditText
+                    android:gravity="center"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:hint="신장"
+                    android:textColorHint="@color/colorGray"
+                    android:textColor="@color/colorBlack"
+                    android:maxLength="10"
+                    android:inputType="numberDecimal"
+                    android:backgroundTint="@color/colorGray"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,21 +46,23 @@
             android:layout_marginLeft="35dp"
             android:layout_marginTop="15dp">
             <ImageView
+                android:layout_gravity="center_vertical"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/bottle"/>
-            <EditText
-                android:gravity="center"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:hint="체중"
-                android:textColorHint="@color/colorGray"
-                android:textColor="@color/colorBlack"
-                android:inputType="numberDecimal"
-                android:maxLength="10"
-                android:backgroundTint="@color/colorGray"/>
+                <EditText
+                    android:gravity="center"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:hint="체중"
+                    android:textColorHint="@color/colorGray"
+                    android:textColor="@color/colorBlack"
+                    android:inputType="numberDecimal"
+                    android:maxLength="10"
+                    android:backgroundTint="@color/colorGray"/>
         </LinearLayout>
         <Button
+            android:id="@+id/sign_up_next_child_btn_continue"
             android:layout_width="60dp"
             android:layout_height="35dp"
             android:background="@drawable/join_custom_background"

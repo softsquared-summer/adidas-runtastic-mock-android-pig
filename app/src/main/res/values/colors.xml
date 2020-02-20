@@ -20,6 +20,7 @@
 
     <!-- 버튼 프레스 색들 -->
     <color name="colorJoinButtonPressed">#2a2124</color>
+    <color name="colorWhiteGray">#e0e0e0</color>
 
     <!-- 오류 -->
     <color name="colorDanger">#BD4444</color>
