@@ -8,7 +8,7 @@ public class SetBodyResponse {
     @SerializedName("code")
     int code;
     @SerializedName("message")
-    int message;
+    String message;
 
     public boolean isSuccess() {
         return isSuccess;
@@ -26,11 +26,11 @@ public class SetBodyResponse {
         this.code = code;
     }
 
-    public int getMessage() {
+    public String getMessage() {
         return message;
     }
 
-    public void setMessage(int message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

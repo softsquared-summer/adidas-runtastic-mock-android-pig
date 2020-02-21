@@ -53,7 +53,7 @@ public class SetGoalActivity extends BaseActivity implements View.OnClickListene
         mExerciseType = 1;
         mTermType = 1;
         mMeasureType = 1;
-        mMeasuerValue = "default";
+        mMeasuerValue = "0";
         mTermValue = "default";
     }
 

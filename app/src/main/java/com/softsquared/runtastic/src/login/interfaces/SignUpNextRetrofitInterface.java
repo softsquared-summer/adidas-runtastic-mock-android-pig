@@ -14,5 +14,5 @@ public interface SignUpNextRetrofitInterface {
     Call<SetBodyResponse> postBodyProfile(@Body SetBodyRequest params);
 
     @POST("/user/goal/initial")
-    Call<SetGoalResponse> postBodyProfile(@Body SetGoalRequest params);
+    Call<SetGoalResponse> postGoalProfile(@Body SetGoalRequest params);
 }
