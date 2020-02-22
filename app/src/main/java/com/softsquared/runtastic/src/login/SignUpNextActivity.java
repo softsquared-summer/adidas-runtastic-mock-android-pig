@@ -20,7 +20,6 @@ import com.softsquared.runtastic.src.login.interfaces.SignUpNextActivityView;
 import com.softsquared.runtastic.src.login.models.Goal;
 import com.softsquared.runtastic.src.login.models.SetBodyRequest;
 import com.softsquared.runtastic.src.login.models.SetGoalRequest;
-import com.softsquared.runtastic.src.main.MainActivity;
 
 import java.util.ArrayList;
 
@@ -190,6 +189,8 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
         showProgressDialog();
         String height = mEtHeight.getText().toString();
         String weight = mEtWeight.getText().toString();
+
+        Log.e("[Log.e] height,weight: ",height + ", " + weight);
 
         SetBodyRequest bodyRequest = new SetBodyRequest(mUserNo,height,1,weight,1);
         final SignUpNextService signUpNextService = new SignUpNextService(this);
