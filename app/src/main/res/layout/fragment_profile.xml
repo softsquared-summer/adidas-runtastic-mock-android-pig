@@ -28,6 +28,7 @@
             android:textColor="@color/colorBlack"
             android:layout_weight="1"/>
         <ImageButton
+            android:id="@+id/profile_btn_setting"
             android:layout_gravity="center"
             android:layout_width="25dp"
             android:layout_height="25dp"

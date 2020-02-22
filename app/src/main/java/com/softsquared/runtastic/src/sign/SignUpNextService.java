@@ -34,6 +34,7 @@ public class SignUpNextService {
                     return;
                 }
                 mSignUpNextActivityView.validateSuccess(setBodyResponse.getMessage(),setBodyResponse.getCode());
+                mSignUpNextActivityView.setBodySuccess(setBodyResponse.getMessage());
             }
 
             @Override
@@ -55,6 +56,7 @@ public class SignUpNextService {
                     return;
                 }
                 mSignUpNextActivityView.validateSuccess(setGoalResponse.getMessage(),setGoalResponse.getCode());
+                mSignUpNextActivityView.setGoalSuccess(setGoalResponse.getMessage());
             }
 
             @Override

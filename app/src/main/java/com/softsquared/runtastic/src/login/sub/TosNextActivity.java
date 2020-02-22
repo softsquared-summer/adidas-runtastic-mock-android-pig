@@ -26,7 +26,6 @@ public class TosNextActivity extends BaseActivity {
             case R.id.tos_next_btn_admit:
                 redirectSignUpNextActivty();
                 break;
-
             default:
                 break;
         }

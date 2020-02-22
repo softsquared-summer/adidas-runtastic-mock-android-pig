@@ -38,6 +38,8 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
     int REQUEST_CODE = 1;
     int mHeight = 183;
     int mWeight = 75;
+    Boolean mBodySuccess = false;
+    Boolean mGoalSuccess = false;
 
     Goal mGoal = new Goal(1, 1, 1, "1", "1");
 
@@ -258,10 +260,9 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
 
 
     public void redirectMainActivity() {
-
         tryPostBody();
-
         tryPostGoal();
+
     }
 
     public void redirectSetGoalActivity() {
@@ -296,8 +297,24 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
         Log.e("[Log.e] validateSuccess", "message : " + text);
         Log.e("[Log.e] validateSuccess", "code : " + code);
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    }
+
+    @Override
+    public void setBodySuccess(String text) {
+        Log.e("[Log.e] setBodySuccess", "message : " + text);
+        mBodySuccess = true;
+    }
+
+    @Override
+    public void setGoalSuccess(String text) {
+        Log.e("[Log.e] setGoalSuccess", "message : " + text);
+        mGoalSuccess = true;
+        if(mGoalSuccess) { // 추후에 수정
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 
     @Override

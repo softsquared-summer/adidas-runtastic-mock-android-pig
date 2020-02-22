@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.sign;
+package com.softsquared.runtastic.src.start;
 
 
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.View;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.login.LoginActivity;
+import com.softsquared.runtastic.src.sign.SignUpActivity;
 
 public class StartActivity extends BaseActivity {
 
@@ -18,7 +19,7 @@ public class StartActivity extends BaseActivity {
     }
 
     private void redirectSingUpActivity(){
-        Intent intent = new Intent(getApplicationContext(),SignUpActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
         startActivity(intent);
     }
 
