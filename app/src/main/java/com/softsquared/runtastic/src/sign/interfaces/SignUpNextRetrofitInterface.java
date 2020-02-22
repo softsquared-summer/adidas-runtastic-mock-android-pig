@@ -1,9 +1,9 @@
-package com.softsquared.runtastic.src.login.interfaces;
+package com.softsquared.runtastic.src.sign.interfaces;
 
-import com.softsquared.runtastic.src.login.models.SetBodyRequest;
-import com.softsquared.runtastic.src.login.models.SetBodyResponse;
-import com.softsquared.runtastic.src.login.models.SetGoalRequest;
-import com.softsquared.runtastic.src.login.models.SetGoalResponse;
+import com.softsquared.runtastic.src.sign.models.SetBodyRequest;
+import com.softsquared.runtastic.src.sign.models.SetBodyResponse;
+import com.softsquared.runtastic.src.sign.models.SetGoalRequest;
+import com.softsquared.runtastic.src.sign.models.SetGoalResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

@@ -1,13 +1,13 @@
-package com.softsquared.runtastic.src.login.models;
+package com.softsquared.runtastic.src.sign.models;
 
 import com.google.gson.annotations.SerializedName;
 
 public class SignUpRequest {
     @SerializedName("lName")
-    String lName;
+    private String lName;
 
     @SerializedName("fName")
-    String fName;
+    private String fName;
 
     @SerializedName("sex")
     int sex;

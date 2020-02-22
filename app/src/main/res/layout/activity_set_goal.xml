@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.login.SetGoalActivity"
+    tools:context=".src.sign.SetGoalActivity"
     android:background="@color/colorWhite">
     <LinearLayout
         android:id="@+id/set_goal_ll_top_bar"

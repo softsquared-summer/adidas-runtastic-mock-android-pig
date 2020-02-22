@@ -42,6 +42,7 @@
             android:layout_height="35dp"
             android:background="@drawable/join_custom_background"
             android:text="계속"
+            android:textColor="@color/colorWhite"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="15dp"/>
     </LinearLayout>

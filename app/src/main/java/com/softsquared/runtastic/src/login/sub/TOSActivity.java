@@ -15,7 +15,6 @@ public class TOSActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tos);
-        mActList.add(this);
 
         mFname = getIntent().getStringExtra("name");
         mUserNo = getIntent().getIntExtra("userNo",0);

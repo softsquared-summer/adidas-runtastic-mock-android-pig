@@ -1,28 +1,14 @@
-package com.softsquared.runtastic.src.login.models;
+package com.softsquared.runtastic.src.sign.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SignUpResponse {
-
-    @SerializedName("userNo")
-    private int userNo;
-
+public class SetGoalResponse {
     @SerializedName("isSuccess")
-    private boolean isSuccess;
-
+    boolean isSuccess;
     @SerializedName("code")
-    private int code;
-
+    int code;
     @SerializedName("message")
-    private String message;
-
-    public int getUserNo() {
-        return userNo;
-    }
-
-    public void setUserNo(int userNo) {
-        this.userNo = userNo;
-    }
+    String message;
 
     public boolean isSuccess() {
         return isSuccess;

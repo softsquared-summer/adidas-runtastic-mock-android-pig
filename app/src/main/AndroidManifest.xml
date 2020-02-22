@@ -17,7 +17,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.login.SetGoalActivity"></activity>
+        <activity android:name=".src.sign.SetGoalActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -25,9 +25,9 @@
 
         <activity android:name=".src.login.sub.TosNextActivity" />
         <activity android:name=".src.login.sub.TOSActivity" />
-        <activity android:name=".src.login.SignUpNextActivity"></activity>
+        <activity android:name=".src.sign.SignUpNextActivity"></activity>
         <activity android:name=".src.login.LoginActivity" />
-        <activity android:name=".src.login.StartActivity" />
+        <activity android:name=".src.sign.StartActivity" />
         <activity android:name=".src.main.MainActivity"></activity>
         <activity android:name=".src.main.SplashActivity">
             <intent-filter>
@@ -36,7 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.login.SignUpActivity" />
+        <activity android:name=".src.sign.SignUpActivity" />
     </application>
 
 </manifest>

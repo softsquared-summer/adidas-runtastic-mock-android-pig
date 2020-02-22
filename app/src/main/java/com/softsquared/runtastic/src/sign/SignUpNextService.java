@@ -1,14 +1,13 @@
-package com.softsquared.runtastic.src.login;
+package com.softsquared.runtastic.src.sign;
 
 import android.util.Log;
 
-import com.softsquared.runtastic.src.login.interfaces.SignUpActivityView;
-import com.softsquared.runtastic.src.login.interfaces.SignUpNextActivityView;
-import com.softsquared.runtastic.src.login.interfaces.SignUpNextRetrofitInterface;
-import com.softsquared.runtastic.src.login.models.SetBodyRequest;
-import com.softsquared.runtastic.src.login.models.SetBodyResponse;
-import com.softsquared.runtastic.src.login.models.SetGoalRequest;
-import com.softsquared.runtastic.src.login.models.SetGoalResponse;
+import com.softsquared.runtastic.src.sign.interfaces.SignUpNextActivityView;
+import com.softsquared.runtastic.src.sign.interfaces.SignUpNextRetrofitInterface;
+import com.softsquared.runtastic.src.sign.models.SetBodyRequest;
+import com.softsquared.runtastic.src.sign.models.SetBodyResponse;
+import com.softsquared.runtastic.src.sign.models.SetGoalRequest;
+import com.softsquared.runtastic.src.sign.models.SetGoalResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

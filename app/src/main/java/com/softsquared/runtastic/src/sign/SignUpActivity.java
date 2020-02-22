@@ -1,8 +1,10 @@
-package com.softsquared.runtastic.src.login;
+package com.softsquared.runtastic.src.sign;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.PorterDuff;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -13,23 +15,28 @@ import android.widget.RadioButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
-import com.softsquared.runtastic.src.login.interfaces.SignUpActivityView;
-import com.softsquared.runtastic.src.login.models.SignUpRequest;
+import com.softsquared.runtastic.src.login.models.LoginRequest;
+import com.softsquared.runtastic.src.sign.interfaces.SignUpActivityView;
+import com.softsquared.runtastic.src.sign.models.SignUpRequest;
 import com.softsquared.runtastic.src.login.sub.TOSActivity;
+
+import static com.softsquared.runtastic.src.ApplicationClass.X_ACCESS_TOKEN;
 
 public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     EditText mEtFirstName, mEtLastName, mEtEmail, mEtPassword, mEtBirth;
     TextInputLayout mInputEmail, mInputFName, mInputLName, mInputPassword, mInputBirth;
     RadioButton mMan, mGirl;
-    String mFname, mLname, mEmail, mPw, mProfileImage;
+    String mFirstName, mLastName, mEmail, mPassword, mProfileImage;
     int mBirth, mSex;
-    boolean mEmailError;
+    boolean mEmailError , mSuccessSignUp;
+    String mJwtToken;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        mSuccessSignUp = false;
 
         mInputEmail = findViewById(R.id.sign_up_input_email);
         mInputBirth = findViewById(R.id.sign_up_input_birth);
@@ -90,8 +97,12 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         Log.e("[Log.e] validateCode","code : " + code);
 
         if(code == 100) { // 회원가입 성공
+            mSuccessSignUp = true;
+            getJwtToken(mEmail,mPassword);
+
+
             Intent intent = new Intent(getApplicationContext(), TOSActivity.class);
-            intent.putExtra("name" ,mFname);
+            intent.putExtra("name" , mFirstName);
             intent.putExtra("userNo",userNo);
             startActivity(intent);
         } else if(code == 200) { // 이메일 중복 코드
@@ -106,11 +117,28 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         }
     }
 
+    public void getJwtToken(String email, String password){
+        if(mSuccessSignUp){
+            final SignUpService signUpService = new SignUpService(this);
+            LoginRequest loginRequest = new LoginRequest(email,password);
+            signUpService.postLogin(loginRequest);
+        }
+    }
+
+    @Override
+    public void putJwtToken(String jwt) {
+        Log.e("[Log.e] jwt : " , jwt);
+        SharedPreferences preferences = getSharedPreferences(X_ACCESS_TOKEN, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(X_ACCESS_TOKEN,jwt);
+        editor.apply();
+    }
+
     private void redirectTOSActivity(){
-        mFname = mEtFirstName.getText().toString();
-        mLname = mEtLastName.getText().toString();
+        mFirstName = mEtFirstName.getText().toString();
+        mLastName = mEtLastName.getText().toString();
         mEmail = mEtEmail.getText().toString();
-        mPw = mEtPassword.getText().toString();
+        mPassword = mEtPassword.getText().toString();
         mProfileImage = "";
 
         if(mEtBirth.getText().toString().equals("")){
@@ -126,8 +154,8 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             mSex = 2;
         }
 
-        if(mFname.length() == 0 || mLname.length() == 0 || mEtBirth.toString().length() == 0) {
-            if (mFname.length() == 0) {
+        if(mFirstName.length() == 0 || mLastName.length() == 0 || mEtBirth.toString().length() == 0) {
+            if (mFirstName.length() == 0) {
                 mInputFName.setErrorEnabled(true);
                 mInputFName.setError("1234");
                 mInputFName.setBackgroundTintList(getColorStateList(R.color.colorDanger));
@@ -135,7 +163,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
                     mInputFName.getChildAt(1).setVisibility(View.GONE);
                 }
             }
-            if (mLname.length() == 0) {
+            if (mLastName.length() == 0) {
                 mInputLName.setErrorEnabled(true);
                 mInputLName.setError("1234");
                 mInputLName.setBackgroundTintList(getColorStateList(R.color.colorDanger));
@@ -150,13 +178,13 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
                 mInputEmail.setError("유효한 이메일 주소를 입력하세요.");
                 mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
             }
-            if (mPw.length() == 0) {
+            if (mPassword.length() == 0) {
                 mInputPassword.setError("최소 8자리 이상으로 구성되어야 합니다. (최소 대문자 1, 소문자 1 및 숫자 1개 포함)");
                 mInputPassword.setErrorTextColor(getColorStateList(R.color.colorDanger));
             }
             return;
         }
-        SignUpRequest signUp = new SignUpRequest(mLname,mFname,mSex,mEmail,mPw,mBirth,mProfileImage);
+        SignUpRequest signUp = new SignUpRequest(mLastName, mFirstName,mSex,mEmail, mPassword,mBirth,mProfileImage);
         trySignUp(signUp);
     }
 
@@ -173,7 +201,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             }
             @Override
             public void afterTextChanged(Editable s) {
-                if(!s.toString().contains("@")){
+                if(!s.toString().contains("@")){ // regex 정규식
                     mInputEmail.setError("유효한 이메일 주소를 입력하세요.");
                     mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
                     mEmailError = true;

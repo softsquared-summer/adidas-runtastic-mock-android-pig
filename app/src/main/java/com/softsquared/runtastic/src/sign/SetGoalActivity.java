@@ -1,7 +1,6 @@
-package com.softsquared.runtastic.src.login;
+package com.softsquared.runtastic.src.sign;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -18,10 +17,8 @@ import android.widget.RadioButton;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
-import com.softsquared.runtastic.src.NumberPickerDialog;
-import com.softsquared.runtastic.src.login.models.Goal;
+import com.softsquared.runtastic.src.sign.models.Goal;
 
-import java.text.DateFormat;
 import java.util.Calendar;
 
 public class SetGoalActivity extends BaseActivity implements View.OnClickListener {
@@ -39,7 +36,7 @@ public class SetGoalActivity extends BaseActivity implements View.OnClickListene
 
     // 넘겨줘야할 데이터들
     int mExerciseType,mTermType,mMeasureType;
-    String mTermValue,mMeasuerValue;
+    String mTermValue, mMeasureValue;
 
     String mAssignDate;
     String mShowDate;
@@ -53,7 +50,7 @@ public class SetGoalActivity extends BaseActivity implements View.OnClickListene
         mExerciseType = 1;
         mTermType = 1;
         mMeasureType = 1;
-        mMeasuerValue = "0";
+        mMeasureValue = "0";
         mTermValue = "default";
     }
 
@@ -121,7 +118,7 @@ public class SetGoalActivity extends BaseActivity implements View.OnClickListene
 
     private void setGoalComplete() {
         Intent intent = new Intent();
-        Goal goal = new Goal(mExerciseType,mTermType,mMeasureType,mTermValue,mMeasuerValue);
+        Goal goal = new Goal(mExerciseType,mTermType,mMeasureType,mTermValue, mMeasureValue);
         intent.putExtra("goal", goal);
         Log.d("post goal : ",goal.getExerciseType() + " " + goal.getTermType() + " " + goal.getTermValue() + " " + goal.getMeasureType() + " " + goal.getMeasureValue());
         setResult(RESULT_OK,intent);
@@ -160,7 +157,7 @@ public class SetGoalActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d("tag", "onClick: " + numberPicker.getValue());
-                mMeasuerValue = numberPicker.getValue()+"";
+                mMeasureValue = numberPicker.getValue()+"";
             }
         });
         d.setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -191,7 +188,7 @@ public class SetGoalActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d("tag", "onClick: " + numberPicker.getValue());
-                mMeasuerValue = numberPicker.getValue()+"";
+                mMeasureValue = numberPicker.getValue()+"";
             }
         });
         d.setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -222,7 +219,7 @@ public class SetGoalActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d("tag", "onClick: " + numberPicker.getValue());
-                mMeasuerValue = numberPicker.getValue()+"";
+                mMeasureValue = numberPicker.getValue()+"";
             }
         });
         d.setNegativeButton("취소", new DialogInterface.OnClickListener() {

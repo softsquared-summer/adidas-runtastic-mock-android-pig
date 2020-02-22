@@ -15,7 +15,6 @@ import com.softsquared.runtastic.src.main.MainActivity;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
     EditText mEtEmail, mEtPassword;
-    Button mBtnLogin;
     String mEmail, mPassword;
 
 
@@ -23,11 +22,9 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mActList.add(this);
 
         mEtEmail = findViewById(R.id.login_et_email);
         mEtPassword = findViewById(R.id.login_et_password);
-
     }
 
     public void customOnClick(View view) {
@@ -76,7 +73,6 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         if(code == 100) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
-            activityFinish();
         } else if(code == 200) {
             showCustomToast("회원 정보를 확인해주세요");
         }

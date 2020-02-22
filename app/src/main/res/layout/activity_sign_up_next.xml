@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.login.SignUpNextActivity"
+    tools:context=".src.sign.SignUpNextActivity"
     android:background="@color/colorWhite">
 
     <LinearLayout
         android:id="@+id/sign_up_next_ll_top"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorWhite">
         <TextView
             android:id="@+id/sign_up_next_tv_name"
             android:layout_width="match_parent"
@@ -23,21 +22,25 @@
             android:text="@string/sign_welcome"
             android:textColor="@color/colorSplash"
             android:textSize="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:text="@string/sign_start"
             android:textColor="@color/colorBlack"
             android:textSize="35dp"
+            android:layout_marginLeft="15dp"
             />
     </LinearLayout>
     <View
         android:layout_below="@id/sign_up_next_ll_top"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/colorGray"/>
+        android:background="@color/colorWhiteGray"/>
 
     <ExpandableListView
         android:id="@+id/sign_up_next_elv_list"

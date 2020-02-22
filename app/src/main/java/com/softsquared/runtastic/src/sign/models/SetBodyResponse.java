@@ -1,8 +1,8 @@
-package com.softsquared.runtastic.src.login.models;
+package com.softsquared.runtastic.src.sign.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SetGoalResponse {
+public class SetBodyResponse {
     @SerializedName("isSuccess")
     boolean isSuccess;
     @SerializedName("code")

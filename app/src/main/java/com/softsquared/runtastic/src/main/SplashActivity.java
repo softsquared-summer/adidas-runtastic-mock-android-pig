@@ -6,7 +6,7 @@ import android.os.Handler;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
-import com.softsquared.runtastic.src.login.StartActivity;
+import com.softsquared.runtastic.src.sign.StartActivity;
 
 public class SplashActivity extends BaseActivity {
     @Override

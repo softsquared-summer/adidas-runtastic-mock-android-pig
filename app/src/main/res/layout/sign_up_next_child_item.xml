@@ -28,17 +28,15 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/ruler"/>
-                <EditText
-                    android:id="@+id/sign_up_next_child_et_height"
-                    android:gravity="center"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:hint="신장"
-                    android:textColorHint="@color/colorGray"
-                    android:textColor="@color/colorBlack"
-                    android:maxLength="10"
-                    android:inputType="numberDecimal"
-                    android:backgroundTint="@color/colorGray"/>
+            <Button
+                android:id="@+id/sign_up_next_child_btn_height"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/join_custom_background_reverse"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/colorSplash"
+                android:text="+ 신장"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,17 +49,15 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/bottle"/>
-                <EditText
-                    android:id="@+id/sign_up_next_child_et_weight"
-                    android:gravity="center"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:hint="체중"
-                    android:textColorHint="@color/colorGray"
-                    android:textColor="@color/colorBlack"
-                    android:inputType="numberDecimal"
-                    android:maxLength="10"
-                    android:backgroundTint="@color/colorGray"/>
+            <Button
+                android:id="@+id/sign_up_next_child_btn_weight"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/join_custom_background_reverse"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/colorSplash"
+                android:text="+ 체중"/>
         </LinearLayout>
         <Button
             android:id="@+id/sign_up_next_child_btn_continue"
@@ -69,6 +65,7 @@
             android:layout_height="35dp"
             android:background="@drawable/join_custom_background"
             android:text="계속"
+            android:textColor="@color/colorWhite"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="15dp"/>
     </LinearLayout>

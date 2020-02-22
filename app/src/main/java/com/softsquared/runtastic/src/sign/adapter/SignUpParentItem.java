@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.login.adapter;
+package com.softsquared.runtastic.src.sign.adapter;
 
 import android.view.View;
 

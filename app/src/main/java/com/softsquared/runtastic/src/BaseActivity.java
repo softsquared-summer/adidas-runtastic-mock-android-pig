@@ -14,7 +14,6 @@ import java.util.ArrayList;
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
     public ProgressDialog mProgressDialog;
-    public static ArrayList<Activity> mActList = new ArrayList<>();
 
     public void showCustomToast(final String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
@@ -41,18 +40,4 @@ public class BaseActivity extends AppCompatActivity {
         hideProgressDialog();
     }
 
-    public void activityFinish() {
-        for(int i = 0; i < mActList.size(); i++){
-            mActList.get(i).finish();
-            mActList.remove(i);
-        }
-    }
-
-    public void activityRemove(Activity activity) {
-        for(int i = 0; i < mActList.size(); i++){
-            if(mActList.get(i) == activity){
-                mActList.remove(i);
-            }
-        }
-    }
 }

@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.login.models;
+package com.softsquared.runtastic.src.sign.models;
 
 import com.google.gson.annotations.SerializedName;
 

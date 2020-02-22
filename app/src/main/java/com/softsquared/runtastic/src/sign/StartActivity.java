@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.login;
+package com.softsquared.runtastic.src.sign;
 
 
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
+import com.softsquared.runtastic.src.login.LoginActivity;
 
 public class StartActivity extends BaseActivity {
 
@@ -14,7 +15,6 @@ public class StartActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        mActList.add(this);
     }
 
     private void redirectSingUpActivity(){
@@ -23,7 +23,7 @@ public class StartActivity extends BaseActivity {
     }
 
     private void redirectLoginActivity(){
-        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
     }
 

@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
-import com.softsquared.runtastic.src.login.SignUpNextActivity;
+import com.softsquared.runtastic.src.sign.SignUpNextActivity;
 
 public class TosNextActivity extends BaseActivity {
     String mFname;
