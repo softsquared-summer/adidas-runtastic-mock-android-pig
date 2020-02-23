@@ -6,4 +6,6 @@ public interface LoginActivityView {
     void validateFailure(String message);
 
     void validateCode(int code);
+
+    void putJwtToken(String jwt);
 }

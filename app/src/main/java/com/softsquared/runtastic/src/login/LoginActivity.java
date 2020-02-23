@@ -1,6 +1,8 @@
 package com.softsquared.runtastic.src.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,8 @@ import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.login.interfaces.LoginActivityView;
 import com.softsquared.runtastic.src.login.models.LoginRequest;
 import com.softsquared.runtastic.src.main.MainActivity;
+
+import static com.softsquared.runtastic.src.ApplicationClass.X_ACCESS_TOKEN;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
     EditText mEtEmail, mEtPassword;
@@ -78,5 +82,14 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         } else if(code == 200) {
             showCustomToast("회원 정보를 확인해주세요");
         }
+    }
+
+    @Override
+    public void putJwtToken(String jwt) {
+        Log.e("[Log.e] jwt : " , jwt);
+        SharedPreferences preferences = getSharedPreferences(X_ACCESS_TOKEN, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(X_ACCESS_TOKEN,jwt);
+        editor.apply();
     }
 }

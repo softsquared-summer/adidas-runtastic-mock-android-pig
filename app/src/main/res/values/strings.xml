@@ -45,6 +45,18 @@
     <!-- 라디오 버튼 묶기 -->
     <string name="radio_button_exercise">descriptionExercise</string>
 
+    <!-- 프로필 설정탭 -->
+    <string name="profile_setting_edit">프로필 편집하기</string>
+    <string name="profile_setting_unit">단위</string>
+    <string name="profile_setting_unit_ex">km, kg, C</string>
+    <string name="profile_setting_privacy">개인정보</string>
+    <string name="profile_setting_alarm">알림</string>
+    <string name="profile_setting_apple_watch">Apple Watch</string>
+    <string name="profile_setting_partner">파트너 계정</string>
+    <string name="profile_setting_sns">SNS 공유</string>
+    <string name="profile_setting_tos">이용약관</string>
+    <string name="profile_setting_adidas">adidas Running</string>
+
 
     <!-- 이용약관 -->
     <string name="terms_of_service"></string>

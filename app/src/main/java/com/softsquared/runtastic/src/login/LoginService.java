@@ -33,6 +33,9 @@ public class LoginService {
                 }
                 mLoginActivityView.validateSuccess(loginResponse.getMessage());
                 mLoginActivityView.validateCode(loginResponse.getCode());
+                if(loginResponse.getCode() == 100) {
+                    mLoginActivityView.putJwtToken(loginResponse.getResult().getJwt());
+                }
             }
 
             @Override
