@@ -192,7 +192,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 String markerSnippet = "위도:" + String.valueOf(location.getLatitude())
                         + " 경도:" + String.valueOf(location.getLongitude());
 
-                Log.d("Time :" , CurrentTime() + " onLocationResult : " + markerSnippet);
+                //Log.d("Time :" , CurrentTime() + " onLocationResult : " + markerSnippet); 여기가 1초마다 실행돼
 
                 // Update 주기를 확인해보려고 시간을 찍어보았음.
                 //현재 위치에 마커 생성하고 이동

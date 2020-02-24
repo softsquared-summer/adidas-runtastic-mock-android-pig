@@ -3,22 +3,15 @@ package com.softsquared.runtastic.src.main.fragment.Act;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class CountDownActivity extends BaseActivity {
     StartActTimer mActTimer;
     TextView mTvTimer;
-    Timer timer = new Timer();
-    TimerTask timerTask;
+    long mSaveCountDown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +26,9 @@ public class CountDownActivity extends BaseActivity {
     public void customOnClick(View view) {
         switch (view.getId()) {
             case R.id.count_down_btn_add_time:
+                mActTimer.cancel();
+                mActTimer = new StartActTimer(mSaveCountDown+10000,1000);
+                mActTimer.start();
                 break;
             default:
                 break;
@@ -62,11 +58,13 @@ public class CountDownActivity extends BaseActivity {
         public void onTick(long millisUntilFinished) {
             long time = millisUntilFinished/1000;
             mTvTimer.setText(Long.toString(time));
+            mSaveCountDown = millisUntilFinished;
         }
 
         @Override
         public void onFinish() {
             finish();
         }
+
     }
 }

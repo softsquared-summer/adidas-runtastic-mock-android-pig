@@ -48,6 +48,7 @@
         android:text="10 초 추가"
         android:textColor="@color/colorSplash"
         android:stateListAnimator="@color/colorNull"
+        android:onClick="customOnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
