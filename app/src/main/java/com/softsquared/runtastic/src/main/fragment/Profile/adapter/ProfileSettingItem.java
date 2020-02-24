@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.main.Profile.adapter;
+package com.softsquared.runtastic.src.main.fragment.Profile.adapter;
 
 public class ProfileSettingItem {
     int icon;

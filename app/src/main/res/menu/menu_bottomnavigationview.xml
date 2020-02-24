@@ -4,22 +4,28 @@
     <item
         android:id="@+id/menu_news_peed"
         android:icon="@drawable/menu_news_peed_selector"
-        android:title="뉴스피드" />
+        android:title="@string/main_news_peed"
+        android:checked="false"/>
     <item
         android:id="@+id/menu_status"
         android:icon="@drawable/menu_status_selector"
-        android:title="진행현황"/>
+        android:title="@string/main_status"
+        android:checked="false"/>
     <item
         android:id="@+id/menu_act"
         android:icon="@drawable/menu_act_selector"
-        android:title="활동"/>
+        android:title="@string/main_act"
+        android:checked="true"
+        />
     <item
         android:id="@+id/menu_plan"
         android:icon="@drawable/menu_plan_selector"
-        android:title="플랜"/>
+        android:title="@string/main_plan"
+        android:checked="false"/>
     <item
         android:id="@+id/menu_profile"
         android:icon="@drawable/menu_profile_selector"
-        android:title="프로필"
+        android:title="@string/main_profile"
+        android:checked="false"
         />
 </menu>

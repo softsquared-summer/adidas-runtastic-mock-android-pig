@@ -179,7 +179,8 @@
             android:background="@drawable/join_custom_background"
             android:layout_marginBottom="71dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"/>
+            android:layout_marginRight="8dp"
+            android:stateListAnimator="@color/colorNull"/>
         <ImageButton
             android:id="@+id/act_btn_setting"
             android:layout_width="50dp"

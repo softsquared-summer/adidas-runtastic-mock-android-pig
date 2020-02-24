@@ -61,12 +61,14 @@
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"/>
         <TextView
+            android:id="@+id/fragment_profile_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="창국 고"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"/>
         <TextView
+            android:id="@+id/fragment_profile_tv_created"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profile_sign_up_date"
@@ -86,7 +88,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_ll_profile"
         android:background="@color/colorWhite"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="61dp"
+        android:divider="@color/colorBackGround"
+        android:dividerHeight="1px"
+        />
 
 
 </RelativeLayout>

@@ -4,6 +4,7 @@
     package="com.softsquared.runtastic">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".src.ApplicationClass"
@@ -17,7 +18,8 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.main.Profile.ProfileSettingActivity"></activity>
+        <activity android:name=".src.main.fragment.Profile.ProfileEditActivity"></activity>
+        <activity android:name=".src.main.fragment.Profile.ProfileSettingActivity" />
         <activity android:name=".src.sign.SetGoalActivity" />
 
         <meta-data
@@ -31,7 +33,7 @@
         <activity android:name=".src.start.StartActivity" />
         <activity
             android:name=".src.main.MainActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity android:name=".src.start.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

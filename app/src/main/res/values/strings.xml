@@ -21,6 +21,13 @@
     <string name="sign_goal">개인 목표 설정</string>
     <string name="sign_goal_explain">크건 작건 목표 설정 시, 더 체계적으로 집중하며 의욕적으로 운동할 수 있습니다.</string>
 
+    <!-- 바텀네비게이션 바 -->
+    <string name="main_plan">플랜</string>
+    <string name="main_profile">프로필</string>
+    <string name="main_news_peed">뉴스피드</string>
+    <string name="main_status">진행 현황</string>
+    <string name="main_act">활동</string>
+
     <!-- 기본운동정보 -->
     <string name="exercise_time">00:00:00</string>
     <string name="exercise_time_name_tag">운동 시간</string>

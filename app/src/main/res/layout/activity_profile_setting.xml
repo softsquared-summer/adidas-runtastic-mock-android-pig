@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackGround"
-    tools:context=".src.main.Profile.ProfileSettingActivity">
+    tools:context=".src.main.fragment.Profile.ProfileSettingActivity">
 
     <LinearLayout
         android:id="@+id/profile_setting_ll_top_bar"
@@ -32,7 +32,7 @@
             android:textColor="@color/colorBlack"
             android:layout_weight="1"/>
         <Button
-            android:id="@+id/profile_btn_setting"
+            android:id="@+id/profile_setting_btn_complete"
             android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="25dp"
@@ -41,6 +41,7 @@
             android:textColor="@color/colorSplash"
             android:background="@color/colorFree"
             android:layout_marginRight="5dp"
+            android:onClick="customOnclick"
             android:stateListAnimator="@color/colorNull"/>
     </LinearLayout>
     <View
@@ -54,7 +55,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/colorBackGround"
             android:layout_below="@+id/profile_setting_ll_top_bar">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,6 +75,9 @@
                     android:id="@+id/profile_setting_lv_privacy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawSelectorOnTop="true"
+                    android:divider="@color/colorBackGround"
+                    android:dividerHeight="1px"
                     />
             </LinearLayout>
             <LinearLayout
@@ -95,7 +98,11 @@
                 <ListView
                     android:id="@+id/profile_setting_lv_app"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:drawSelectorOnTop="true"
+                    android:divider="@color/colorBackGround"
+                    android:dividerHeight="1px"
+                    />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,7 +122,9 @@
                 <ListView
                     android:id="@+id/profile_setting_lv_add"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:divider="@color/colorBackGround"
+                    android:dividerHeight="1px"/>
             </LinearLayout>
 
             <Button

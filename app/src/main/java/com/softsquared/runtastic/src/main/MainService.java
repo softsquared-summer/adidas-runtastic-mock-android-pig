@@ -1,8 +1,8 @@
 package com.softsquared.runtastic.src.main;
 
+import com.softsquared.runtastic.src.main.interfaces.MainActivityView;
 import com.softsquared.runtastic.src.main.interfaces.MainRetrofitInterface;
 import com.softsquared.runtastic.src.main.models.DefaultResponse;
-import com.softsquared.runtastic.src.main.interfaces.MainActivityView;
 
 import retrofit2.Call;
 import retrofit2.Callback;

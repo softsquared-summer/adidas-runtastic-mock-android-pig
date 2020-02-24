@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.main.Profile.adapter;
+package com.softsquared.runtastic.src.main.fragment.Profile.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.softsquared.runtastic.R;
-import com.softsquared.runtastic.src.main.Profile.ProfileSettingActivity;
 
 import java.util.ArrayList;
 

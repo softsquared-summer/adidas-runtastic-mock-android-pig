@@ -1,18 +1,17 @@
-package com.softsquared.runtastic.src.main.Profile;
+package com.softsquared.runtastic.src.main.fragment.Profile;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
-import com.softsquared.runtastic.src.main.Profile.adapter.ProfileSettingItem;
-import com.softsquared.runtastic.src.main.Profile.adapter.ProfileSettingListAdapter;
+import com.softsquared.runtastic.src.main.fragment.Profile.adapter.ProfileSettingItem;
+import com.softsquared.runtastic.src.main.fragment.Profile.adapter.ProfileSettingListAdapter;
 import com.softsquared.runtastic.src.start.StartActivity;
 
 import java.util.ArrayList;
@@ -50,6 +49,8 @@ public class ProfileSettingActivity extends BaseActivity {
         mLvPrivacyList.setAdapter(mPrivacyAdapter);
         mLvAppSettingList.setAdapter(mAppSettingAdapter);
         mLvAddList.setAdapter(mAddAdapter);
+
+        setButtonTools();
     }
 
     public void customOnclick(View v) {
@@ -62,9 +63,44 @@ public class ProfileSettingActivity extends BaseActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 break;
+            case R.id.profile_setting_btn_complete:
+                finish();
             default:
                 break;
         }
+    }
+
+    public void setButtonTools() {
+        mLvPrivacyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0) {
+                    Intent intent = new Intent(getApplicationContext(),ProfileEditActivity.class);
+                    startActivity(intent);
+                } else if(position == 1) {
+
+                } else if(position == 2) {
+
+                } else if(position == 3) {
+
+                }
+
+            }
+        });
+
+        mLvAppSettingList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
+        mLvAddList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
     }
 
     public void initArrayList(){
@@ -80,6 +116,8 @@ public class ProfileSettingActivity extends BaseActivity {
         mAddList.add(new ProfileSettingItem(R.drawable.profile_terms_of_service,getString(R.string.profile_setting_tos),R.drawable.profile_btn_in, " "));
         mAddList.add(new ProfileSettingItem(R.drawable.profile_adidas_running,getString(R.string.profile_setting_adidas),R.drawable.profile_btn_in, " "));
     }
+
+
 
 
 
