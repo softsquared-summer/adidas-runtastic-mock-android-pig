@@ -3,6 +3,9 @@ package com.softsquared.runtastic.src.main.fragment.Act;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
 import com.softsquared.runtastic.R;
@@ -12,11 +15,15 @@ public class CountDownActivity extends BaseActivity {
     StartActTimer mActTimer;
     TextView mTvTimer;
     long mSaveCountDown;
+    Animation mScaleUp,mScaleDown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count_down);
+
+        mScaleDown = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_down_animation);
+        mScaleUp = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_up_animation);
 
         mTvTimer = findViewById(R.id.count_down_timer);
         mActTimer = new StartActTimer(15000,1000);
@@ -58,6 +65,8 @@ public class CountDownActivity extends BaseActivity {
         public void onTick(long millisUntilFinished) {
             long time = millisUntilFinished/1000;
             mTvTimer.setText(Long.toString(time));
+            mTvTimer.startAnimation(mScaleDown);
+            mTvTimer.startAnimation(mScaleUp);
             mSaveCountDown = millisUntilFinished;
         }
 
