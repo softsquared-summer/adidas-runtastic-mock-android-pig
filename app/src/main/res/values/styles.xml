@@ -51,4 +51,14 @@
         <item name="colorControlHighlight">@color/colorWhite</item>
     </style>
 
+    <!-- 투명한 activity 만들기 -->
+    <style name="Theme.AppCompat.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">#66ffffff</item>
+    </style>
+
 </resources>

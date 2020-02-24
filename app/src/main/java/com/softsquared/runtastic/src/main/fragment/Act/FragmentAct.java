@@ -1,5 +1,6 @@
 package com.softsquared.runtastic.src.main.fragment.Act;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -15,7 +16,6 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,7 +48,7 @@ import java.util.List;
 public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
     private GridLayout mGridExercise;
-    private LinearLayout mLinearTop,mLinearBottm;
+    private LinearLayout mLinearTop, mLinearBottom;
     private View mTopLine,mBottomLine;
     Animation mSlideUp, mSlideDown;
     BottomNavigationView mBottomNav;
@@ -93,7 +93,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
         mGridExercise = rootView.findViewById(R.id.act_gl_time);
         mLinearTop = rootView.findViewById(R.id.act_ll_top_bar);
-        mLinearBottm = rootView.findViewById(R.id.act_ll_bottom_bar);
+        mLinearBottom = rootView.findViewById(R.id.act_ll_bottom_bar);
         mTopLine = rootView.findViewById(R.id.act_v_top_line);
         mBtnMusic = rootView.findViewById(R.id.act_btn_music);
         mBtnSetting = rootView.findViewById(R.id.act_btn_setting);
@@ -105,6 +105,8 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
         mSlideUp = AnimationUtils.loadAnimation(getContext(),
                 R.anim.slide_up);
+
+        setButtonTools();
 
         return rootView;
     }
@@ -291,11 +293,22 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         }
     }
 
+    public void setButtonTools() {
+        mBtnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity().getApplicationContext(),CountDownActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.fade_in_animation, R.anim.fade_out_animation);
+            }
+        });
+    }
+
 
     public void animation(){
-        System.out.println("상단바: " + mLinearTop.getHeight() + " , 그리드레이아웃 : " + mGridExercise.getHeight() + " , 시작버튼 : " + mLinearBottm.getHeight() + ", 바텀nav : " + mBottomNav.getHeight());
-        TranslateAnimation animateDownBottom = new TranslateAnimation(0, 0, 0, mLinearBottm.getHeight()+mBottomNav.getHeight()+45);
-        TranslateAnimation animateUpBottom = new TranslateAnimation(0, 0, mLinearBottm.getHeight()+mBottomNav.getHeight()+45, 0);
+        System.out.println("상단바: " + mLinearTop.getHeight() + " , 그리드레이아웃 : " + mGridExercise.getHeight() + " , 시작버튼 : " + mLinearBottom.getHeight() + ", 바텀nav : " + mBottomNav.getHeight());
+        TranslateAnimation animateDownBottom = new TranslateAnimation(0, 0, 0, mLinearBottom.getHeight()+mBottomNav.getHeight()+45);
+        TranslateAnimation animateUpBottom = new TranslateAnimation(0, 0, mLinearBottom.getHeight()+mBottomNav.getHeight()+45, 0);
         TranslateAnimation animateUpTop = new TranslateAnimation(0,0,0,-mGridExercise.getHeight() - mLinearTop.getHeight());
         TranslateAnimation animateDownTop = new TranslateAnimation(0,0,-mGridExercise.getHeight() - mLinearTop.getHeight(),0);
         TranslateAnimation animateSlideRightToRight = new TranslateAnimation(0,mBtnMusic.getWidth()+50,0,0);
