@@ -101,12 +101,13 @@
             android:layout_columnWeight="1"
             android:layout_marginBottom="10dp">
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/exercise_distance"
-            android:textStyle="bold"
-            android:textSize="23dp"
-            android:textColor="@color/colorBlack"/>
+                android:id="@+id/act_tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exercise_distance"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                android:textColor="@color/colorBlack"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -103,9 +103,15 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
     private static final int FASTEST_UPDATE_INTERVAL_MS = 1000 * 1; // 30초 단위로 화면 갱신
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
+
+
+    // 선그리고 거리계산
     private LatLng startLatLng = new LatLng(0, 0);
     private LatLng endLatLng = new LatLng(0, 0);
     private List<Polyline> polylines = new ArrayList<>();
+    private double mMoveDistance = 0;
+    private double mDistanceByKm = 0;
+    TextView mTvDistance;
 
     @Nullable
     @Override
@@ -125,6 +131,8 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.act_map);
         mapFragment.getMapAsync(this);
+
+        mTvDistance = rootView.findViewById(R.id.act_tv_distance);
 
         mTvHours = rootView.findViewById(R.id.act_tv_hours);
         mTvMinutes = rootView.findViewById(R.id.act_tv_minutes);
@@ -214,7 +222,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         currentMarker = mGoogleMap.addMarker(markerOptions);
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(mDefaultLocation, 15);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(mDefaultLocation, 18);
         mGoogleMap.moveCamera(cameraUpdate);
     }
 
@@ -239,7 +247,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 //현재 위치에 마커 생성하고 이동
                 setCurrentLocation(location, markerTitle, markerSnippet);
                 mCurrentLocation = location;
-                if(mDrawLine){                        //걸음 시작 버튼이 눌렸을 때
+                if (mDrawLine) {                        //걸음 시작 버튼이 눌렸을 때
                     endLatLng = new LatLng(location.getLatitude(), location.getLongitude());        //현재 위치를 끝점으로 설정
                     drawPath();                                            //polyline 그리기
                     startLatLng = new LatLng(location.getLatitude(), location.getLongitude());        //시작점을 끝점으로 다시 설정
@@ -339,10 +347,17 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
             mFusedLocationProviderClient.removeLocationUpdates(locationCallback);
         }
     }
-    private void drawPath(){        //polyline을 그려주는 메소드
-        PolylineOptions options = new PolylineOptions().add(startLatLng).add(endLatLng).width(15).color(Color.BLACK).geodesic(true);
+
+    private void drawPath() {
+        PolylineOptions options = new PolylineOptions().add(startLatLng).add(endLatLng).width(15).color(R.color.colorPrimary).geodesic(true);
         polylines.add(mGoogleMap.addPolyline(options));
         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLatLng, 18));
+
+        mMoveDistance += getDistance(startLatLng, endLatLng);
+        mDistanceByKm = mMoveDistance * 0.001;
+        String disString = String.format("%.2f", mDistanceByKm);
+        mTvDistance.setText(disString);
+        // Log.e("mMoveDistance"," is " + mMoveDistance + " Km : " + disString);
     }
 
     @Override
@@ -354,7 +369,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 mBanedMapClick = true;
                 setTimerStart();
                 mDrawLine = true;
-                startLatLng = new LatLng(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude());
+                startLatLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
                 break;
             case 2: // 카운트다운에서 취소버튼 눌렀을 때
                 mStartAct = true;
@@ -384,6 +399,9 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         animateStart();
         setTimerStop();
         mDrawLine = false;
+        mGoogleMap.clear();
+        polylines.clear();
+        mMoveDistance = 0;
     }
 
     public void clickedContinue() { // 계속하기
@@ -444,8 +462,22 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
             mTvSeconds.setText(getString(R.string.exercise_time));
             mTvMinutes.setText(getString(R.string.exercise_time));
             mTvHours.setText(getString(R.string.exercise_time));
+            mTvDistance.setText(getString(R.string.exercise_distance));
             mTimerTaskAct = null;
         }
+    }
+
+    public double getDistance(LatLng LatLng1, LatLng LatLng2) {
+        double distance = 0;
+        Location locationA = new Location("A");
+        locationA.setLatitude(LatLng1.latitude);
+        locationA.setLongitude(LatLng1.longitude);
+        Location locationB = new Location("B");
+        locationB.setLatitude(LatLng2.latitude);
+        locationB.setLongitude(LatLng2.longitude);
+        distance = locationA.distanceTo(locationB);
+
+        return distance;
     }
 
 
