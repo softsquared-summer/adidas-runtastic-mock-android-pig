@@ -112,6 +112,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
     private double mMoveDistance = 0;
     private double mDistanceByKm = 0;
     TextView mTvDistance;
+    TextView mTvCalories;
 
     @Nullable
     @Override
@@ -133,6 +134,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
 
         mTvDistance = rootView.findViewById(R.id.act_tv_distance);
+        mTvCalories = rootView.findViewById(R.id.act_tv_calorie);
 
         mTvHours = rootView.findViewById(R.id.act_tv_hours);
         mTvMinutes = rootView.findViewById(R.id.act_tv_minutes);
@@ -247,9 +249,9 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 //현재 위치에 마커 생성하고 이동
                 setCurrentLocation(location, markerTitle, markerSnippet);
                 mCurrentLocation = location;
-                if (mDrawLine) {                        //걸음 시작 버튼이 눌렸을 때
+                if (mDrawLine) { // 운동 시작
                     endLatLng = new LatLng(location.getLatitude(), location.getLongitude());        //현재 위치를 끝점으로 설정
-                    drawPath();                                            //polyline 그리기
+                    drawPath();
                     startLatLng = new LatLng(location.getLatitude(), location.getLongitude());        //시작점을 끝점으로 다시 설정
                 }
             }
@@ -355,8 +357,10 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
         mMoveDistance += getDistance(startLatLng, endLatLng);
         mDistanceByKm = mMoveDistance * 0.001;
+        int calorie = (int) mMoveDistance / 30;
         String disString = String.format("%.2f", mDistanceByKm);
         mTvDistance.setText(disString);
+        mTvCalories.setText(Integer.toString(calorie));
         // Log.e("mMoveDistance"," is " + mMoveDistance + " Km : " + disString);
     }
 
@@ -463,6 +467,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
             mTvMinutes.setText(getString(R.string.exercise_time));
             mTvHours.setText(getString(R.string.exercise_time));
             mTvDistance.setText(getString(R.string.exercise_distance));
+            mTvCalories.setText(getString(R.string.exercise_calorie));
             mTimerTaskAct = null;
         }
     }
