@@ -144,6 +144,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mainService.getTest();
     }
 
+
     @Override
     public void validateSuccess(String text) {
         hideProgressDialog();
@@ -156,10 +157,14 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
     }
 
-    public void customOnClick(View view) {
-        switch (view.getId()) {
-            // case :
-            //  break;
+    public void customViewPagerButtonClick(View v) {
+        switch (v.getId()) {
+            case R.id.view_pager_btn_complete:
+                mFragmentAct.clickedComplete();
+                break;
+            case R.id.view_pager_btn_continue:
+                mFragmentAct.clickedContinue();
+                break;
             default:
                 break;
         }

@@ -23,6 +23,12 @@
     <!-- 버튼 프레스 색들 -->
     <color name="colorJoinButtonPressed">#2a2124</color>
     <color name="colorWhiteGray">#e0e0e0</color>
+    <color name="colorRippleEffect">#d1d1d5</color>
+    <color name="colorCompleteRed">#c54755</color>
+    <color name="colorCompleteRedPressed">#d98d98</color>
+    <color name="colorContinueGreen">#68ac74</color>
+    <color name="colorContinueGreenPressed">#a1cdab</color>
+    <color name="colorSlideStop">#f7f6f4</color>
 
     <!-- 오류 -->
     <color name="colorDanger">#BD4444</color>

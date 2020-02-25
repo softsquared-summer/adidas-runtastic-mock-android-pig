@@ -64,6 +64,11 @@
     <string name="profile_setting_tos">이용약관</string>
     <string name="profile_setting_adidas">adidas Running</string>
 
+    <!-- 메인 -->
+    <string name="act_slide_stop">슬라이드하여 멈춤</string>
+    <string name="act_complete">완료</string>
+    <string name="act_continue">계속하기</string>
+
 
     <!-- 이용약관 -->
     <string name="terms_of_service"></string>

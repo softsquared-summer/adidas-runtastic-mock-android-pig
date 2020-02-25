@@ -1,5 +1,6 @@
 package com.softsquared.runtastic.src.main.fragment.Act;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -17,10 +18,16 @@ public class CountDownActivity extends BaseActivity {
     long mSaveCountDown;
     Animation mScaleUp,mScaleDown;
 
+    boolean mStartAct;
+    private int RESULT_OK = 1;
+    private int ACT_MODE_START = 1; // 1일때 시작, 2일때 취소
+    private int ACT_MODE_CANCEL = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count_down);
+        mStartAct = getIntent().getBooleanExtra("StartFlag",true);
 
         mScaleDown = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_down_animation);
         mScaleUp = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_up_animation);
@@ -38,10 +45,21 @@ public class CountDownActivity extends BaseActivity {
                 mActTimer.start();
                 break;
             case R.id.count_down_ll:
+                Intent intent = new Intent();
+                intent.putExtra("mode_flag", ACT_MODE_START);
+                setResult(RESULT_OK, intent);
                 finish();
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("mode_flag", ACT_MODE_CANCEL);
+        setResult(RESULT_OK, intent);
+        super.onBackPressed();
     }
 
     @Override
@@ -74,6 +92,9 @@ public class CountDownActivity extends BaseActivity {
 
         @Override
         public void onFinish() {
+            Intent intent = new Intent();
+            intent.putExtra("mode_flag", ACT_MODE_START);
+            setResult(RESULT_OK, intent);
             finish();
         }
 

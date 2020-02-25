@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/colorSlideStop">
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profile_btn_in"/>
+    <TextView
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/act_slide_stop"
+        android:textColor="@color/colorSplash"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/profile_btn_in"
+        android:visibility="invisible"/>
+
+</LinearLayout>
