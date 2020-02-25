@@ -280,7 +280,7 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
         SetBodyRequest bodyRequest = new SetBodyRequest(mUserNo, height, 1, weight, 1);
         final SignUpNextService signUpNextService = new SignUpNextService(this);
 
-        signUpNextService.tryPostSetBody(bodyRequest);
+        signUpNextService.tryPuttSetBody(bodyRequest);
     }
 
     public void tryPostGoal() {

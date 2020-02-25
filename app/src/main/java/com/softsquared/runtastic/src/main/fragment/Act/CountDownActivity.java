@@ -37,6 +37,8 @@ public class CountDownActivity extends BaseActivity {
                 mActTimer = new StartActTimer(mSaveCountDown+10000,1000);
                 mActTimer.start();
                 break;
+            case R.id.count_down_ll:
+                finish();
             default:
                 break;
         }

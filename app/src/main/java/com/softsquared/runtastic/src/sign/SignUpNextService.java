@@ -22,9 +22,9 @@ public class SignUpNextService {
         this.mSignUpNextActivityView = signUpNextActivityView;
     }
 
-    void tryPostSetBody(SetBodyRequest requestBody){
+    void tryPuttSetBody(SetBodyRequest requestBody){
         final SignUpNextRetrofitInterface signUpNextRetrofitInterface = getRetrofit().create(SignUpNextRetrofitInterface.class);
-        signUpNextRetrofitInterface.postBodyProfile(requestBody).enqueue(new Callback<SetBodyResponse>() {
+        signUpNextRetrofitInterface.putBodyProfile(requestBody).enqueue(new Callback<SetBodyResponse>() {
             @Override
             public void onResponse(Call<SetBodyResponse> call, Response<SetBodyResponse> response) {
                 final SetBodyResponse setBodyResponse = response.body();

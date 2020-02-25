@@ -220,7 +220,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         markerOptions.snippet(markerSnippet);
         markerOptions.draggable(true);
 
-        currentMarker = mGoogleMap.addMarker(markerOptions);
+        //currentMarker = mGoogleMap.addMarker(markerOptions);
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(currentLatLng);
         mGoogleMap.moveCamera(cameraUpdate);
@@ -342,7 +342,6 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
             mBtnStart.startAnimation(animateDownBottom);
             mBtnStart.setVisibility(View.VISIBLE);
-
 
 
             mTopLine.setVisibility(View.INVISIBLE);

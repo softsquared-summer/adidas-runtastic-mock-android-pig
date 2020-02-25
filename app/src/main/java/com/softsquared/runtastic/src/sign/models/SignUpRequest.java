@@ -3,11 +3,11 @@ package com.softsquared.runtastic.src.sign.models;
 import com.google.gson.annotations.SerializedName;
 
 public class SignUpRequest {
-    @SerializedName("lName")
-    private String lName;
+    @SerializedName("lastName")
+    String lastName;
 
-    @SerializedName("fName")
-    private String fName;
+    @SerializedName("firstName")
+    String firstName;
 
     @SerializedName("sex")
     int sex;
@@ -24,9 +24,9 @@ public class SignUpRequest {
     @SerializedName("profileImage")
     String profileImage;
 
-    public SignUpRequest(String lName, String fName, int sex, String email, String pw, int birth, String profileImage) {
-        this.lName = lName;
-        this.fName = fName;
+    public SignUpRequest(String lastName, String firstName, int sex, String email, String pw, int birth, String profileImage) {
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.sex = sex;
         this.email = email;
         this.pw = pw;
@@ -34,20 +34,20 @@ public class SignUpRequest {
         this.profileImage = profileImage;
     }
 
-    public String getlName() {
-        return lName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getfName() {
-        return fName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public int getSex() {

@@ -41,7 +41,7 @@ public class SignUpService {
             @Override
             public void onFailure(Call<SignUpResponse> call, Throwable t) {
                 mSignUpActivityView.validateFailure(null);
-                Log.e("[Log.e} tag","회원가입 실패2");
+                Log.e("[Log.e} tag","회원가입 실패2" + t.getLocalizedMessage());
             }
         });
     }

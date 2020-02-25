@@ -8,10 +8,11 @@ import com.softsquared.runtastic.src.sign.models.SetGoalResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public interface SignUpNextRetrofitInterface {
-    @POST("/user/body/initial")
-    Call<SetBodyResponse> postBodyProfile(@Body SetBodyRequest params);
+    @PUT("/user/body/initial")
+    Call<SetBodyResponse> putBodyProfile(@Body SetBodyRequest params);
 
     @POST("/user/goal/initial")
     Call<SetGoalResponse> postGoalProfile(@Body SetGoalRequest params);
