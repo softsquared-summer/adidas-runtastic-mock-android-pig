@@ -4,20 +4,17 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,10 +45,16 @@ import com.softsquared.runtastic.src.main.fragment.Act.adapter.StopPagerAdapter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class FragmentAct extends Fragment implements OnMapReadyCallback {
     private int ACT_MODE_START = 1;
     private int ACT_MODE_CANCEL = 2;
+
+    TextView mTvHours, mTvMinutes, mTvSeconds;
+    Timer mTimerAct;
+    TimerTask mTimerTaskAct;
 
     private GridLayout mGridExercise;
     private LinearLayout mLinearTop, mLinearBottom;
@@ -115,6 +118,10 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.act_map);
         mapFragment.getMapAsync(this);
 
+        mTvHours = rootView.findViewById(R.id.act_tv_hours);
+        mTvMinutes = rootView.findViewById(R.id.act_tv_minutes);
+        mTvSeconds = rootView.findViewById(R.id.act_tv_seconds);
+
         mGridExercise = rootView.findViewById(R.id.act_gl_time);
         mLinearTop = rootView.findViewById(R.id.act_ll_top_bar);
         mLinearBottom = rootView.findViewById(R.id.act_ll_bottom_bar);
@@ -128,7 +135,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         mVpStop = rootView.findViewById(R.id.act_vp_pager_stop);
         mStopPagerAdapter = new StopPagerAdapter(getActivity().getSupportFragmentManager());
         mVpStop.setAdapter(mStopPagerAdapter);
-        mVpStop.setCurrentItem(1,true);
+        mVpStop.setCurrentItem(1, true);
 
         setButtonTools();
         createAnimation();
@@ -161,7 +168,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-                if(!mBanedMapClick) {
+                if (!mBanedMapClick) {
                     createAnimation();
                     animateMapClick();
                 }
@@ -207,9 +214,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         @Override
         public void onLocationResult(LocationResult locationResult) {
             super.onLocationResult(locationResult);
-
             List<Location> locationList = locationResult.getLocations();
-
             if (locationList.size() > 0) {
                 Location location = locationList.get(locationList.size() - 1);
 
@@ -324,10 +329,11 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (data.getIntExtra("mode_flag",ACT_MODE_CANCEL)) {
+        switch (data.getIntExtra("mode_flag", ACT_MODE_CANCEL)) {
             case 1: // 운동 시작
-                mVpStop.setVisibility(View.VISIBLE);
+                mVpStop.setVisibility(View.VISIBLE); // 뷰페이저 보이게
                 mBanedMapClick = true;
+                setTimerStart();
                 break;
             case 2: // 카운트다운에서 취소버튼 눌렀을 때
                 mStartAct = true;
@@ -343,22 +349,81 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 createAnimation();
                 animateStart();
                 Intent intent = new Intent(getActivity().getApplicationContext(), CountDownActivity.class);
-                intent.putExtra("StartFlag",mStartAct);
-                startActivityForResult(intent,REQUEST_OK);
+                intent.putExtra("StartFlag", mStartAct);
+                startActivityForResult(intent, REQUEST_OK);
                 getActivity().overridePendingTransition(R.anim.fade_in_animation, R.anim.fade_out_animation);
             }
         });
     }
 
-    public void clickedComplete() {
+    public void clickedComplete() { // 운동 끝났을때 완료했을때
         mVpStop.setVisibility(View.GONE);
         mVpStop.setCurrentItem(1);
         mBanedMapClick = false; // 이게 false 일때만 맵클릭 시 애니메이션
         animateStart();
+        setTimerStop();
     }
 
-    public void clickedContinue() {
-        mVpStop.setCurrentItem(1,true);
+    public void clickedContinue() { // 계속하기
+        mVpStop.setCurrentItem(1, true);
+    }
+
+    private void setTimerStart() {
+        mTimerAct = new Timer();
+        mTimerTaskAct = new TimerTask() {
+            int seconds = 0;
+            int minutes = 0;
+            int hours = 0;
+
+            @Override
+            public void run() {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        seconds++;
+                        if (seconds < 10) {
+                            mTvSeconds.setText("0" + seconds);
+                        } else if (seconds < 60) {
+                            mTvSeconds.setText(Integer.toString(seconds));
+                        } else {
+                            mTvSeconds.setText(getString(R.string.exercise_time));
+                            minutes++;
+                            seconds = 0;
+                            if (minutes < 10) {
+                                mTvMinutes.setText("0" + minutes);
+                            } else if (minutes < 60) {
+                                mTvMinutes.setText(Integer.toString(minutes));
+                            } else {
+                                mTvMinutes.setText(getString(R.string.exercise_time));
+                                hours++;
+                                minutes = 0;
+                                if (hours < 10) {
+                                    mTvHours.setText("0" + hours);
+                                } else {
+                                    mTvHours.setText(Integer.toString(hours));
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public boolean cancel() {
+                return super.cancel();
+            }
+        };
+        mTimerAct.schedule(mTimerTaskAct, 0, 1000);
+    }
+
+    private void setTimerStop() {
+        if (mTimerTaskAct != null) {
+            mTimerTaskAct.cancel();
+            mTvSeconds.setText(getString(R.string.exercise_time));
+            mTvMinutes.setText(getString(R.string.exercise_time));
+            mTvHours.setText(getString(R.string.exercise_time));
+            mTimerTaskAct = null;
+        }
     }
 
 

@@ -29,7 +29,8 @@
     <string name="main_act">활동</string>
 
     <!-- 기본운동정보 -->
-    <string name="exercise_time">00:00:00</string>
+    <string name="exercise_time">00</string>
+    <string name="exercise_time_dot">:</string>
     <string name="exercise_time_name_tag">운동 시간</string>
     <string name="exercise_distance">0.00</string>
     <string name="exercise_distance_name_tag">거리 (km)</string>
