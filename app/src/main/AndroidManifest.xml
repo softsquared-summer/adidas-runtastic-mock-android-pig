@@ -18,8 +18,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.main.fragment.Act.CountDownActivity"
-            android:theme="@style/Theme.AppCompat.Translucent"></activity>
+        <activity
+            android:name=".src.main.fragment.Act.CountDownActivity"
+            android:theme="@style/Theme.AppCompat.Translucent" />
         <activity android:name=".src.main.fragment.Profile.ProfileEditActivity" />
         <activity android:name=".src.main.fragment.Profile.ProfileSettingActivity" />
         <activity android:name=".src.sign.SetGoalActivity" />

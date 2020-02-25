@@ -2,6 +2,7 @@ package com.softsquared.runtastic.src.main.fragment.Act;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Looper;
@@ -38,11 +39,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.main.fragment.Act.adapter.StopPagerAdapter;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Timer;
@@ -73,6 +77,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
     boolean mAnimationFlag;
     boolean mStartAct;
     boolean mBanedMapClick = false;
+    boolean mDrawLine = false;
     TranslateAnimation animateDownBottom;
     TranslateAnimation animateUpBottom;
     TranslateAnimation animateUpTop;
@@ -98,6 +103,9 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
     private static final int FASTEST_UPDATE_INTERVAL_MS = 1000 * 1; // 30초 단위로 화면 갱신
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
+    private LatLng startLatLng = new LatLng(0, 0);
+    private LatLng endLatLng = new LatLng(0, 0);
+    private List<Polyline> polylines = new ArrayList<>();
 
     @Nullable
     @Override
@@ -231,6 +239,11 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 //현재 위치에 마커 생성하고 이동
                 setCurrentLocation(location, markerTitle, markerSnippet);
                 mCurrentLocation = location;
+                if(mDrawLine){                        //걸음 시작 버튼이 눌렸을 때
+                    endLatLng = new LatLng(location.getLatitude(), location.getLongitude());        //현재 위치를 끝점으로 설정
+                    drawPath();                                            //polyline 그리기
+                    startLatLng = new LatLng(location.getLatitude(), location.getLongitude());        //시작점을 끝점으로 다시 설정
+                }
             }
         }
     };
@@ -258,6 +271,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(currentLatLng);
         mGoogleMap.moveCamera(cameraUpdate);
     }
+
 
     private void getDeviceLocation() {
         try {
@@ -325,6 +339,11 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
             mFusedLocationProviderClient.removeLocationUpdates(locationCallback);
         }
     }
+    private void drawPath(){        //polyline을 그려주는 메소드
+        PolylineOptions options = new PolylineOptions().add(startLatLng).add(endLatLng).width(15).color(Color.BLACK).geodesic(true);
+        polylines.add(mGoogleMap.addPolyline(options));
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLatLng, 18));
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -334,6 +353,8 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 mVpStop.setVisibility(View.VISIBLE); // 뷰페이저 보이게
                 mBanedMapClick = true;
                 setTimerStart();
+                mDrawLine = true;
+                startLatLng = new LatLng(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude());
                 break;
             case 2: // 카운트다운에서 취소버튼 눌렀을 때
                 mStartAct = true;
@@ -362,6 +383,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
         mBanedMapClick = false; // 이게 false 일때만 맵클릭 시 애니메이션
         animateStart();
         setTimerStop();
+        mDrawLine = false;
     }
 
     public void clickedContinue() { // 계속하기
