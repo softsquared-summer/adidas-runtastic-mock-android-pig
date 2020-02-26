@@ -35,7 +35,7 @@ public class FindFriendActivityService {
                     Log.e("[Log.e] 친구정보조회 성공", " : " + friendResponse.getMessage());
                     mFindFriendActivityView.sendNoInfo();
                 } else {
-                    Log.e("[Log.e] 친구정보조회 성공", " : " + friendResponse.getMessage());
+                    Log.e("[Log.e] 친구정보조회 성공", " : ");
                     mFindFriendActivityView.getFriendsInfo(friendResponse.getResult());
                 }
             }

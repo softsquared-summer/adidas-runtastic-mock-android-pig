@@ -22,6 +22,7 @@ public class FindFriendActivity extends BaseActivity implements FindFriendActivi
     EditText mEtFindEmail;
     LinearLayout mLlProfileCard;
     TextView mTvName,mTvNoFind;
+    Button mBtnAdd;
 
     int mUserNo = 1;
 
@@ -35,6 +36,7 @@ public class FindFriendActivity extends BaseActivity implements FindFriendActivi
         mLlProfileCard = findViewById(R.id.find_friends_ll_profile_card);
         mTvName = findViewById(R.id.find_friends_tv_name);
         mTvNoFind = findViewById(R.id.find_friends_tv_no_find);
+        mBtnAdd = findViewById(R.id.find_friends_btn_add);
 
         setEditTextListener();
     }
@@ -87,6 +89,8 @@ public class FindFriendActivity extends BaseActivity implements FindFriendActivi
     public void getFriendsInfo(FindFriendResponse.FriendResult result) {
         mLlProfileCard.setVisibility(View.VISIBLE);
         mTvNoFind.setVisibility(View.INVISIBLE);
+        mBtnAdd.setClickable(true);
+        mBtnAdd.setText(getString(R.string.find_friends_add));
         mTvName.setText(result.getFirstName() + " " + result.getLastName());
         mUserNo = Integer.parseInt(result.getUserNo());
         hideProgressDialog();
@@ -109,5 +113,7 @@ public class FindFriendActivity extends BaseActivity implements FindFriendActivi
     public void validateSuccess(String text, int code) {
         hideProgressDialog();
         Log.e("[Log.e] 친구 요청 성공?", " message : " + text + " code : " + code);
+        mBtnAdd.setText("요청 대기중");
+        mBtnAdd.setClickable(false);
     }
 }

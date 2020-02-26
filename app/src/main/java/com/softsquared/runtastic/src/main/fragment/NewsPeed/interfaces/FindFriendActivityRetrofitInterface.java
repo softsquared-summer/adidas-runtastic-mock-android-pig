@@ -14,6 +14,6 @@ public interface FindFriendActivityRetrofitInterface {
     @GET("/search/friend")
     Call<FindFriendResponse> getFriendName(@Query("query") String email);
 
-    @POST("/search/friend")
+    @POST("/friend")
     Call<AddFriendResponse> postAddFriend(@Body AddFriendRequest request);
 }
