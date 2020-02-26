@@ -62,4 +62,5 @@ public class FriendAlarmActivity extends BaseActivity implements FriendAlarmActi
         mLvReceiveLIst.setAdapter(adapter);
         hideProgressDialog();
     }
+
 }

@@ -2,9 +2,12 @@ package com.softsquared.runtastic.src.main.fragment.NewsPeed;
 
 import android.util.Log;
 
+import com.softsquared.runtastic.src.main.fragment.NewsPeed.Adapter.ReceiveListAdapter;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.interfaces.FriendAlarmActivityRetrofitInterface;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.interfaces.FriendAlarmActivityView;
+import com.softsquared.runtastic.src.main.fragment.NewsPeed.models.AddFriendResponse;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.models.ReceiveFriendResponse;
+import com.softsquared.runtastic.src.main.fragment.NewsPeed.models.RequestNumber;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +22,7 @@ public class FriendAlarmActivityService {
         mFriendAlarmActivityView = friendAlarmActivityView;
     }
 
-    void getReceiveList() {
+    public void getReceiveList() {
         final FriendAlarmActivityRetrofitInterface friendAlarmActivityRetrofitInterface = getRetrofit().create(FriendAlarmActivityRetrofitInterface.class);
         friendAlarmActivityRetrofitInterface.getReceive().enqueue(new Callback<ReceiveFriendResponse>() {
             @Override
@@ -46,6 +49,27 @@ public class FriendAlarmActivityService {
                 mFriendAlarmActivityView.validateFailure(null);
             }
         });
+    }
 
+    public void acceptOk(RequestNumber number) {
+        final FriendAlarmActivityRetrofitInterface friendAlarmActivityRetrofitInterface = getRetrofit().create(FriendAlarmActivityRetrofitInterface.class);
+        friendAlarmActivityRetrofitInterface.acceptFriend(number).enqueue(new Callback<AddFriendResponse>() {
+            @Override
+            public void onResponse(Call<AddFriendResponse> call, Response<AddFriendResponse> response) {
+                final AddFriendResponse addFriendResponse = response.body();
+                if(addFriendResponse == null) {
+                    Log.e("[Log.e] 친구 수락 실패", " addFriendResponse is null");
+                    mFriendAlarmActivityView.validateFailure(null);
+                    return;
+                }
+                Log.e("[Log.e] 친구 수락 성공", " ");
+            }
+
+            @Override
+            public void onFailure(Call<AddFriendResponse> call, Throwable t) {
+                Log.e("[Log.e] 친구 수락 실패", " on Failure : " + t.getLocalizedMessage());
+                mFriendAlarmActivityView.validateFailure(null);
+            }
+        });
     }
 }
