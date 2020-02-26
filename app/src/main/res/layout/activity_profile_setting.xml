@@ -12,37 +12,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:orientation="horizontal"
-        android:background="@color/colorWhite">
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
         <Button
-            android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="25dp"
-            android:textColor="@color/colorSplash"
-            android:background="@color/colorFree"
+            android:layout_gravity="center"
             android:layout_marginRight="5dp"
-            android:stateListAnimator="@color/colorNull"/>
+            android:background="@color/colorFree"
+            android:stateListAnimator="@color/colorNull"
+            android:textColor="@color/colorSplash" />
+
         <TextView
-            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="설정"
-            android:textStyle="bold"
-            android:textSize="15dp"
             android:textColor="@color/colorBlack"
-            android:layout_weight="1"/>
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/profile_setting_btn_complete"
-            android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="25dp"
-            android:text="완료"
-            android:textStyle="bold"
-            android:textColor="@color/colorSplash"
-            android:background="@color/colorFree"
+            android:layout_gravity="center"
             android:layout_marginRight="5dp"
+            android:background="@color/colorFree"
             android:onClick="customOnclick"
-            android:stateListAnimator="@color/colorNull"/>
+            android:stateListAnimator="@color/colorNull"
+            android:text="완료"
+            android:textColor="@color/colorSplash"
+            android:textStyle="bold" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"

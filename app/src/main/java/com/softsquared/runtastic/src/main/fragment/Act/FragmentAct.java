@@ -218,8 +218,8 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(mDefaultLocation);
-        markerOptions.title("위치정보 가져올 수 없음");
-        markerOptions.snippet("위치 퍼미션과 GPS 활성 여부 확인하세요");
+        markerOptions.title(getString(R.string.gps_error));
+        markerOptions.snippet(getString(R.string.gps_error_explain));
         markerOptions.draggable(true);
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         currentMarker = mGoogleMap.addMarker(markerOptions);

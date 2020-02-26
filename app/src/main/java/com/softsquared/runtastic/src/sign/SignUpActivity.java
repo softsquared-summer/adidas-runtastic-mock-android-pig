@@ -100,7 +100,6 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             mSuccessSignUp = true;
             getJwtToken(mEmail,mPassword);
 
-
             Intent intent = new Intent(getApplicationContext(), TOSActivity.class);
             intent.putExtra("name" , mFirstName);
             intent.putExtra("userNo",userNo);
@@ -175,11 +174,11 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
                 mEtBirth.setBackgroundTintList(getColorStateList(R.color.colorDanger));
             }
             if (mEmail.length() == 0) {
-                mInputEmail.setError("유효한 이메일 주소를 입력하세요.");
+                mInputEmail.setError(getString(R.string.email_error));
                 mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
             }
             if (mPassword.length() == 0) {
-                mInputPassword.setError("최소 8자리 이상으로 구성되어야 합니다. (최소 대문자 1, 소문자 1 및 숫자 1개 포함)");
+                mInputPassword.setError(getString(R.string.password_error));
                 mInputPassword.setErrorTextColor(getColorStateList(R.color.colorDanger));
             }
             return;
@@ -202,7 +201,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             @Override
             public void afterTextChanged(Editable s) {
                 if(!s.toString().contains("@")){ // regex 정규식
-                    mInputEmail.setError("유효한 이메일 주소를 입력하세요.");
+                    mInputEmail.setError(getString(R.string.email_error));
                     mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
                     mEmailError = true;
                 } else {
@@ -220,7 +219,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.toString().length() < 8){
-                    mInputPassword.setError("최소 8자리 이상으로 구성되어야 합니다. (최소 대문자 1, 소문자 1 및 숫자 1개 포함)");
+                    mInputPassword.setError(getString(R.string.password_error));
 
                     mInputPassword.setErrorTextColor(getColorStateList(R.color.colorDanger));
                 } else {

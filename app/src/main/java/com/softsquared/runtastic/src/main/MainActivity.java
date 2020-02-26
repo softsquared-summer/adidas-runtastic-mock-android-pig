@@ -49,8 +49,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            FragmentTransaction transaction = mFragmentManager.beginTransaction();
-
             switch (menuItem.getItemId()) {
                 case R.id.menu_news_peed:
                     if (mFragmentNewsPeed == null) {

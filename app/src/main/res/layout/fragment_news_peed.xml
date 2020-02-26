@@ -18,7 +18,16 @@
             android:layout_marginLeft="5dp"
             android:src="@drawable/write"
             android:scaleType="fitCenter"
+            android:layout_marginRight="10dp"
             android:background="@color/colorFree" />
+        <ImageButton
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/add_friend"
+            android:scaleType="fitCenter"
+            android:background="@color/colorFree"
+            android:visibility="invisible"/>
         <TextView
             android:gravity="center"
             android:layout_width="wrap_content"
@@ -28,10 +37,21 @@
             android:textSize="15dp"
             android:textColor="@color/colorBlack"/>
         <ImageButton
+            android:id="@+id/news_peed_add_friends"
             android:layout_gravity="center"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/add_friend"
+            android:scaleType="fitCenter"
+            android:background="@color/colorFree"
+            android:layout_marginRight="10dp"
+            android:visibility="visible"/>
+        <ImageButton
+            android:id="@+id/news_peed_alarm"
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/news_peed_alarm"
             android:scaleType="fitCenter"
             android:background="@color/colorFree"
             android:layout_marginRight="5dp"/>
