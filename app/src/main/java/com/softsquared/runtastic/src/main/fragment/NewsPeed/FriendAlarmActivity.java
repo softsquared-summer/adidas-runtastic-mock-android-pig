@@ -1,7 +1,5 @@
 package com.softsquared.runtastic.src.main.fragment.NewsPeed;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +10,7 @@ import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.Adapter.ReceiveFriendItem;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.Adapter.ReceiveListAdapter;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.interfaces.FriendAlarmActivityView;
+import com.softsquared.runtastic.src.main.fragment.NewsPeed.services.FriendAlarmActivityService;
 
 import java.util.ArrayList;
 

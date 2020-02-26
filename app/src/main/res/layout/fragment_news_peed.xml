@@ -61,4 +61,18 @@
         android:layout_height="1px"
         android:background="@color/colorGray"
         android:layout_below="@id/news_peed_ll_top_bar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/news_peed_ll_top_bar"
+        android:layout_marginTop="15dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:src="@drawable/news_peed_explain"/>
+
+    </ScrollView>
 </RelativeLayout>

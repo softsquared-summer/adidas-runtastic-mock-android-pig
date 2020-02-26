@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.main.fragment.NewsPeed;
+package com.softsquared.runtastic.src.main.fragment.NewsPeed.services;
 
 import android.util.Log;
 

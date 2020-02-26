@@ -1,4 +1,4 @@
-package com.softsquared.runtastic.src.main.fragment.NewsPeed;
+package com.softsquared.runtastic.src.main.fragment.NewsPeed.services;
 
 import android.util.Log;
 
@@ -17,11 +17,11 @@ import static com.softsquared.runtastic.src.ApplicationClass.getRetrofit;
 public class FindFriendActivityService {
     final FindFriendActivityView mFindFriendActivityView;
 
-    FindFriendActivityService(FindFriendActivityView findFriendActivityView){
+    public FindFriendActivityService(FindFriendActivityView findFriendActivityView){
         this.mFindFriendActivityView = findFriendActivityView;
     }
 
-    void getFriend(String email) {
+    public void getFriend(String email) {
         final FindFriendActivityRetrofitInterface findFriendActivityRetrofitInterface = getRetrofit().create(FindFriendActivityRetrofitInterface.class);
         findFriendActivityRetrofitInterface.getFriendName(email).enqueue(new Callback<FindFriendResponse>() {
             @Override
@@ -47,7 +47,7 @@ public class FindFriendActivityService {
         });
     }
 
-    void postRequestFriend(AddFriendRequest request) {
+    public void postRequestFriend(AddFriendRequest request) {
         final FindFriendActivityRetrofitInterface findFriendActivityRetrofitInterface = getRetrofit().create(FindFriendActivityRetrofitInterface.class);
         findFriendActivityRetrofitInterface.postAddFriend(request).enqueue(new Callback<AddFriendResponse>() {
             @Override

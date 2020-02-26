@@ -17,6 +17,7 @@ import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.interfaces.FindFriendActivityView;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.models.AddFriendRequest;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.models.FindFriendResponse;
+import com.softsquared.runtastic.src.main.fragment.NewsPeed.services.FindFriendActivityService;
 
 public class FindFriendActivity extends BaseActivity implements FindFriendActivityView {
     EditText mEtFindEmail;

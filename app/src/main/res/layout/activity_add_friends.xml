@@ -48,11 +48,25 @@
         android:layout_height="match_parent"
         android:background="@color/colorBackGround"
         android:layout_below="@id/add_friends_ll_top_bar">
-        <ListView
-            android:id="@+id/add_friends_lv_list_friends"
+        <LinearLayout
+            android:id="@+id/add_friends_ll_yes_count"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"/>
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:visibility="invisible">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="친구 목록"
+                android:textColor="@color/colorGray"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="6dp"/>
+            <ListView
+                android:id="@+id/add_friends_lv_list_friends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/add_friends_ll_no_count"
             android:layout_width="match_parent"

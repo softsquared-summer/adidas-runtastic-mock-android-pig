@@ -11,9 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.annotations.SerializedName;
 import com.softsquared.runtastic.R;
-import com.softsquared.runtastic.src.main.fragment.NewsPeed.FriendAlarmActivityService;
+import com.softsquared.runtastic.src.main.fragment.NewsPeed.services.FriendAlarmActivityService;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.interfaces.FriendAlarmActivityView;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.models.RequestNumber;
 
@@ -95,6 +94,6 @@ public class ReceiveListAdapter extends BaseAdapter implements FriendAlarmActivi
 
     @Override
     public void getArrayReceive(ArrayList<ReceiveFriendItem> result) {
-        
+
     }
 }
