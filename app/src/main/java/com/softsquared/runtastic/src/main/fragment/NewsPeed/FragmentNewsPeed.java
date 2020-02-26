@@ -20,8 +20,8 @@ public class FragmentNewsPeed extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_news_peed, container, false);
-        mBtnAddFriends = rootView.findViewById(R.id.news_peed_add_friends);
-        mBtnAlarm = rootView.findViewById(R.id.news_peed_alarm);
+        mBtnAddFriends = rootView.findViewById(R.id.news_peed_btn_add_friends);
+        mBtnAlarm = rootView.findViewById(R.id.news_peed_btn_alarm);
 
 
 
@@ -33,7 +33,8 @@ public class FragmentNewsPeed extends Fragment {
         mBtnAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(),FriendAlarmActivity.class);
+                startActivity(intent);
             }
         });
         mBtnAddFriends.setOnClickListener(new View.OnClickListener() {

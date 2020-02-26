@@ -37,7 +37,7 @@
             android:textSize="15dp"
             android:textColor="@color/colorBlack"/>
         <ImageButton
-            android:id="@+id/news_peed_add_friends"
+            android:id="@+id/news_peed_btn_add_friends"
             android:layout_gravity="center"
             android:layout_width="25dp"
             android:layout_height="25dp"
@@ -47,7 +47,7 @@
             android:layout_marginRight="10dp"
             android:visibility="visible"/>
         <ImageButton
-            android:id="@+id/news_peed_alarm"
+            android:id="@+id/news_peed_btn_alarm"
             android:layout_gravity="center"
             android:layout_width="25dp"
             android:layout_height="25dp"
