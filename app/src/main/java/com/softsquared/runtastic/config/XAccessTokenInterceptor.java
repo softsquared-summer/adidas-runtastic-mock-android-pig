@@ -1,5 +1,7 @@
 package com.softsquared.runtastic.config;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import java.io.IOException;
@@ -18,8 +20,9 @@ public class XAccessTokenInterceptor implements Interceptor {
     public Response intercept(@NonNull final Interceptor.Chain chain) throws IOException {
         final Request.Builder builder = chain.request().newBuilder();
         final String jwtToken = sSharedPreferences.getString(X_ACCESS_TOKEN, null);
+    //    Log.e("jwtToken", jwtToken);
         if (jwtToken != null) {
-            builder.addHeader("X-ACCESS-TOKEN", jwtToken);
+            builder.addHeader("x-access-token", jwtToken);
         }
         return chain.proceed(builder.build());
     }

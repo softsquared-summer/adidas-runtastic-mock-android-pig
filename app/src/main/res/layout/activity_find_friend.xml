@@ -69,4 +69,56 @@
         android:background="@color/colorGray"
         android:layout_below="@id/find_friends_contain_search_bar"/>
 
+    <TextView
+        android:id="@+id/find_friends_tv_no_find"
+        android:gravity="center"
+        android:layout_below="@id/find_friends_contain_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/find_friends_no_profile"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorGray"
+        android:visibility="invisible"/>
+
+
+    <LinearLayout
+        android:id="@+id/find_friends_ll_profile_card"
+        android:layout_below="@id/find_friends_contain_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@color/colorWhite"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible">
+        <ImageView
+            android:id="@+id/find_friends_iv_profile_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/friend_profile_common"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:id="@+id/find_friends_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find_friends_no_profile"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:id="@+id/find_friends_btn_add"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:text="@string/find_friends_add"
+            android:textColor="@color/colorWhite"
+            android:onClick="customOnClickInFindFriend"
+            android:background="@drawable/join_custom_background"
+            android:stateListAnimator="@color/colorNull"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+
+
 </RelativeLayout>

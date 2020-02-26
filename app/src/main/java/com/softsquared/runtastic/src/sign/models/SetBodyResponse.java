@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class SetBodyResponse {
     @SerializedName("isSuccess")
-    boolean isSuccess;
+    private boolean isSuccess;
     @SerializedName("code")
-    int code;
+    private int code;
     @SerializedName("message")
-    String message;
+    private String message;
 
     public boolean isSuccess() {
         return isSuccess;

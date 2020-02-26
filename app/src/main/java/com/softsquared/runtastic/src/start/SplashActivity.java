@@ -27,7 +27,7 @@ public class SplashActivity extends BaseActivity {
 
         mSharedPreferences = getSharedPreferences(X_ACCESS_TOKEN, Context.MODE_PRIVATE);
         jwtToken = mSharedPreferences.getString(X_ACCESS_TOKEN,null);
-    //    Log.e("[Log.e] jwtToken : " , jwtToken);
+    //  Log.e("[Log.e] jwtToken : " , jwtToken);
 
         splash();
     }

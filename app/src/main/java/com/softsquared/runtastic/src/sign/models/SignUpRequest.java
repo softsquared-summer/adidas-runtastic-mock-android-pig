@@ -4,25 +4,25 @@ import com.google.gson.annotations.SerializedName;
 
 public class SignUpRequest {
     @SerializedName("lastName")
-    String lastName;
+    private String lastName;
 
     @SerializedName("firstName")
-    String firstName;
+    private String firstName;
 
     @SerializedName("sex")
-    int sex;
+    private int sex;
 
     @SerializedName("email")
-    String email;
+    private String email;
 
     @SerializedName("pw")
-    String pw;
+    private String pw;
 
     @SerializedName("birth")
-    int birth;
+    private int birth;
 
     @SerializedName("profileImage")
-    String profileImage;
+    private String profileImage;
 
     public SignUpRequest(String lastName, String firstName, int sex, String email, String pw, int birth, String profileImage) {
         this.lastName = lastName;

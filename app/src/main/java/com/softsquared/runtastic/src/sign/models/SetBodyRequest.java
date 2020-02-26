@@ -4,15 +4,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class SetBodyRequest {
     @SerializedName("userNo")
-    int userNo;
+    private int userNo;
     @SerializedName("height")
-    String height;
+    private String height;
     @SerializedName("heightType")
-    int heightType;
+    private int heightType;
     @SerializedName("weight")
-    String weight;
+    private String weight;
     @SerializedName("weightType")
-    int weightType;
+    private int weightType;
 
     public SetBodyRequest(int userNo, String height, int heightType, String weight, int weightType) {
         this.userNo = userNo;

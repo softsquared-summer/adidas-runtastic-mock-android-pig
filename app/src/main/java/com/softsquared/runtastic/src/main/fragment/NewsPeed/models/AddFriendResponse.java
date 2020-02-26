@@ -1,16 +1,14 @@
-package com.softsquared.runtastic.src.login.models;
+package com.softsquared.runtastic.src.main.fragment.NewsPeed.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse {
+public class AddFriendResponse {
     @SerializedName("isSuccess")
     private boolean isSuccess;
     @SerializedName("code")
     private int code;
     @SerializedName("message")
     private String message;
-    @SerializedName("result")
-    private LoginResponseResult result;
 
     public boolean isSuccess() {
         return isSuccess;
@@ -35,27 +33,4 @@ public class LoginResponse {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    public LoginResponseResult getResult() {
-        return result;
-    }
-
-    public void setResult(LoginResponseResult result) {
-        this.result = result;
-    }
-
-    public class LoginResponseResult{
-        @SerializedName("jwt")
-        String jwt;
-
-        public String getJwt() {
-            return jwt;
-        }
-
-        public void setJwt(String jwt) {
-            this.jwt = jwt;
-        }
-    }
 }
-
-

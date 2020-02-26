@@ -4,17 +4,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class SetGoalRequest {
     @SerializedName("userNo")
-    int userNo;
+    private int userNo;
     @SerializedName("exerciseType")
-    int exerciseType;
+    private int exerciseType;
     @SerializedName("termType")
-    int termType;
+    private int termType;
     @SerializedName("termValue")
-    String termValue;
+    private String termValue;
     @SerializedName("measureType")
-    int measureType;
+    private int measureType;
     @SerializedName("measureValue")
-    String measureValue;
+    private String measureValue;
 
     public SetGoalRequest(int userNo, int exerciseType, int termType, String termValue, int measureType, String measureValue) {
         this.userNo = userNo;

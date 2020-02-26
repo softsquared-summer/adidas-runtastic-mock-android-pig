@@ -43,7 +43,7 @@ public class ApplicationClass extends Application {
         super.onCreate();
 
         if (sSharedPreferences == null) {
-            sSharedPreferences = getApplicationContext().getSharedPreferences(TAG, Context.MODE_PRIVATE);
+            sSharedPreferences = getApplicationContext().getSharedPreferences(X_ACCESS_TOKEN, Context.MODE_PRIVATE);
         }
     }
 
