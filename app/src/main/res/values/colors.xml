@@ -11,6 +11,8 @@
     <color name="colorFree">#00000000</color>
     <color name="colorNull">@null</color>
     <color name="colorBackGround">#f5f5f5</color>
+    <color name="colorSearch">#eeeeef</color>
+    <color name="colorSearchText">#88888c</color>
 
     <!-- 스플래시 -->
     <color name="colorSplash">#067681</color>
