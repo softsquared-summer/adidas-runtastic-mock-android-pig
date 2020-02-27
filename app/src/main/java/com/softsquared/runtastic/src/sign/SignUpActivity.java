@@ -3,22 +3,35 @@ package com.softsquared.runtastic.src.sign;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.login.models.LoginRequest;
+import com.softsquared.runtastic.src.login.sub.TOSActivity;
 import com.softsquared.runtastic.src.sign.interfaces.SignUpActivityView;
 import com.softsquared.runtastic.src.sign.models.SignUpRequest;
-import com.softsquared.runtastic.src.login.sub.TOSActivity;
 
 import static com.softsquared.runtastic.src.ApplicationClass.X_ACCESS_TOKEN;
 
@@ -31,6 +44,9 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     boolean mEmailError , mSuccessSignUp;
     String mJwtToken;
 
+    ImageButton mBtnProfileImg;
+    private static final int FROM_ALBUM = 10;
+    Uri photoURI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +69,15 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         mMan = findViewById(R.id.sign_up_rb_man);
         mGirl = findViewById(R.id.sign_up_rb_girl);
 
+        mBtnProfileImg = findViewById(R.id.sign_up_btn_profile_img);
+
         setEditTextError();
     }
 
     public void customOnClick(View view) {
         switch (view.getId()) {
             case R.id.sign_up_btn_profile_img:
+                selectAlbum();
                 break;
             case R.id.sign_up_btn_join_top:
                 redirectTOSActivity();
@@ -72,6 +91,61 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             default:
                 break;
         }
+    }
+
+    public void selectAlbum() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+        intent.setType("image/*");
+
+        startActivityForResult(intent,FROM_ALBUM);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case FROM_ALBUM:
+                if(data.getData()!=null) {
+                    try {
+                        photoURI = data.getData();
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), photoURI);
+                        mBtnProfileImg.setImageBitmap(bitmap);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void makeImageURI() {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+
+        String filename = "_" + System.currentTimeMillis();
+        final StorageReference storageRef = storage.getReferenceFromUrl("gs://softsquared-fig.appspot.com").child("profile/" + filename);
+
+        final UploadTask uploadTask;
+        Uri file = photoURI;
+
+        uploadTask = storageRef.putFile(file);
+
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("[Log.e] 사진 업로드 실패", " ");
+                e.printStackTrace();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                //taskSnapshot.getUploadSessionUri();
+                Log.e("[Log.e] 사진 업로드 성공 1", storageRef.getDownloadUrl().toString());
+
+            }
+        });
     }
 
     private void trySignUp(SignUpRequest signUpRequest){
@@ -99,6 +173,8 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         if(code == 100) { // 회원가입 성공
             mSuccessSignUp = true;
             getJwtToken(mEmail,mPassword);
+
+            makeImageURI();
 
             Intent intent = new Intent(getApplicationContext(), TOSActivity.class);
             intent.putExtra("name" , mFirstName);
