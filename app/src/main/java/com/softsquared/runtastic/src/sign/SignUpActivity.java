@@ -41,7 +41,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     RadioButton mMan, mGirl;
     String mFirstName, mLastName, mEmail, mPassword, mProfileImage;
     int mBirth, mSex;
-    boolean mEmailError , mSuccessSignUp;
+    boolean mEmailError, mSuccessSignUp, mSuccessUpload;
     String mJwtToken;
 
     ImageButton mBtnProfileImg;
@@ -98,24 +98,30 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
         intent.setType("image/*");
 
-        startActivityForResult(intent,FROM_ALBUM);
+        startActivityForResult(intent, FROM_ALBUM);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode != RESULT_OK){
+            return;
+        }
         switch (requestCode) {
             case FROM_ALBUM:
-                if(data.getData()!=null) {
+                if (data.getData() == null) {
+                    break;
+                } else {
                     try {
                         photoURI = data.getData();
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), photoURI);
                         mBtnProfileImg.setImageBitmap(bitmap);
+                        makeImageURI(); // mProfileImg 에 이미지 uri 넣어주는 부분
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    break;
                 }
-                break;
             default:
                 break;
         }
@@ -142,13 +148,19 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 //taskSnapshot.getUploadSessionUri();
-                Log.e("[Log.e] 사진 업로드 성공 1", storageRef.getDownloadUrl().toString());
-
+                taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        mProfileImage = uri.toString();
+                        Log.e("[Log.e] profile img: ", mProfileImage);
+                    }
+                });
             }
         });
     }
 
-    private void trySignUp(SignUpRequest signUpRequest){
+    private void trySignUp(SignUpRequest signUpRequest) {
+
         showProgressDialog();
         final SignUpService signUpService = new SignUpService(this);
         signUpService.postSignUp(signUpRequest);
@@ -156,7 +168,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
 
     @Override
     public void validateSuccess(String text) {
-        Log.e("[Log.e] validateSuccess","message : " + text);
+        Log.e("[Log.e] validateSuccess", "message : " + text);
         hideProgressDialog();
     }
 
@@ -168,68 +180,65 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
 
     @Override
     public void validateCode(int code, int userNo) {
-        Log.e("[Log.e] validateCode","code : " + code);
+        Log.e("[Log.e] validateCode", "code : " + code);
 
-        if(code == 100) { // 회원가입 성공
+        if (code == 100) { // 회원가입 성공
             mSuccessSignUp = true;
-            getJwtToken(mEmail,mPassword);
-
-            makeImageURI();
+            getJwtToken(mEmail, mPassword);
 
             Intent intent = new Intent(getApplicationContext(), TOSActivity.class);
-            intent.putExtra("name" , mFirstName);
-            intent.putExtra("userNo",userNo);
+            intent.putExtra("name", mFirstName);
+            intent.putExtra("userNo", userNo);
             startActivity(intent);
-        } else if(code == 200) { // 이메일 중복 코드
+        } else if (code == 200) { // 이메일 중복 코드
             mInputEmail.setError("중복된 이메일입니다.");
             mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
-        } else if(code == 202) { // 비밀번호 형식이 다름
+        } else if (code == 202) { // 비밀번호 형식이 다름
             mInputPassword.setError("소문자, 대문자, 숫자를 1개 이상 입력하세요.");
             mInputPassword.setErrorTextColor(getColorStateList(R.color.colorDanger));
-        } else if(code == 201) { // 올바르지 않은 이메일 형식
+        } else if (code == 201) { // 올바르지 않은 이메일 형식
             mInputEmail.setError("올바르지 않은 이메일 형식입니다.");
             mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
         }
     }
 
-    public void getJwtToken(String email, String password){
-        if(mSuccessSignUp){
+    public void getJwtToken(String email, String password) {
+        if (mSuccessSignUp) {
             final SignUpService signUpService = new SignUpService(this);
-            LoginRequest loginRequest = new LoginRequest(email,password);
+            LoginRequest loginRequest = new LoginRequest(email, password);
             signUpService.postLogin(loginRequest);
         }
     }
 
     @Override
     public void putJwtToken(String jwt) {
-        Log.e("[Log.e] jwt : " , jwt);
+        Log.e("[Log.e] jwt : ", jwt);
         SharedPreferences preferences = getSharedPreferences(X_ACCESS_TOKEN, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(X_ACCESS_TOKEN,jwt);
+        editor.putString(X_ACCESS_TOKEN, jwt);
         editor.apply();
     }
 
-    private void redirectTOSActivity(){
+    private void redirectTOSActivity() {
         mFirstName = mEtFirstName.getText().toString();
         mLastName = mEtLastName.getText().toString();
         mEmail = mEtEmail.getText().toString();
         mPassword = mEtPassword.getText().toString();
-        mProfileImage = "";
 
-        if(mEtBirth.getText().toString().equals("")){
+        if (mEtBirth.getText().toString().equals("")) {
             mBirth = 0;
         } else {
             mBirth = Integer.parseInt(mEtBirth.getText().toString());
         }
 
-        if(mMan.isChecked()){
+        if (mMan.isChecked()) {
             mSex = 1;
         }
-        if(mGirl.isChecked()){
+        if (mGirl.isChecked()) {
             mSex = 2;
         }
 
-        if(mFirstName.length() == 0 || mLastName.length() == 0 || mEtBirth.toString().length() == 0) {
+        if (mFirstName.length() == 0 || mLastName.length() == 0 || mEtBirth.toString().length() == 0) {
             if (mFirstName.length() == 0) {
                 mInputFName.setErrorEnabled(true);
                 mInputFName.setError("1234");
@@ -259,24 +268,27 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             }
             return;
         }
-        SignUpRequest signUp = new SignUpRequest(mLastName, mFirstName,mSex,mEmail, mPassword,mBirth,mProfileImage);
+        SignUpRequest signUp = new SignUpRequest(mLastName, mFirstName, mSex, mEmail, mPassword, mBirth, mProfileImage);
         trySignUp(signUp);
+
     }
 
-    private void setEditTextError(){
+    private void setEditTextError() {
         mEmailError = true;
         mEtEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
+
             @Override
             public void afterTextChanged(Editable s) {
-                if(!s.toString().contains("@")){ // regex 정규식
+                if (!s.toString().contains("@")) { // regex 정규식
                     mInputEmail.setError(getString(R.string.email_error));
                     mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
                     mEmailError = true;
@@ -292,9 +304,10 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.toString().length() < 8){
+                if (s.toString().length() < 8) {
                     mInputPassword.setError(getString(R.string.password_error));
 
                     mInputPassword.setErrorTextColor(getColorStateList(R.color.colorDanger));
@@ -302,19 +315,24 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
                     mInputPassword.setError(null);
                 }
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
         });
         mEtFirstName.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
             @Override
             public void afterTextChanged(Editable s) {
                 //Log.e("mEtFirstName","[afterTextChanged] : " + s.toString());
-                if(s.toString().length() > 0){
+                if (s.toString().length() > 0) {
                     mInputFName.setError("");
                     mInputFName.setErrorTextColor(getColorStateList(R.color.colorGray));
                 } else {
@@ -324,12 +342,16 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         });
         mEtLastName.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.toString().length() > 0){
+                if (s.toString().length() > 0) {
                     mInputLName.setError("");
                     mInputLName.setErrorTextColor(getColorStateList(R.color.colorGray));
                 } else {
