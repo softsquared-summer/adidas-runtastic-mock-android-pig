@@ -3,7 +3,11 @@ package com.softsquared.runtastic.src.start;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.view.View;
+import android.widget.Button;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
@@ -11,6 +15,7 @@ import com.softsquared.runtastic.src.login.LoginActivity;
 import com.softsquared.runtastic.src.sign.SignUpActivity;
 
 public class StartActivity extends BaseActivity {
+    Button mFaceBookLogin, mGoogleLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
