@@ -1,5 +1,6 @@
 package com.softsquared.runtastic.src.main.fragment.Status;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,6 +19,7 @@ import com.softsquared.runtastic.src.main.fragment.Status.adapter.ShoesListAdapt
 import com.softsquared.runtastic.src.main.fragment.Status.interfaces.SearchShoesActivityView;
 import com.softsquared.runtastic.src.main.fragment.Status.models.ModelsResponse;
 import com.softsquared.runtastic.src.main.fragment.Status.services.SearchShoesActivityService;
+import com.softsquared.runtastic.src.main.fragment.Status.shoesPlus.AddShoes1Step;
 
 import org.w3c.dom.Text;
 
@@ -60,6 +62,14 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String brandNo = mBrandArray.get(position).getBrandNo();
                 tryGetModels(brandNo);
+            }
+        });
+
+        mListViewModel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), AddShoes1Step.class);
+                startActivity(intent);
             }
         });
     }

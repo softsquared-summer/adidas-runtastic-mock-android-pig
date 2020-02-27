@@ -81,6 +81,7 @@
     <!-- 운동화 추가하기 -->
     <string name="shoes_search_brand">브랜드명 검색...</string>
     <string name="shoes_search_model">모델명 입력</string>
+    <string name="shoes_distance_warning">500km 후 러닝화 사용을 중단하기를 권합니다. 이유는 러닝화의 쿠션이 닳아 무릎에 무리를 가해 부상을 야기시킬 수 있기 때문입니다.</string>
 
     <!-- 메인 -->
     <string name="act_slide_stop">슬라이드하여 멈춤</string>
@@ -93,5 +94,19 @@
 
     <!-- 이용약관 -->
     <string name="terms_of_service"></string>
+
+    <!-- 색 -->
+    <string name="white">흰색</string>
+    <string name="gray">회색</string>
+    <string name="black">검정색</string>
+    <string name="brown">갈색</string>
+    <string name="pink">핑크색</string>
+    <string name="purple">자주색</string>
+    <string name="blue">청색</string>
+    <string name="green">녹색</string>
+    <string name="red">빨간색</string>
+    <string name="orange">주황색</string>
+    <string name="yellow">노란색</string>
+    <string name="ex_color">기타</string>
 
 </resources>
