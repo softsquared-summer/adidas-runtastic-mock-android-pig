@@ -1,47 +1,56 @@
 package com.softsquared.runtastic.src.main.fragment.Status.adapter;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ShoesItem {
-    int iconImg;
-    String title;
-    String sub;
-    int subImg;
+    @SerializedName("brandNo")
+    private String brandNo;
 
-    public ShoesItem(int iconImg, String title, String sub, int subImg) {
-        this.iconImg = iconImg;
-        this.title = title;
-        this.sub = sub;
-        this.subImg = subImg;
+    @SerializedName("modelNo")
+    private String modelNo;
+
+    @SerializedName("modelName")
+    private String modelName;
+
+    @SerializedName("imageUrl")
+    private String imageUrl;
+
+    public ShoesItem(String brandNo, String modelNo, String modelName, String imageUrl) {
+        this.brandNo = brandNo;
+        this.modelNo = modelNo;
+        this.modelName = modelName;
+        this.imageUrl = imageUrl;
     }
 
-    public int getIconImg() {
-        return iconImg;
+    public String getBrandNo() {
+        return brandNo;
     }
 
-    public void setIconImg(int iconImg) {
-        this.iconImg = iconImg;
+    public void setBrandNo(String brandNo) {
+        this.brandNo = brandNo;
     }
 
-    public String getTitle() {
-        return title;
+    public String getModelNo() {
+        return modelNo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setModelNo(String modelNo) {
+        this.modelNo = modelNo;
     }
 
-    public String getSub() {
-        return sub;
+    public String getModelName() {
+        return modelName;
     }
 
-    public void setSub(String sub) {
-        this.sub = sub;
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
-    public int getSubImg() {
-        return subImg;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setSubImg(int subImg) {
-        this.subImg = subImg;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

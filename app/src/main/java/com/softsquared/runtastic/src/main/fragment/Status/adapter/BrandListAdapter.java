@@ -14,9 +14,10 @@ import java.util.ArrayList;
 public class BrandListAdapter extends BaseAdapter {
     ArrayList<BrandListItem> mList = new ArrayList<>();
 
-    Context context;
-    int layout;
-    LayoutInflater inf;
+    private Context context;
+    private int layout;
+    private LayoutInflater inf;
+    private ViewHolder viewHolder;
 
     public BrandListAdapter(ArrayList<BrandListItem> mList, Context context, int layout) {
         this.mList = mList;
@@ -44,12 +45,21 @@ public class BrandListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView==null) {
             convertView = inf.inflate(layout, null);
-        }
-        BrandListItem item = mList.get(position);
-        TextView tvBrandName = convertView.findViewById(R.id.brand_list_item_brand_name);
 
-        tvBrandName.setText(item.getBrandName());
+            viewHolder = new ViewHolder();
+            viewHolder.label = convertView.findViewById(R.id.brand_list_item_brand_name);
+
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+
+        viewHolder.label.setText(mList.get(position).getBrandName());
 
         return convertView;
+    }
+
+    public class ViewHolder {
+        public TextView label;
     }
 }

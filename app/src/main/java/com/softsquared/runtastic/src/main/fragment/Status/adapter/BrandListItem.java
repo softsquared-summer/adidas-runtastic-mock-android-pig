@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BrandListItem {
     @SerializedName("brandNo")
-    String brandNo;
+    private String brandNo;
 
     @SerializedName("brandName")
-    String brandName;
+    private String brandName;
 
     public BrandListItem(String brandNo) {
         this.brandNo = brandNo;

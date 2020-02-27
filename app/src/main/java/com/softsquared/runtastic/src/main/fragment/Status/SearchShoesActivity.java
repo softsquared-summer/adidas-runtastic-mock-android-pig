@@ -1,22 +1,35 @@
 package com.softsquared.runtastic.src.main.fragment.Status;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.main.fragment.Status.adapter.BrandListAdapter;
 import com.softsquared.runtastic.src.main.fragment.Status.adapter.BrandListItem;
+import com.softsquared.runtastic.src.main.fragment.Status.adapter.ShoesItem;
 import com.softsquared.runtastic.src.main.fragment.Status.interfaces.SearchShoesActivityView;
+import com.softsquared.runtastic.src.main.fragment.Status.models.ModelsResponse;
 import com.softsquared.runtastic.src.main.fragment.Status.services.SearchShoesActivityService;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class SearchShoesActivity extends BaseActivity implements SearchShoesActivityView {
+
     ArrayList<BrandListItem> mBrandArray = new ArrayList<>();
+    ArrayList<BrandListItem> searchTemp = new ArrayList<>();
+
     BrandListAdapter mBrandAdapter;
     ListView mListViewBrand;
+    EditText mEtSearchBrand;
 
 
     @Override
@@ -24,9 +37,62 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_shoes);
         mListViewBrand = findViewById(R.id.search_shoes_list_brand);
+        mEtSearchBrand = findViewById(R.id.search_shoes_search_bar);
 
+        setSearchBar();
         tryGetBrand();
 
+
+        mListViewBrand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String brandNo = mBrandArray.get(position).getBrandNo();
+                tryGetModels(brandNo);
+            }
+        });
+    }
+
+    public void setSearchBar() {
+        mEtSearchBrand.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = mEtSearchBrand.getText().toString();
+                searchBrand(text);
+            }
+        });
+    }
+
+    public void searchBrand(String charText) {
+        Log.e("searchBrand","is satrt");
+        searchTemp.clear();
+
+        if(charText.length() == 0) {
+            Log.e("charText.length() ","" + charText.length());
+            searchTemp.addAll(mBrandArray);
+        } else {
+            Log.e("mBrandArray.size() ","" + mBrandArray.size());
+            for(int i = 0; i < mBrandArray.size(); i++) {
+                if(mBrandArray.get(i).getBrandName().toLowerCase().contains(charText)) {
+                    searchTemp.add(mBrandArray.get(i));
+                    Log.e("contain str",mBrandArray.get(i).getBrandName());
+                }else{
+                    Log.e("!contain str",mBrandArray.get(i).getBrandName());
+
+                }
+            }
+        }
+
+        mBrandAdapter.notifyDataSetChanged();
     }
 
     public void customOnClickInSearchShoes(View v) {
@@ -45,12 +111,29 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
         service.getArrayBrand();
     }
 
+    public void tryGetModels(String brandNo) {
+        showProgressDialog();
+        final SearchShoesActivityService service = new SearchShoesActivityService(this);
+        service.getArrayModel(brandNo);
+    }
+
     @Override
     public void getArrayBrand(ArrayList<BrandListItem> result) {
         mBrandArray = result;
-        mBrandAdapter = new BrandListAdapter(mBrandArray,getApplicationContext(),R.layout.brand_list_item);
+        searchTemp.addAll(mBrandArray);
+        mBrandAdapter = new BrandListAdapter(searchTemp,getApplicationContext(),R.layout.brand_list_item);
         mListViewBrand.setAdapter(mBrandAdapter);
 
+        hideProgressDialog();
+    }
+
+    @Override
+    public void getArrayModel(ArrayList<ShoesItem> result) {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void hideLoading() {
         hideProgressDialog();
     }
 }
