@@ -1,9 +1,12 @@
 package com.softsquared.runtastic.src.main.fragment.Status;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,11 +17,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.main.fragment.Status.adapter.RecentActivityAdapter;
+import com.softsquared.runtastic.src.main.fragment.Status.adapter.ShoesItem;
+import com.softsquared.runtastic.src.main.fragment.Status.adapter.ShoesListAdapter;
+
+import java.util.ArrayList;
 
 public class FragmentStatus extends Fragment {
     RecyclerView mRecentActRecyclerView;
     LinearLayoutManager linearLayoutManager;
     RecentActivityAdapter adapter;
+    LinearLayout mBtnShoesAdd;
 
     @Nullable
     @Override
@@ -28,17 +36,25 @@ public class FragmentStatus extends Fragment {
         mRecentActRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         linearLayoutManager = new LinearLayoutManager(getContext());
         mRecentActRecyclerView.setLayoutManager(linearLayoutManager);
+        mBtnShoesAdd = rootView.findViewById(R.id.status_shoes_add);
 
         adapter = new RecentActivityAdapter();
         mRecentActRecyclerView.setAdapter(adapter);
 
         init();
+        setButtonTools();
 
         return rootView;
     }
 
     private void setButtonTools() {
-
+        mBtnShoesAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),SearchShoesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void init() {

@@ -19,7 +19,8 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.main.fragment.NewsPeed.FriendAlarmActivity"></activity>
+        <activity android:name=".src.main.fragment.Status.SearchShoesActivity"></activity>
+        <activity android:name=".src.main.fragment.NewsPeed.FriendAlarmActivity" />
         <activity android:name=".src.main.fragment.NewsPeed.FindFriendActivity" />
         <activity android:name=".src.main.fragment.NewsPeed.AddFriendsActivity" />
         <activity

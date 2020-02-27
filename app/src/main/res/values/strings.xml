@@ -78,6 +78,9 @@
     <string name="profile_setting_tos">이용약관</string>
     <string name="profile_setting_adidas">adidas Running</string>
 
+    <!-- 운동화 추가하기 -->
+    <string name="shoes_search_brand">브랜드명 검색...</string>
+
     <!-- 메인 -->
     <string name="act_slide_stop">슬라이드하여 멈춤</string>
     <string name="act_complete">완료</string>
