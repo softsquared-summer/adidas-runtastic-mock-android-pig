@@ -161,7 +161,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:background="@drawable/radio_button_goal_running_background"
-                        android:drawableLeft="@drawable/radio_button_goal_cycling_button"
+                        android:drawableLeft="@drawable/radio_button_goal_act_button"
                         android:gravity="center"
                         android:text="운동"
                         android:textColor="@drawable/menu_text_color"
