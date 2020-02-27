@@ -63,7 +63,6 @@ public class ReceiveListAdapter extends BaseAdapter implements FriendAlarmActivi
         profileImg.setClipToOutline(true);
 
 
-
         final ReceiveFriendItem item = mList.get(position);
         String nameStr = item.getFirstName() + " " + item.getLastName();
 

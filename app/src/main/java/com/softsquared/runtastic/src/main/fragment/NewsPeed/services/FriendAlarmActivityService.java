@@ -33,12 +33,11 @@ public class FriendAlarmActivityService {
                     mFriendAlarmActivityView.validateFailure(null);
                     return;
                 }
-                Log.e("[Log.e] 친구요정리스트 불러오기 성공", " ");
                 if(receiveFriendResponse.getResult() == null) {
-                    receiveFriendResponse.setMessage("받은 요청이 없습니다");
+                    Log.e("[Log.e] 친구요정리스트 불러오기 성공", " 친구가 없습니다");
                     mFriendAlarmActivityView.validateSuccess(receiveFriendResponse.getMessage());
                 } else {
-                    mFriendAlarmActivityView.validateSuccess(receiveFriendResponse.getMessage());
+                    Log.e("[Log.e] 친구요정리스트 불러오기 성공", " 친구가 있음");
                     mFriendAlarmActivityView.getArrayReceive(receiveFriendResponse.getResult());
                 }
             }

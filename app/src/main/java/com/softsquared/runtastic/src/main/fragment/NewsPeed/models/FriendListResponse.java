@@ -15,7 +15,7 @@ public class FriendListResponse {
     @SerializedName("code")
     int code;
 
-    @SerializedName("messgae") // 오타 수정
+    @SerializedName("message") // 오타 수정
     String message;
 
     public ArrayList<FriendsListItem> getResult() {

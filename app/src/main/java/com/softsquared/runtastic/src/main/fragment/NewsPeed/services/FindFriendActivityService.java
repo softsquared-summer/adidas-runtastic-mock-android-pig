@@ -31,12 +31,12 @@ public class FindFriendActivityService {
                     Log.e("[Log.e] 친구정보조회 실패", " friendResponse is null");
                     return;
                 }
-                if(friendResponse.getResult() == null) {
-                    Log.e("[Log.e] 친구정보조회 성공", " : " + friendResponse.getMessage());
+                if(friendResponse.getResult().size() == 0) {
+                    Log.e("[Log.e] 친구정보조회 성공", " 검색결과가 없습니다");
                     mFindFriendActivityView.sendNoInfo();
                 } else {
-                    Log.e("[Log.e] 친구정보조회 성공", " : ");
-                    mFindFriendActivityView.getFriendsInfo(friendResponse.getResult());
+                    Log.e("[Log.e] 친구정보조회 성공", "  유저 정보");
+                    mFindFriendActivityView.getFriendsInfo(friendResponse.getResult().get(0));
                 }
             }
 

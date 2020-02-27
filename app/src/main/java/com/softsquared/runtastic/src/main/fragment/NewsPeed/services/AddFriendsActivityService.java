@@ -33,11 +33,11 @@ public class AddFriendsActivityService {
                 if(friendListResponse.getCode() == 100) {
                     if(friendListResponse.getResult() == null) {
                         friendListResponse.setMessage("친구 없음");
-                        mAddFriendsActivityView.validateSuccess(friendListResponse.getMessage());
                         Log.e("[Log.e] 친구목록 불러오기 성공", friendListResponse.getMessage());
+                        mAddFriendsActivityView.noCountFriend();
                     } else {
-                        mAddFriendsActivityView.validateSuccess(friendListResponse.getMessage());
-                        Log.e("[Log.e] 친구목록 불러오기 성공", friendListResponse.getMessage());
+                        Log.e("[Log.e] 친구목록 불러오기 성공", friendListResponse.getResult().size() + " ");
+                        mAddFriendsActivityView.pasteFriendsList(friendListResponse.getResult());
                     }
                 }
             }

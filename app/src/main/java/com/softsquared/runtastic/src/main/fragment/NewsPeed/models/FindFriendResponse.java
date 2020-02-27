@@ -2,9 +2,11 @@ package com.softsquared.runtastic.src.main.fragment.NewsPeed.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class FindFriendResponse {
     @SerializedName("result")
-    FriendResult result;
+    ArrayList<FriendResult> result;
     @SerializedName("isSuccess")
     boolean isSuccess;
     @SerializedName("code")
@@ -12,11 +14,11 @@ public class FindFriendResponse {
     @SerializedName("message")
     String message;
 
-    public FriendResult getResult() {
+    public ArrayList<FriendResult> getResult() {
         return result;
     }
 
-    public void setResult(FriendResult result) {
+    public void setResult(ArrayList<FriendResult> result) {
         this.result = result;
     }
 

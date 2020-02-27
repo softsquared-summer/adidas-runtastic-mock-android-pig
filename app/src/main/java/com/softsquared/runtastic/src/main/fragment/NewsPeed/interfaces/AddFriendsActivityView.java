@@ -8,4 +8,5 @@ public interface AddFriendsActivityView {
     void validateSuccess(String message);
     void validateFailure(String text);
     void pasteFriendsList(ArrayList<FriendsListItem> result);
+    void noCountFriend();
 }
