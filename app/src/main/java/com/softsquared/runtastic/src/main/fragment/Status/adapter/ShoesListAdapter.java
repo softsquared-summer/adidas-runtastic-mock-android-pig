@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.Adapter.FriendsListItem;
 
 import java.util.ArrayList;
@@ -46,6 +49,10 @@ public class ShoesListAdapter extends BaseAdapter {
             convertView = inf.inflate(layout, null);
         }
         ShoesItem item = mList.get(position);
+        TextView tvName = convertView.findViewById(R.id.shoes_profile_name);
+        ImageView ivProfileImg = convertView.findViewById(R.id.shoes_profile_img);
+        ivProfileImg.setImageResource(R.drawable.shoes_dumy);
+        tvName.setText(item.getModelName());
 
         return convertView;
     }

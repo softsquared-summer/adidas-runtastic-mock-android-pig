@@ -80,6 +80,7 @@
 
     <!-- 운동화 추가하기 -->
     <string name="shoes_search_brand">브랜드명 검색...</string>
+    <string name="shoes_search_model">모델명 입력</string>
 
     <!-- 메인 -->
     <string name="act_slide_stop">슬라이드하여 멈춤</string>

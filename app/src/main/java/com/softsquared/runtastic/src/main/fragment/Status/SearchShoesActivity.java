@@ -14,6 +14,7 @@ import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.main.fragment.Status.adapter.BrandListAdapter;
 import com.softsquared.runtastic.src.main.fragment.Status.adapter.BrandListItem;
 import com.softsquared.runtastic.src.main.fragment.Status.adapter.ShoesItem;
+import com.softsquared.runtastic.src.main.fragment.Status.adapter.ShoesListAdapter;
 import com.softsquared.runtastic.src.main.fragment.Status.interfaces.SearchShoesActivityView;
 import com.softsquared.runtastic.src.main.fragment.Status.models.ModelsResponse;
 import com.softsquared.runtastic.src.main.fragment.Status.services.SearchShoesActivityService;
@@ -24,13 +25,24 @@ import java.util.ArrayList;
 
 public class SearchShoesActivity extends BaseActivity implements SearchShoesActivityView {
 
+    // 브랜드 배열
     ArrayList<BrandListItem> mBrandArray = new ArrayList<>();
     ArrayList<BrandListItem> searchTemp = new ArrayList<>();
 
+    // 모델 배열
+    ArrayList<ShoesItem> mModelArray = new ArrayList<>();
+
+
+    // 브랜드 리스트뷰
     BrandListAdapter mBrandAdapter;
     ListView mListViewBrand;
-    EditText mEtSearchBrand;
 
+    // 모델 리스트뷰
+    ShoesListAdapter mModelAdapter;
+    ListView mListViewModel;
+
+
+    EditText mEtSearchBrand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +50,10 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
         setContentView(R.layout.activity_search_shoes);
         mListViewBrand = findViewById(R.id.search_shoes_list_brand);
         mEtSearchBrand = findViewById(R.id.search_shoes_search_bar);
+        mListViewModel = findViewById(R.id.search_shoes_list_model);
 
         setSearchBar();
         tryGetBrand();
-
 
         mListViewBrand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -129,6 +141,12 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
 
     @Override
     public void getArrayModel(ArrayList<ShoesItem> result) {
+        mListViewBrand.setVisibility(View.GONE);
+        mListViewModel.setVisibility(View.VISIBLE);
+        mModelArray = result;
+        mModelAdapter = new ShoesListAdapter(mModelArray,getApplicationContext(),R.layout.fragment_status_my_shoes_item);
+        mListViewModel.setAdapter(mModelAdapter);
+
         hideProgressDialog();
     }
 
