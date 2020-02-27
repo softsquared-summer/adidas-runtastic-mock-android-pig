@@ -1,6 +1,8 @@
 package com.softsquared.runtastic.src.main.fragment.NewsPeed.Adapter;
 
 import android.content.Context;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.services.FriendAlarmActivityService;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.interfaces.FriendAlarmActivityView;
@@ -56,13 +59,15 @@ public class ReceiveListAdapter extends BaseAdapter implements FriendAlarmActivi
         ImageView profileImg = convertView.findViewById(R.id.alarm_list_item_profile_img);
         TextView name = convertView.findViewById(R.id.alarm_list_item_name);
         ImageButton btnAccept = convertView.findViewById(R.id.alarm_list_btn_add);
+        profileImg.setBackground(new ShapeDrawable(new OvalShape()));
+        profileImg.setClipToOutline(true);
 
 
 
         final ReceiveFriendItem item = mList.get(position);
         String nameStr = item.getFirstName() + " " + item.getLastName();
 
-        profileImg.setImageResource(R.drawable.friend_profile_common);
+        Glide.with(convertView.getContext()).load(item.getProfileImage()).into(profileImg);
         name.setText(nameStr);
 
         final RequestNumber number = new RequestNumber(Integer.parseInt(item.getRequestNo()));

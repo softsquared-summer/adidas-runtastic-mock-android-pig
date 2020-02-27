@@ -69,7 +69,7 @@
                     android:src="@drawable/camera"
                     android:background="@color/colorFree"
                     android:onClick="customOnClick"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="centerCrop"/>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sign_up_input_first_name"
                     android:layout_width="wrap_content"

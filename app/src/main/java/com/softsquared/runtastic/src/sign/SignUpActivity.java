@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -70,6 +72,8 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         mGirl = findViewById(R.id.sign_up_rb_girl);
 
         mBtnProfileImg = findViewById(R.id.sign_up_btn_profile_img);
+        mBtnProfileImg.setBackground(new ShapeDrawable(new OvalShape()));
+        mBtnProfileImg.setClipToOutline(true);
 
         setEditTextError();
     }

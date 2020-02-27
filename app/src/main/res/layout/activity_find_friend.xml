@@ -97,7 +97,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/friend_profile_common"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:layout_marginTop="20dp"/>
         <TextView
             android:id="@+id/find_friends_tv_name"
