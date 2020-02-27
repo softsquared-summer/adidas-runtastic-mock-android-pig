@@ -34,6 +34,7 @@
 
     <!-- 오류 -->
     <color name="colorDanger">#BD4444</color>
+    <color name="colorMedium">#e07037</color>
 
     <!-- 투명한 activity 만들기 -->
     <color name="transparent">#00000000</color>

@@ -106,12 +106,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:id="@+id/add_third_tv_distance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="500"
                         android:textSize="65dp"
                         android:textColor="@color/colorContinueGreen"/>
                     <TextView
+                        android:id="@+id/add_third_tv_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="km"
@@ -120,13 +122,23 @@
                 </LinearLayout>
 
                 <SeekBar
+                    android:id="@+id/add_third_seek_bar"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="35dp"
+                    android:progressDrawable="@drawable/custom_seekbar_background"
+                    android:progress="500"
+                    android:thumb="@drawable/custom_seekbar_thumb"
+                    android:maxHeight="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="25dp"
+                    android:max="1200"
+                    android:min="200"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:background="@color/colorGray"/>
-
             </LinearLayout>
 
 
@@ -159,7 +171,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/colorGray"/>
+                android:background="@color/colorWhiteGray"/>
 
         </LinearLayout>
 

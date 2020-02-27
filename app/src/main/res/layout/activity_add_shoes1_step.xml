@@ -40,6 +40,7 @@
             android:background="@color/colorFree"
             android:text="다음"
             android:layout_marginRight="10dp"
+            android:onClick="customOnClickInFirstStep"
             android:textColor="@color/colorSplash"
             android:layout_weight="1"
             android:gravity="right|center_vertical"/>
@@ -279,6 +280,7 @@
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
                         android:orientation="vertical"
+                        android:onClick="customOnClickInFirstStep"
                         android:layout_marginTop="20dp">
                         <ImageView
                             android:layout_width="25dp"

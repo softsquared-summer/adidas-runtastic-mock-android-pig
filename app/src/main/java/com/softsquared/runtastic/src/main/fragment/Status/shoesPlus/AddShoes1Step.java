@@ -1,5 +1,6 @@
 package com.softsquared.runtastic.src.main.fragment.Status.shoesPlus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -92,6 +93,9 @@ public class AddShoes1Step extends BaseActivity {
                 break;
             case R.id.add_first_step_back:
                 finish();
+            case R.id.add_first_step_next:
+                Intent intent = new Intent(getApplicationContext(),AddShoes2Step.class);
+                startActivity(intent);
             default:
                 break;
         }
