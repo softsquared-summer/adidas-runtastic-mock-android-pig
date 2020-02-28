@@ -19,7 +19,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.main.fragment.Status.ManageShoesActivity"></activity>
+        <activity android:name=".src.main.fragment.Act.SelectActActivity"></activity>
+        <activity android:name=".src.main.fragment.Act.ActSettingActivity" />
+        <activity android:name=".src.main.fragment.Status.ManageShoesActivity" />
         <activity android:name=".src.main.fragment.Status.shoesPlus.AddShoesCompleteActivity" />
         <activity android:name=".src.main.fragment.Status.shoesPlus.AddShoes3Step" />
         <activity android:name=".src.main.fragment.Status.shoesPlus.AddShoes2Step" />

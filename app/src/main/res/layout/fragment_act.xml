@@ -212,7 +212,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="시작"
+            android:text="시작&#10;러닝"
             android:textStyle="bold"
             android:background="@drawable/join_custom_background"
             android:layout_marginBottom="71dp"

@@ -32,9 +32,13 @@ public class FragmentProfileService {
                     Log.e("[Log.e} getProfile","프로필탭 불러오기 실패");
                     return;
                 }
-
-                mFragmentProfileView.validateSuccess(profileResponse.getMessage(),profileResponse.getCode());
                 if (profileResponse.getCode() == 100) {
+                    Log.e("[Log.e} getProfile","프로필탭 불러오기 성공");
+                    mFragmentProfileView.getProfileResult(profileResponse.getResult());
+
+                } else {
+                    Log.e("[Log.e} getProfile","프로필탭 불러오기 실패");
+                    mFragmentProfileView.validateFailure(null);
                 }
             }
 

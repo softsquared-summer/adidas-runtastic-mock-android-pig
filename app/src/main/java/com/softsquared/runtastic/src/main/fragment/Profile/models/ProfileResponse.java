@@ -8,21 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileResponse {
+    @SerializedName("result")
+    private ProfileResult result;
+
     @SerializedName("isSuccess")
-    @Expose
     private boolean isSuccess;
 
     @SerializedName("code")
-    @Expose
     private int code;
 
-    @SerializedName("message")
-    @Expose
+    @SerializedName("messgae")
     private String message;
 
-    @SerializedName("result")
-    @Expose
-    private Result result;
+    public ProfileResult getResult() {
+        return result;
+    }
+
+    public void setResult(ProfileResult result) {
+        this.result = result;
+    }
 
     public boolean isSuccess() {
         return isSuccess;
@@ -48,31 +52,40 @@ public class ProfileResponse {
         this.message = message;
     }
 
-    public Result getResult() {
-        return result;
-    }
-
-    public void setResult(Result result) {
-        this.result = result;
-    }
-
-    public class Result {
-        @SerializedName("name")
-        @Expose
-        String name;
+    public class ProfileResult {
+        @SerializedName("profileImage")
+        String profileImage;
+        @SerializedName("lastName")
+        String lastName;
+        @SerializedName("firstName")
+        String firstName;
         @SerializedName("createdAt")
-        @Expose
         String createdAt;
         @SerializedName("friendCnt")
-        @Expose
         String friendCnt;
 
-        public String getName() {
-            return name;
+        public String getProfileImage() {
+            return profileImage;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setProfileImage(String profileImage) {
+            this.profileImage = profileImage;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public void setFirstName(String firstName) {
+            this.firstName = firstName;
         }
 
         public String getCreatedAt() {

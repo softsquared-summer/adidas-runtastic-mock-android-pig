@@ -380,6 +380,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 animateStart();
                 break;
         }
+
     }
 
     public void setButtonTools() {
@@ -394,7 +395,15 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
                 getActivity().overridePendingTransition(R.anim.fade_in_animation, R.anim.fade_out_animation);
             }
         });
+        mBtnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), ActSettingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
     public void clickedComplete() { // 운동 끝났을때 완료했을때
         mVpStop.setVisibility(View.GONE);
