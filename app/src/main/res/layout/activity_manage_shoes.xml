@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.fragment.Status.ManageShoesActivity"
+    android:background="@color/colorBackGround">
+    <LinearLayout
+        android:id="@+id/manage_shoes_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+        <ImageButton
+            android:id="@+id/manage_shoes_back"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_img"
+            android:background="@color/colorFree"
+            android:scaleType="fitStart"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="내 운동화"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:layout_weight="4"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorFree"
+            android:text="다음"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/colorSplash"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical"
+            android:visibility="invisible"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorGray"
+        android:layout_below="@id/manage_shoes_top_bar"/>
+
+    <ListView
+        android:id="@+id/manage_shoes_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/manage_shoes_top_bar"
+        android:layout_marginTop="15dp"/>
+
+</RelativeLayout>

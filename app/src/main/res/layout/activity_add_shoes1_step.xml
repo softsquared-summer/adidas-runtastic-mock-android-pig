@@ -164,7 +164,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="16dp"/>
                     <EditText
-                        android:layout_width="wrap_content"
+                        android:id="@+id/add_first_et_nickname"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:hint="별명"
@@ -195,7 +196,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="16dp"/>
                     <EditText
-                        android:layout_width="wrap_content"
+                        android:id="@+id/add_first_et_size"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:hint="사이즈 (MM)"
@@ -203,6 +205,7 @@
                         android:textColor="@color/colorBlack"
                         android:textSize="14dp"
                         android:layout_alignParentRight="true"
+                        android:inputType="numberDecimal"
                         android:background="@color/colorNull"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"

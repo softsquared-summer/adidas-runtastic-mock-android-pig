@@ -412,15 +412,30 @@
             android:orientation="vertical"
             android:background="@color/colorWhite"
             android:layout_marginTop="15dp">
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="내 운동화"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="6dp"
-                android:layout_marginTop="6dp"
-                android:textStyle="bold"
-                android:textColor="@color/colorBlack"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="6dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="내 운동화"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
+                <Button
+                    android:id="@+id/status_btn_manage_shoes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="신발 관리"
+                    android:textColor="@color/colorSplash"
+                    android:background="@color/colorFree"
+                    android:stateListAnimator="@color/colorNull"/>
+            </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/status_shoes_add"
                 android:layout_width="match_parent"

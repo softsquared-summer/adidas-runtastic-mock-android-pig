@@ -101,6 +101,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="16dp"/>
                     <EditText
+                        android:id="@+id/add_second_et_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -108,6 +109,7 @@
                         android:textColorHint="@color/colorGray"
                         android:textColor="@color/colorBlack"
                         android:textSize="14dp"
+                        android:inputType="number"
                         android:layout_alignParentRight="true"
                         android:background="@color/colorNull"
                         android:layout_marginTop="10dp"
@@ -158,11 +160,13 @@
                         android:text="추가 거리"
                         android:layout_gravity="center_vertical"/>
                     <EditText
+                        android:id="@+id/add_second_et_init_distance"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="right"
+                        android:inputType="number"
                         android:hint="(km)"
                         android:textColorHint="@color/colorGray"
                         android:textColor="@color/colorBlack"

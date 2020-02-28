@@ -82,6 +82,8 @@
     <string name="shoes_search_brand">브랜드명 검색...</string>
     <string name="shoes_search_model">모델명 입력</string>
     <string name="shoes_distance_warning">500km 후 러닝화 사용을 중단하기를 권합니다. 이유는 러닝화의 쿠션이 닳아 무릎에 무리를 가해 부상을 야기시킬 수 있기 때문입니다.</string>
+    <string name="shoes_add_complete">운동화가 성공적으로 추가되었습니다.</string>
+    <string name="shoes_add_complete_explain">다음 러닝 시에 이 러닝화를 운동에 자동으로 반영하겠습니다. 이를 러닝 후 항상 변경할 수 있습니다.</string>
 
     <!-- 메인 -->
     <string name="act_slide_stop">슬라이드하여 멈춤</string>

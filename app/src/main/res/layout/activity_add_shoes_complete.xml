@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.fragment.Status.shoesPlus.AddShoesCompleteActivity">
+
+    <LinearLayout
+        android:id="@+id/add_complete_shoes_contain"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:id="@+id/add_complete_step_shoes_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/shoes_big" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/add_complete_shoes_contain"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorSplash"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/add_complete_tv_name"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/shoes_add_complete"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/shoes_add_complete_explain"
+            android:textColor="@color/colorWhite"
+            android:textSize="14dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+        <Button
+            android:id="@+id/add_complete_btn_complete"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="완료"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorSky"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:stateListAnimator="@color/colorNull"/>
+    </LinearLayout>
+
+</RelativeLayout>

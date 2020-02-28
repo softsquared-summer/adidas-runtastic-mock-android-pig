@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -27,6 +28,7 @@ public class FragmentStatus extends Fragment {
     LinearLayoutManager linearLayoutManager;
     RecentActivityAdapter adapter;
     LinearLayout mBtnShoesAdd;
+    Button mBtnManageShoes;
 
     @Nullable
     @Override
@@ -37,6 +39,7 @@ public class FragmentStatus extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getContext());
         mRecentActRecyclerView.setLayoutManager(linearLayoutManager);
         mBtnShoesAdd = rootView.findViewById(R.id.status_shoes_add);
+        mBtnManageShoes = rootView.findViewById(R.id.status_btn_manage_shoes);
 
         adapter = new RecentActivityAdapter();
         mRecentActRecyclerView.setAdapter(adapter);
@@ -52,6 +55,13 @@ public class FragmentStatus extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(),SearchShoesActivity.class);
+                startActivity(intent);
+            }
+        });
+        mBtnManageShoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),ManageShoesActivity.class);
                 startActivity(intent);
             }
         });
