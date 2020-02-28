@@ -19,13 +19,21 @@ public class AddShoes2Step extends BaseActivity {
         switch (v.getId()) {
             case R.id.add_second_step_back:
                 finish();
+                overridePendingTransition(R.anim.right_in,R.anim.right_out);
                 break;
             case R.id.add_second_step_next:
                 Intent intent = new Intent(getApplicationContext(),AddShoes3Step.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.left_in,R.anim.left_out);
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_in,R.anim.right_out);
     }
 }

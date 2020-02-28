@@ -29,10 +29,11 @@ public class AddShoes3Step extends BaseActivity {
 
     public void customOnClickInThirdStep(View v) {
         switch (v.getId()) {
-            case R.id.add_second_step_back:
+            case R.id.add_third_step_back:
                 finish();
+                overridePendingTransition(R.anim.right_in,R.anim.right_out);
                 break;
-            case R.id.add_second_step_next:
+            case R.id.add_third_step_next:
                 break;
             default:
                 break;
@@ -73,5 +74,11 @@ public class AddShoes3Step extends BaseActivity {
             mTvUnit.setTextColor(getColor(R.color.colorDanger));
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_in,R.anim.right_out);
     }
 }

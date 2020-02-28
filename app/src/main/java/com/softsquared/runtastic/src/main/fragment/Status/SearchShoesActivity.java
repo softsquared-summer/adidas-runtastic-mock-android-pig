@@ -70,6 +70,7 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), AddShoes1Step.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in_animation,R.anim.fade_out_animation);
             }
         });
     }

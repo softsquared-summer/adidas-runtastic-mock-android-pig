@@ -93,11 +93,22 @@ public class AddShoes1Step extends BaseActivity {
                 break;
             case R.id.add_first_step_back:
                 finish();
+                overridePendingTransition(R.anim.fade_in_animation,R.anim.fade_out_animation);
+                break;
             case R.id.add_first_step_next:
                 Intent intent = new Intent(getApplicationContext(),AddShoes2Step.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.left_in,R.anim.left_out);
+                break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.fade_in_animation,R.anim.fade_out_animation);
     }
 }
