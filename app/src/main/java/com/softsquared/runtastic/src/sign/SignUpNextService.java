@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.softsquared.runtastic.src.sign.interfaces.SignUpNextActivityView;
 import com.softsquared.runtastic.src.sign.interfaces.SignUpNextRetrofitInterface;
+import com.softsquared.runtastic.src.sign.models.FcmRequest;
+import com.softsquared.runtastic.src.sign.models.FcmResponse;
 import com.softsquared.runtastic.src.sign.models.SetBodyRequest;
 import com.softsquared.runtastic.src.sign.models.SetBodyResponse;
 import com.softsquared.runtastic.src.sign.models.SetGoalRequest;
@@ -63,6 +65,30 @@ public class SignUpNextService {
             public void onFailure(Call<SetGoalResponse> call, Throwable t) {
                 Log.e("[Log.e} tag","정보 추가 실패(on Failure)(Goal)");
                 mSignUpNextActivityView.validateFailure(null);
+            }
+        });
+    }
+
+    void tryPostFcmToken(FcmRequest request) {
+        final SignUpNextRetrofitInterface signUpNextRetrofitInterface = getRetrofit().create(SignUpNextRetrofitInterface.class);
+        signUpNextRetrofitInterface.postFcmToken(request).enqueue(new Callback<FcmResponse>() {
+            @Override
+            public void onResponse(Call<FcmResponse> call, Response<FcmResponse> response) {
+                final  FcmResponse fcmResponse = response.body();
+                if (fcmResponse == null) {
+                    Log.e("[Log.e} tag","fcm 토큰 보내기 실패 response is null");
+                    return;
+                }
+                if(fcmResponse.getCode() == 100) {
+                    Log.e("[Log.e} tag","fcm 토큰 보내기 성공");
+                } else {
+                    Log.e("[Log.e} tag","fcm 토큰 보내기 실패");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FcmResponse> call, Throwable t) {
+                Log.e("[Log.e} tag","fcm 토큰 보내기 실패 onFailure" + t.getLocalizedMessage());
             }
         });
     }

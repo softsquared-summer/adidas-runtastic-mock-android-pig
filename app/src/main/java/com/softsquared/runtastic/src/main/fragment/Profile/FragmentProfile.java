@@ -22,9 +22,8 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.softsquared.runtastic.R;
-import com.softsquared.runtastic.src.main.adapter.ProfileItem;
-import com.softsquared.runtastic.src.main.adapter.ProfileItemAdapter;
-import com.softsquared.runtastic.src.main.fragment.NewsPeed.AddFriendsActivity;
+import com.softsquared.runtastic.src.main.fragment.Profile.adapter.ProfileItem;
+import com.softsquared.runtastic.src.main.fragment.Profile.adapter.ProfileItemAdapter;
 import com.softsquared.runtastic.src.main.fragment.Profile.interfaces.FragmentProfileView;
 import com.softsquared.runtastic.src.main.fragment.Profile.models.ProfileResponse;
 

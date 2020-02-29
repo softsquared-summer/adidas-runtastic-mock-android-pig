@@ -12,14 +12,20 @@ import android.widget.ExpandableListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.main.MainActivity;
 import com.softsquared.runtastic.src.sign.adapter.SignUpExpandableAdapter;
 import com.softsquared.runtastic.src.sign.adapter.SignUpParentItem;
 import com.softsquared.runtastic.src.sign.interfaces.SignUpNextActivityView;
+import com.softsquared.runtastic.src.sign.models.FcmRequest;
 import com.softsquared.runtastic.src.sign.models.Goal;
 import com.softsquared.runtastic.src.sign.models.SetBodyRequest;
 import com.softsquared.runtastic.src.sign.models.SetGoalRequest;
@@ -53,6 +59,22 @@ public class SignUpNextActivity extends BaseActivity implements SignUpNextActivi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_next);
         LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
+        final SignUpNextService fcmService = new SignUpNextService(this);
+
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if(!task.isSuccessful()) {
+                            Log.e("FCM Log", "getInstanceId failed",task.getException());
+                            return;
+                        }
+                        String token = task.getResult().getToken();
+                        Log.e("FCM Log","FCM 토큰" + token);
+                        FcmRequest fcmRequest = new FcmRequest(token);
+                        fcmService.tryPostFcmToken(fcmRequest);
+                    }
+                });
 
         mFirstName = getIntent().getStringExtra("name");
         mUserNo = getIntent().getIntExtra("userNo", 0);

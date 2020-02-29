@@ -1,5 +1,7 @@
 package com.softsquared.runtastic.src.sign.interfaces;
 
+import com.softsquared.runtastic.src.sign.models.FcmRequest;
+import com.softsquared.runtastic.src.sign.models.FcmResponse;
 import com.softsquared.runtastic.src.sign.models.SetBodyRequest;
 import com.softsquared.runtastic.src.sign.models.SetBodyResponse;
 import com.softsquared.runtastic.src.sign.models.SetGoalRequest;
@@ -16,4 +18,7 @@ public interface SignUpNextRetrofitInterface {
 
     @POST("/user/goal/initial")
     Call<SetGoalResponse> postGoalProfile(@Body SetGoalRequest params);
+
+    @POST("/fcmtoken")
+    Call<FcmResponse> postFcmToken(@Body FcmRequest request);
 }

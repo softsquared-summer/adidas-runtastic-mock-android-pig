@@ -1,6 +1,7 @@
-package com.softsquared.runtastic.src.main.adapter;
+package com.softsquared.runtastic.src.main.fragment.Profile.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,9 +44,17 @@ public class ProfileItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView==null)
             convertView = inf.inflate(layout, null);
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(position == 0) {
+                    Log.e("click"," ");
+                }
+            }
+        });
 
         ImageView ivIcon = convertView.findViewById(R.id.profile_list_item_icon);
         TextView tvTitle = convertView.findViewById(R.id.profile_list_item_title);

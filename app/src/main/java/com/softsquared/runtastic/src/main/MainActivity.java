@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         setContentView(R.layout.activity_main);
 
 
+
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         transaction.replace(R.id.main_frameLayout, mFragmentAct).commit();
 
