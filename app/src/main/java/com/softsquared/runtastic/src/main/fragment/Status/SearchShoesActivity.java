@@ -44,7 +44,7 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
 
     EditText mEtSearchBrand;
 
-    String mBrandName, mModelName;
+    String mBrandName, mModelName, mImageUrl;
     Sneakers mSneakers;
 
     @Override
@@ -72,12 +72,14 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mModelName = mModelArray.get(position).getModelName();
+                mImageUrl = mModelArray.get(position).getImageUrl();
                 mSneakers.setModelNo(Integer.parseInt(mModelArray.get(position).getModelNo()));
 
                 Intent intent = new Intent(getApplicationContext(), AddShoes1Step.class);
                 intent.putExtra("brandName", mBrandName);
                 intent.putExtra("modelName", mModelName);
                 intent.putExtra("sneakers", mSneakers);
+                intent.putExtra("shoesImage",mImageUrl);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in_animation, R.anim.fade_out_animation);
             }
@@ -123,7 +125,6 @@ public class SearchShoesActivity extends BaseActivity implements SearchShoesActi
                 }
             }
         }
-
         mBrandAdapter.notifyDataSetChanged();
     }
 

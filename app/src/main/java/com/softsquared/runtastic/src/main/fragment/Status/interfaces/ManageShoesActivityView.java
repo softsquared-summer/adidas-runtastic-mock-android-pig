@@ -8,4 +8,5 @@ public interface ManageShoesActivityView {
     void validateSuccess(String message);
     void validateFailure(String text);
     void getArrayShoes(ArrayList<SneakersListItem> result);
+    void deleteSuccess(String message);
 }

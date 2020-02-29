@@ -1,5 +1,7 @@
 package com.softsquared.runtastic.src.main.fragment.Act;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -16,6 +18,7 @@ import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,6 +70,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
     ImageButton mBtnMusic, mBtnSetting;
     Button mBtnStart;
     int REQUEST_OK = 1;
+    int REQUEST_SET_ACT = 2;
 
     // 뷰페이저
     StopPagerAdapter mStopPagerAdapter;
@@ -100,7 +104,7 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
     private boolean mLocationPermissionGranted;
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int UPDATE_INTERVAL_MS = 1000 * 60 * 15;  // LOG 찍어보니 이걸 주기로 하지 않는듯
-    private static final int FASTEST_UPDATE_INTERVAL_MS = 1000 * 1; // 30초 단위로 화면 갱신
+    private static final int FASTEST_UPDATE_INTERVAL_MS = 1000 * 1; // 화면 갱신 주기
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
 
@@ -367,19 +371,39 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (data.getIntExtra("mode_flag", ACT_MODE_CANCEL)) {
-            case 1: // 운동 시작
-                mVpStop.setVisibility(View.VISIBLE); // 뷰페이저 보이게
-                mBanedMapClick = true;
-                setTimerStart();
-                mDrawLine = true;
-                startLatLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
-                break;
-            case 2: // 카운트다운에서 취소버튼 눌렀을 때
-                mStartAct = true;
-                animateStart();
-                break;
+        if(requestCode == REQUEST_OK) {
+            switch (data.getIntExtra("mode_flag", ACT_MODE_CANCEL)) {
+                case 1: // 운동 시작
+                    mVpStop.setVisibility(View.VISIBLE); // 뷰페이저 보이게
+                    mBanedMapClick = true;
+                    setTimerStart();
+                    mDrawLine = true;
+                    startLatLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+                    break;
+                case 2: // 카운트다운에서 취소버튼 눌렀을 때
+                    mStartAct = true;
+                    animateStart();
+                    break;
+            }
+        } else if(requestCode == REQUEST_SET_ACT) {
+            switch (data.getIntExtra("setAct",1)) {
+                case 1:
+                    mBtnStart.setText(getString(R.string.act_set_running));
+                    break;
+                case 2:
+                    mBtnStart.setText(getString(R.string.act_set_walking));
+                    break;
+                case 3:
+                    mBtnStart.setText(getString(R.string.act_set_hiking));
+                    break;
+                case 4:
+                    mBtnStart.setText(getString(R.string.act_set_cycling));
+                    break;
+                default:
+                    break;
+            }
         }
+
 
     }
 
@@ -399,22 +423,53 @@ public class FragmentAct extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity().getApplicationContext(), ActSettingActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,REQUEST_SET_ACT);
             }
         });
     }
 
 
     public void clickedComplete() { // 운동 끝났을때 완료했을때
-        mVpStop.setVisibility(View.GONE);
-        mVpStop.setCurrentItem(1);
-        mBanedMapClick = false; // 이게 false 일때만 맵클릭 시 애니메이션
-        animateStart();
-        setTimerStop();
-        mDrawLine = false;
-        mGoogleMap.clear();
-        polylines.clear();
-        mMoveDistance = 0;
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("완료하셨나요?").setMessage("활동을 저장하시겠습니까 지우시겠습니까 ?");
+
+        builder.setPositiveButton("저장", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int id)
+            {
+                //Toast.makeText(getContext(), "OK Click", Toast.LENGTH_SHORT).show();
+                mVpStop.setVisibility(View.GONE);
+                mVpStop.setCurrentItem(1);
+                mBanedMapClick = false; // 이게 false 일때만 맵클릭 시 애니메이션
+                animateStart();
+                setTimerStop();
+                mDrawLine = false;
+                mGoogleMap.clear();
+                polylines.clear();
+                mMoveDistance = 0;
+
+            }
+        });
+
+        builder.setNegativeButton("삭제", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int id)
+            {
+                //Toast.makeText(getContext(), "Cancel Click", Toast.LENGTH_SHORT).show();
+                mVpStop.setVisibility(View.GONE);
+                mVpStop.setCurrentItem(1);
+                mBanedMapClick = false; // 이게 false 일때만 맵클릭 시 애니메이션
+                animateStart();
+                setTimerStop();
+                mDrawLine = false;
+                mGoogleMap.clear();
+                polylines.clear();
+                mMoveDistance = 0;
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void clickedContinue() { // 계속하기

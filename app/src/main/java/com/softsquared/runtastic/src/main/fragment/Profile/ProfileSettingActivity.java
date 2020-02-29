@@ -12,6 +12,7 @@ import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.main.fragment.Profile.adapter.ProfileSettingItem;
 import com.softsquared.runtastic.src.main.fragment.Profile.adapter.ProfileSettingListAdapter;
+import com.softsquared.runtastic.src.main.fragment.Profile.settingTab.TermsOfServiceActivity;
 import com.softsquared.runtastic.src.start.StartActivity;
 
 import java.util.ArrayList;
@@ -98,7 +99,13 @@ public class ProfileSettingActivity extends BaseActivity {
         mLvAddList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0) { // 이용약관
+                    Intent intent = new Intent(getApplicationContext(), TermsOfServiceActivity.class);
+                    startActivity(intent);
+                } else if(position == 1) {
 
+                } else {
+                }
             }
         });
     }

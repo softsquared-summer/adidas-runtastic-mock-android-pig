@@ -90,6 +90,11 @@
     <string name="act_complete">완료</string>
     <string name="act_continue">계속하기</string>
 
+    <string name="act_set_running"><font size="20">시작</font>\n\<font size="10">러닝</font></string>
+    <string name="act_set_walking"><font size="20">시작</font>\n\<font size="10">걷기</font></string>
+    <string name="act_set_hiking"><font size="20">시작</font>\n\<font size="10">하이킹</font></string>
+    <string name="act_set_cycling"><font size="20">시작</font>\n\<font size="10">사이클링</font></string>
+
     <!-- GPS -->
     <string name="gps_error">위치정보 가져올 수 없음</string>
     <string name="gps_error_explain">위치 퍼미션과 GPS 활성 여부 확인하세요</string>

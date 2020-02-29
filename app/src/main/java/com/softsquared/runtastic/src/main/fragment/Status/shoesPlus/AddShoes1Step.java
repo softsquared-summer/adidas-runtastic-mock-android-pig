@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.main.fragment.Status.models.Sneakers;
@@ -19,12 +20,13 @@ public class AddShoes1Step extends BaseActivity {
 
     TextView mColorName;
     ImageView mColorImg;
+    ImageView mShoesImg;
 
     TextView mTvModelName, mTvBrandName;
     EditText mEtSize, mEtNickName;
 
     boolean mExpanded;
-    String mModelName, mBrandName;
+    String mModelName, mBrandName, mImageUrl;
 
     Sneakers mSneakers;
 
@@ -45,16 +47,19 @@ public class AddShoes1Step extends BaseActivity {
         mTvModelName = findViewById(R.id.add_first_model_name);
         mEtNickName = findViewById(R.id.add_first_et_nickname);
         mEtSize = findViewById(R.id.add_first_et_size);
+        mShoesImg = findViewById(R.id.add_first_step_shoes_img);
 
 
         // 운동화 정보 받는부분
         Intent sneakersInfo = getIntent();
         mModelName = sneakersInfo.getStringExtra("modelName");
         mBrandName = sneakersInfo.getStringExtra("brandName");
+        mImageUrl = sneakersInfo.getStringExtra("shoesImage");
         mSneakers = (Sneakers) sneakersInfo.getSerializableExtra("sneakers");
 
         mTvModelName.setText(mModelName);
         mTvBrandName.setText(mBrandName);
+        Glide.with(getApplicationContext()).load(mImageUrl).into(mShoesImg);
 
         mBtnColorTab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,6 +166,7 @@ public class AddShoes1Step extends BaseActivity {
                 intent.putExtra("brandName", mBrandName);
                 intent.putExtra("modelName", mModelName);
                 intent.putExtra("sneakers",mSneakers);
+                intent.putExtra("shoesImage",mImageUrl);
                 startActivity(intent);
                 overridePendingTransition(R.anim.left_in,R.anim.left_out);
                 break;

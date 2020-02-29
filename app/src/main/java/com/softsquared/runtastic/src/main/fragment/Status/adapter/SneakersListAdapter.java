@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.softsquared.runtastic.R;
 
 import java.util.ArrayList;
@@ -53,7 +54,10 @@ public class SneakersListAdapter extends BaseAdapter {
         TextView name = convertView.findViewById(R.id.manage_shoes_item_name);
         TextView distance = convertView.findViewById(R.id.manage_shoes_item_distance);
 
-        icon.setImageResource(R.drawable.shoes_dumy);
+        Glide.with(convertView.getContext()).load(item.getImageUrl()).into(icon);
+        // 이미지 url 에 넣는걸로 수정
+
+
         name.setText(item.getNickname());
         if(item.getTotalDistance() == null) {
             String disStr = "0 km / " + item.getLimitDistance() + " km";

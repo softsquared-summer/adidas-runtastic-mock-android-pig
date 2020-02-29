@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.BaseActivity;
 import com.softsquared.runtastic.src.main.fragment.Status.interfaces.AddShoes3StepView;
@@ -22,16 +24,21 @@ public class AddShoes3Step extends BaseActivity implements AddShoes3StepView {
     TextView mTvDistance, mTvUnit;
     int mDistance = 500;
 
-    String mModelName,mBrandName;
+    String mModelName,mBrandName,mImageUrl;
+
+    ImageView mIvShoesImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_shoes3_step);
+        mIvShoesImage = findViewById(R.id.add_third_step_shoes_img);
+
 
         Intent sneakersInfo = getIntent();
         mModelName = sneakersInfo.getStringExtra("modelName");
         mBrandName = sneakersInfo.getStringExtra("brandName");
+        mImageUrl = sneakersInfo.getStringExtra("shoesImage");
         mSneakers = (Sneakers) sneakersInfo.getSerializableExtra("sneakers");
 
         Log.e("getModelNo", "" + mSneakers.getModelNo()); // o
@@ -42,6 +49,8 @@ public class AddShoes3Step extends BaseActivity implements AddShoes3StepView {
         Log.e("getStartedAt", "" + mSneakers.getStartedAt()); // x
         Log.e("getLimitDistance", "" + mSneakers.getLimitDistance()); // o
         Log.e("getInitDistance", "" + mSneakers.getInitDistance()); // o
+
+        Glide.with(getApplicationContext()).load(mImageUrl).into(mIvShoesImage);
 
         mSeekBar = findViewById(R.id.add_third_seek_bar);
         mTvDistance = findViewById(R.id.add_third_tv_distance);
@@ -133,6 +142,7 @@ public class AddShoes3Step extends BaseActivity implements AddShoes3StepView {
         Intent intent = new Intent(getApplicationContext(),AddShoesCompleteActivity.class);
         intent.putExtra("brandName", mBrandName);
         intent.putExtra("modelName", mModelName);
+        intent.putExtra("shoesImage",mImageUrl);
         startActivity(intent);
         hideProgressDialog();
     }

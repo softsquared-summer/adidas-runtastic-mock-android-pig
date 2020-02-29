@@ -204,6 +204,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             mInputEmail.setError("올바르지 않은 이메일 형식입니다.");
             mInputEmail.setErrorTextColor(getColorStateList(R.color.colorDanger));
         }
+        hideProgressDialog();
     }
 
     public void getJwtToken(String email, String password) {

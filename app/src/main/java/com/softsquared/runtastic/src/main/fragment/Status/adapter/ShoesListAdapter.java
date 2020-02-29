@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.softsquared.runtastic.R;
 import com.softsquared.runtastic.src.main.fragment.NewsPeed.Adapter.FriendsListItem;
 
@@ -51,8 +52,15 @@ public class ShoesListAdapter extends BaseAdapter {
         ShoesItem item = mList.get(position);
         TextView tvName = convertView.findViewById(R.id.shoes_profile_name);
         ImageView ivProfileImg = convertView.findViewById(R.id.shoes_profile_img);
-        ivProfileImg.setImageResource(R.drawable.shoes_dumy);
+
+
+        Glide.with(convertView.getContext()).load(item.getImageUrl()).into(ivProfileImg);
+        // 이미지 url에 넣는걸로 수정해야함
+
+
         tvName.setText(item.getModelName());
+
+
 
         return convertView;
     }
