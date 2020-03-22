@@ -85,6 +85,7 @@ public class ManageShoesActivity extends BaseActivity implements ManageShoesActi
                     case 0:
                         int shoesNumber = Integer.parseInt(mSneakersArray.get(position).getSneakersNo());
                         ShoesDelRequest request = new ShoesDelRequest(shoesNumber);
+                        mSneakersArray.remove(position);
                         service.deleteUserShoes(request);
 
                         service.getArrayUserSneakers();
@@ -115,6 +116,7 @@ public class ManageShoesActivity extends BaseActivity implements ManageShoesActi
 
     @Override
     public void deleteSuccess(String message) {
-
+        adapter = new SneakersListAdapter(mSneakersArray, getApplicationContext(), R.layout.manage_shoes_list_item);
+        mListViewSneakers.setAdapter(adapter);
     }
 }

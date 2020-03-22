@@ -34,6 +34,7 @@ public class ManageShoesActivityService {
                 }
                 if(shoesResponse.getResult() == null) {
                     Log.e("[Log.e] 내 신발들 조회", "신발 없음");
+                    mManageShoesActivityView.validateFailure(null);
                 } else {
                     Log.e("[Log.e] 내 신발들 조회", "성공 ");
                     mManageShoesActivityView.getArrayShoes(shoesResponse.getResult());
